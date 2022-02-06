@@ -1,0 +1,67 @@
+name: untitled
+description: A new Flutter project.
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
+  google_fonts: ^2.2.0
+  carousel_slider: ^4.0.0
+  introduction_screen: ^2.1.0
+  flutter_svg: ^1.0.0
+  flutter_datetime_picker: ^1.5.1
+  intl: ^0.17.0
+  http: ^0.13.4
+  responsive_framework: ^0.1.5
+  url_launcher: ^6.0.18
+  flutter_lock_screen: ^2.0.1
+  font_awesome_flutter: ^9.2.0
+  material_design_icons_flutter: 5.0.6595
+  provider: ^6.0.2
+  flutter_switch: ^0.3.2
+  flutter_masked_text2: ^0.9.1
+  easy_localization: ^3.0.0
+  flutter_screen_lock: ^5.0.4
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^1.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/images/
+    - assets/svg/
+
+
+  fonts:
+    - family: Gilroy-Regular
+      fonts:
+        - asset: fonts/Gilroy-Regular.ttf
+
+
+
