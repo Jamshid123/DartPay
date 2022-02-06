@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:untitled/start_pages/start_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -86,7 +87,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return StartPage();
+                    }));
+                  },
                   child: Text('Установить пароль'),
                   style: ElevatedButton.styleFrom(
                       primary: Colors.deepOrange, fixedSize: Size(280, 45)),

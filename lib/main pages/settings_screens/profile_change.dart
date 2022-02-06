@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 import 'package:untitled/constants.dart';
 
@@ -40,9 +40,9 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     child: Text(
                       'Изменить фото',
                       style:
-                          GoogleFonts.montserrat(textStyle: kChangePhotoStyle),
+                          kChangePhotoStyle),
                     ),
-                  ),
+
                   Padding(
                     padding: EdgeInsets.only(right: screenWidth * 0.7),
                     child: Text(
@@ -196,7 +196,9 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     height: 16,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: const Text('Сохранить'),
                     style: ElevatedButton.styleFrom(
                         primary: orangeColor,

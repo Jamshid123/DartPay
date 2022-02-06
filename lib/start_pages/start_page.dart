@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled/auth_pages/send_money.dart';
+
 import 'package:untitled/constants.dart';
 import 'package:untitled/main%20pages/home_screens/home_page.dart';
 import 'package:untitled/main%20pages/settings_screens/settings.dart';
@@ -15,7 +16,7 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   int _selectedScreen = 0;
-  final List<Widget> _screens = [HomePage(), Transfer(), Settings()];
+  final List<Widget> _screens = [HomePage(), SendMoney(), Settings()];
   Widget currentScreen = HomePage();
   PageStorageBucket bucket = PageStorageBucket();
 
@@ -28,7 +29,7 @@ class _StartPageState extends State<StartPage> {
           onPressed: () {
             setState(() {
               _selectedScreen = 1;
-              currentScreen = Transfer();
+              currentScreen = SendMoney();
             });
           },
           child: const ImageIcon(AssetImage('assets/images/arrow_icon.png'), ),
@@ -61,25 +62,25 @@ class _StartPageState extends State<StartPage> {
                             ),
                             Text(
                               'Главная',
-                              style: GoogleFonts.montserrat(textStyle:TextStyle(
+                              style: TextStyle(
                                 color: _selectedScreen == 0
                                     ? orangeColor
                                     : greyColor,
                                 fontSize: 15,
                               ), )
-                            ),
+
                           ],
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 35, left: 15),
-                        child: Text('Переводы', style: GoogleFonts.montserrat(textStyle:TextStyle(
+                        child: Text('Переводы', style: TextStyle(
                           color: _selectedScreen == 1
                               ? orangeColor
                               : greyColor,
                           fontSize: 15,
                         ), )),
-                      ),
+
                       MaterialButton(
                         minWidth: 40,
                         onPressed: () {
@@ -99,13 +100,13 @@ class _StartPageState extends State<StartPage> {
                             ),
                             Text(
                               'Настройки',
-                                style: GoogleFonts.montserrat(textStyle:TextStyle(
+                                style: TextStyle(
                                   color: _selectedScreen == 2
                                       ? orangeColor
                                       : greyColor,
                                   fontSize: 15,
                                 ), )
-                            ),
+
                           ],
                         ),
                       )

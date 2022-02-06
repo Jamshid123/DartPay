@@ -83,9 +83,11 @@ const kRecentTextStyle = TextStyle(
     fontFamily: 'Gilroy',
     letterSpacing: 1);
 const kCardTransactionStyle = TextStyle(
+  fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
 );
 const kCardTransactionStyle1 = TextStyle(
+  fontFamily: 'Mont',
   fontWeight: FontWeight.w400,
 );
 const kRequestButtonTextStyle = TextStyle(
@@ -143,14 +145,18 @@ const kChangeNameStyle = TextStyle(
     fontWeight: FontWeight.w400,
     letterSpacing: 2);
 
-const kChangePhotoStyle = TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+const kChangePhotoStyle = TextStyle(
+    fontFamily: 'Mont',
+    fontSize: 14, fontWeight: FontWeight.w500);
 
 const kCardAddStyle = TextStyle(
+    fontFamily: 'Mont',
     fontWeight: FontWeight.w400,
     letterSpacing: 1,
     fontSize: 14,
     color: Color(0xFF979797));
 const kMainCardStyle = TextStyle(
+    fontFamily: 'Mont',
     fontWeight: FontWeight.w400,
     letterSpacing: 1,
     fontSize: 14,);
@@ -176,6 +182,7 @@ const kSecurityPage = TextStyle(
     letterSpacing: 2);
 
 const kSecurityButton = TextStyle(
+    fontFamily: 'Mont',
     fontSize: 18,
     fontWeight: FontWeight.w500,
     color: Color(0xFF2C313B),

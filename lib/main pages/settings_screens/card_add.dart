@@ -4,7 +4,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:untitled/constants.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
 import 'package:untitled/request_page/request.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 class CardAdd extends StatefulWidget {
@@ -63,9 +63,8 @@ class _CardAddState extends State<CardAdd> {
                         obscureText: false,
                         decoration: InputDecoration(
                           label: Text('Введите номер карты',
-                              style: GoogleFonts.montserrat(
-                                  textStyle: kCardAddStyle)),
-                        ),
+                              style:  kCardAddStyle)),
+
                         keyboardType: TextInputType.number,
                         controller: _controllerNum,
                       ),
@@ -76,14 +75,14 @@ class _CardAddState extends State<CardAdd> {
                             label: Text(
                           'ММ/ГГ',
                           style:
-                              GoogleFonts.montserrat(textStyle: kCardAddStyle),
+
+                              kCardAddStyle),
                         )),
-                      ),
+
                       TextField(
                         decoration: InputDecoration(
                           label: Text('Название карты',
-                              style: GoogleFonts.montserrat(
-                                  textStyle: kCardAddStyle)),
+                              style:  kCardAddStyle),
                         ),
                       ),
                       SizedBox(
@@ -94,9 +93,8 @@ class _CardAddState extends State<CardAdd> {
                         children: [
                           Text(
                             'Сделать карту основной',
-                            style: GoogleFonts.montserrat(
-                                textStyle: kMainCardStyle),
-                          ),
+                            style:  kMainCardStyle),
+
 
                         ],
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitled/auth_pages/phone_add.dart';
 import 'package:untitled/start_pages/start_page.dart';
 import 'package:untitled/translations/locale_keys.g.dart';
 import '../../constants.dart';
@@ -19,7 +20,7 @@ class Intro extends StatelessWidget {
             footer: ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return StartPage();
+                  return RegisterPhone();
                 }));
               },
               child: Text('Авторизация'),
@@ -43,7 +44,7 @@ class Intro extends StatelessWidget {
             footer: ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return StartPage();
+                  return RegisterPhone();
                 }));
               },
               child: Text('Авторизация'),
@@ -68,7 +69,7 @@ class Intro extends StatelessWidget {
             footer: ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return StartPage();
+                  return RegisterPhone();
                 }));
               },
               child: Text('Авторизация'),

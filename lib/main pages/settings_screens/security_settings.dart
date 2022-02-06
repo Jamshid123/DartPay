@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:untitled/constants.dart';
 
 
@@ -40,7 +40,7 @@ class SecurityPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Изменить пароль', style: GoogleFonts.montserrat(textStyle: kSecurityButton),),
+                        Text('Изменить пароль', style:  kSecurityButton),
                         Icon(Icons.chevron_right, color:Color(0xFF2C313B),),
 
                       ],
@@ -61,7 +61,7 @@ class SecurityPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Изменить PIN-код', style: GoogleFonts.montserrat(textStyle: kSecurityButton),),
+                        Text('Изменить PIN-код', style: kSecurityButton),
                         Icon(Icons.chevron_right, color:Color(0xFF2C313B),),
 
                       ],
@@ -86,7 +86,7 @@ class SecurityPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Подтверждение оплаты', style: GoogleFonts.montserrat(textStyle: kSecurityButton),),
+                        Text('Подтверждение оплаты', style:  kSecurityButton),
                         Icon(Icons.chevron_right, color:Color(0xFF2C313B),),
 
                       ],
@@ -107,7 +107,7 @@ class SecurityPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Вход с помощью отпечатка', style: GoogleFonts.montserrat(textStyle: kSecurityButton),),
+                        Text('Вход с помощью отпечатка', style:  kSecurityButton),
                         Icon(Icons.chevron_right, color:Color(0xFF2C313B),),
 
                       ],
@@ -130,7 +130,7 @@ class SecurityPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Добавить резервный номер', style: GoogleFonts.montserrat(textStyle: kSecurityButton),),
+                    Text('Добавить резервный номер', style:  kSecurityButton),
                     Icon(Icons.add, color: orangeColor,),
 
                   ],

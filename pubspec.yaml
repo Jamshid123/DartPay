@@ -17,7 +17,6 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  google_fonts: ^2.2.0
   carousel_slider: ^4.0.0
   introduction_screen: ^2.1.0
   flutter_svg: ^1.0.0
@@ -66,6 +65,9 @@ flutter:
     - family: Gilroy-Regular
       fonts:
         - asset: fonts/Gilroy-Regular.ttf
+    - family: Mont
+      fonts:
+        - asset: fonts/montserrat/Montserrat-Regular.ttf
 
 
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:intl/intl.dart';
+import 'package:untitled/auth_pages/send_money.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
 import 'package:untitled/models/card_transaction_model.dart';
 import '../../../models/card_model.dart';
@@ -55,17 +57,15 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         'Bayahmedov S.R.',
-                        style: GoogleFonts.montserrat(
-                            textStyle: kCardUserTextStyle),
-                      ),
+                        style:  kCardUserTextStyle),
+
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         ' (+ 998 90 211 35 09)',
-                        style: GoogleFonts.montserrat(
-                            textStyle: kCardNumTextStyle),
-                      ),
+                        style:  kCardNumTextStyle),
+
                     ],
                   ),
                 )
@@ -99,8 +99,8 @@ class _HomePageState extends State<HomePage> {
                       Positioned(
                         child: Text(
                           cardList[index].cardName,
-                          style: GoogleFonts.montserrat(textStyle: kCardName),
-                        ),
+                          style: kCardName),
+
                         top: 23,
                         bottom: 110,
                         left: 21,
@@ -120,11 +120,13 @@ class _HomePageState extends State<HomePage> {
                       Positioned(
                         child: Text(
                           cardList[index].cardNumber,
-                          style: GoogleFonts.montserrat(
+                          style: TextStyle(
+                              fontFamily: 'Mont',
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: Colors.white),
-                        ),
+                              color: Colors.white)
+                              ),
+
                         left: 20,
                         top: 110,
                         right: 111,
@@ -169,7 +171,7 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Button(
                 onPress: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Transfer()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SendMoney()));
                   setState(() {
                     typeSelected = SendType.send;
                     textTypeSelected = SendType.textSend;
@@ -298,11 +300,9 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(cardTransactionList[index].userName,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle)),
+                                  style:  kCardTransactionStyle),
                               Text(cardTransactionList[index].transactionStatus,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle))
+                                  style:  kCardTransactionStyle)
                             ],
                           ),
                         ),
@@ -313,15 +313,13 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               Text(
                                 cardTransactionList[index].transactionAmount,
-                                style: GoogleFonts.montserrat(
-                                    textStyle: kCardTransactionStyle),
-                              ),
+                                style:  kCardTransactionStyle),
+
                               Padding(
                                 padding: const EdgeInsets.only(left: 40),
                                 child: Text(
                                     cardTransactionList[index].transactionTime,
-                                    style: GoogleFonts.montserrat(
-                                        textStyle: kCardTransactionStyle1)),
+                                    style:  kCardTransactionStyle1),
                               )
                             ],
                           ),
@@ -343,11 +341,9 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(cardTransactionList[index].userName,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle)),
+                                  style:  kCardTransactionStyle),
                               Text(cardTransactionList[index].transactionStatus,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle))
+                                  style:  kCardTransactionStyle)
                             ],
                           ),
                         ),
@@ -358,15 +354,13 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               Text(
                                 cardTransactionList[index].transactionAmount,
-                                style: GoogleFonts.montserrat(
-                                    textStyle: kCardTransactionStyle),
-                              ),
+                                style:  kCardTransactionStyle),
+
                               Padding(
                                 padding: const EdgeInsets.only(left: 40),
                                 child: Text(
                                     cardTransactionList[index].transactionTime,
-                                    style: GoogleFonts.montserrat(
-                                        textStyle: kCardTransactionStyle1)),
+                                    style:  kCardTransactionStyle1),
                               )
                             ],
                           ),
@@ -388,11 +382,9 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(cardTransactionList[index].userName,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle)),
+                                  style: kCardTransactionStyle),
                               Text(cardTransactionList[index].transactionStatus,
-                                  style: GoogleFonts.montserrat(
-                                      textStyle: kCardTransactionStyle))
+                                  style:  kCardTransactionStyle)
                             ],
                           ),
                         ),
@@ -403,15 +395,13 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               Text(
                                 cardTransactionList[index].transactionAmount,
-                                style: GoogleFonts.montserrat(
-                                    textStyle: kCardTransactionStyle),
-                              ),
+                                style:  kCardTransactionStyle),
+
                               Padding(
                                 padding: const EdgeInsets.only(left: 40),
                                 child: Text(
                                     cardTransactionList[index].transactionTime,
-                                    style: GoogleFonts.montserrat(
-                                        textStyle: kCardTransactionStyle1)),
+                                    style: kCardTransactionStyle1),
                               )
                             ],
                           ),

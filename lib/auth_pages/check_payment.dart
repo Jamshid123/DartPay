@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:untitled/auth_pages/check_payment_end.dart';
 import 'package:untitled/auth_pages/success_transfer.dart';
@@ -84,12 +83,12 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       Positioned(
                                         child: Text(
                                           cardList[index].cardType,
-                                          style: GoogleFonts.montserrat(
-                                            textStyle: const TextStyle(
+                                          style:  TextStyle(
+                                            fontFamily: 'Mont',
                                                 fontSize: 6,
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.white),
-                                          ),
+
                                         ),
                                         top: 15,
                                         bottom: 27,
@@ -99,12 +98,12 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       Positioned(
                                         child: Text(
                                           cardList[index].cardNumber,
-                                          style: GoogleFonts.montserrat(
-                                            textStyle: const TextStyle(
+                                          style:  TextStyle(
+                                            fontFamily: 'Mont',
                                                 fontSize: 7,
                                                 fontWeight: FontWeight.w400,
                                                 color: Colors.white),
-                                          ),
+
                                         ),
                                         top: 35,
                                         bottom: 4,
@@ -127,10 +126,11 @@ class _TransferPaymentState extends State<TransferPayment> {
                                   children: <Widget>[
                                     Text(
                                       cardList[index].cardName,
-                                      style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              color: Colors.black)),
-                                    ),
+                                      style:  TextStyle(
+                                          fontFamily: 'Mont',
+
+                                          color: Colors.black)),
+
                                     const SizedBox(
                                       height: 5,
                                       width: 10,
@@ -139,10 +139,11 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       padding: const EdgeInsets.only(right: 35),
                                       child: Text(
                                         cardList[index].cardNumber,
-                                        style: GoogleFonts.montserrat(
-                                            textStyle: const TextStyle(
-                                                color: Colors.black)),
-                                      ),
+                                        style:   TextStyle(
+                                            fontFamily: 'Mont',
+
+                                            color: Colors.black)),
+
                                     )
                                   ],
                                 )

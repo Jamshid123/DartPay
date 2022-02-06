@@ -2,8 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:http/http.dart';
+import 'package:untitled/auth_pages/send_money.dart';
 import 'package:untitled/constants.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request_button.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/success_request.dart';
@@ -69,7 +70,7 @@ class _RequestPageState extends State<RequestPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Transfer()));
+                                    builder: (context) => SendMoney()));
                           },
                         ),
                         const SizedBox(
@@ -139,12 +140,11 @@ class _RequestPageState extends State<RequestPage> {
                                           Positioned(
                                             child: Text(
                                               cardList[index].cardName,
-                                              style: GoogleFonts.montserrat(
-                                                textStyle: const TextStyle(
-                                                    fontSize: 5,
+                                              style: TextStyle(
+                                                  fontFamily: 'Mont',
+                                                  fontSize: 5,
                                                     fontWeight: FontWeight.w500,
                                                     color: Colors.white),
-                                              ),
                                             ),
                                             top: 5,
                                             bottom: 27,
@@ -154,12 +154,12 @@ class _RequestPageState extends State<RequestPage> {
                                           Positioned(
                                             child: Text(
                                               cardList[index].cardNumber,
-                                              style: GoogleFonts.montserrat(
-                                                textStyle: const TextStyle(
-                                                    fontSize: 4,
+                                              style:  TextStyle(
+                                                  fontFamily: 'Mont',
+                                                  fontSize: 4,
                                                     fontWeight: FontWeight.w400,
                                                     color: Colors.white),
-                                              ),
+
                                             ),
                                             top: 27,
                                             bottom: 4,
@@ -187,17 +187,16 @@ class _RequestPageState extends State<RequestPage> {
                                       children: <Widget>[
                                         Text(
                                           cardList[index].cardName,
-                                          style: GoogleFonts.montserrat(
-                                              textStyle: kCardChooseStyle),
+                                          style: kCardChooseStyle,
+
                                         ),
+
                                         const SizedBox(
                                           height: 5,
                                         ),
                                         Text(
                                           cardList[index].cardNumber,
-                                          style: GoogleFonts.montserrat(
-                                              textStyle: kCardChooseStyle),
-                                        )
+                                          style:  kCardChooseStyle),
                                       ],
                                     )
                                   ],

@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled/auth_pages/login_screen.dart';
+
 
 import 'dart:async';
 import 'package:untitled/main%20pages/settings_screens/profile_change.dart';
@@ -183,8 +184,10 @@ class _ProfileState extends State<Profile> {
                   height: 32,
                 ),
                 ElevatedButton(
-                  onPressed: () async {
-                    await buildScreenLock(context);
+                  onPressed: ()  {
+                     Navigator.push(context, MaterialPageRoute(builder: (context){
+                       return LoginScreen();
+                     }));
                   },
                   child: const Text(
                     'Создать профиль',
@@ -207,13 +210,14 @@ class _ProfileState extends State<Profile> {
                     context: context,
                     title: Text(
                       'Установите PIN-код',
-                      style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
-                              fontSize: 18,
+                      style:  TextStyle(
+                          fontFamily: 'Mont',
+
+                          fontSize: 18,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 1,
                               color: Color(0xFF3F3D56))),
-                    ),
+
                     confirmTitle: const Text('Подтвердите PIN-код'),
                     correctString: '1234',
                     confirmation: true,

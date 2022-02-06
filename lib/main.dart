@@ -13,7 +13,6 @@ import 'package:untitled/request_page/request.dart';
 import 'package:untitled/main%20pages/settings_screens/security_settings.dart';
 import 'package:untitled/start_pages/start_page.dart';
 import 'package:untitled/translations/codegen_loader.g.dart';
-import 'introduction_screen/intro.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
         ],
       ),
       home: Scaffold(
-        body: Profile(),
+        body: Intro(),
       ),
     );
   }

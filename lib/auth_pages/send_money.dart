@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+
 import 'package:untitled/auth_pages/success_transfer.dart';
 import 'package:untitled/models/card_model.dart';
 import 'check_payment.dart';
 
-class Transfer extends StatefulWidget {
-  const Transfer({Key? key}) : super(key: key);
+class SendMoney extends StatefulWidget {
+  const SendMoney({Key? key}) : super(key: key);
 
   @override
-  _TransferState createState() => _TransferState();
+  _SendMoneyState createState() => _SendMoneyState();
 }
 
-class _TransferState extends State<Transfer> {
+class _SendMoneyState extends State<SendMoney> {
+  var _controller = MaskedTextController(mask: '0000 0000 0000 0000');
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -69,12 +71,12 @@ class _TransferState extends State<Transfer> {
                               Positioned(
                                 child: Text(
                                   cardList[index].cardName,
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        fontSize: 14,
+                                  style:  TextStyle(
+                                      fontFamily: 'Mont',
+                                      fontSize: 14,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white),
-                                  ),
+
                                 ),
                                 top: 12,
                                 right: 139,
@@ -84,12 +86,13 @@ class _TransferState extends State<Transfer> {
                               Positioned(
                                 child: Text(
                                   cardList[index].cardNumber,
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        fontSize: 16,
+                                  style:  TextStyle(
+                                      fontFamily: 'Mont',
+
+                                      fontSize: 16,
                                         fontWeight: FontWeight.w400,
                                         color: Colors.white),
-                                  ),
+
                                 ),
                                 top: 43,
                                 right: 111,
@@ -134,11 +137,7 @@ class _TransferState extends State<Transfer> {
                 Padding(
                   padding: EdgeInsets.only(left: 15, right: screenWidth * 0.26),
                   child: TextField(
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly,
-                      CardNumberInputFormatter(),
-                      LengthLimitingTextInputFormatter(22),
-                    ],
+                  controller: _controller,
                     obscureText: false,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
