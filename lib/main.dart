@@ -4,7 +4,7 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:untitled/main%20pages/settings_screens/card_add.dart';
 import 'package:untitled/main%20pages/transfer_page.dart';
-import 'package:untitled/sancho/profile.dart';
+import 'package:untitled/auth_pages/profile.dart';
 import 'package:untitled/start_pages/introduction_screen/intro.dart';
 import 'package:untitled/start_pages/language_page.dart';
 import 'package:untitled/main%20pages/settings_screens/settings.dart';
