@@ -11,6 +11,8 @@ import 'package:untitled/models/card_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '../../transfer_page.dart';
+
 enum SendType {
   sendRequest,
   textRequest,
@@ -64,7 +66,10 @@ class _RequestPageState extends State<RequestPage> {
                                 fontWeight: FontWeight.w500),
                           ),
                           onPress: () {
-                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Transfer()));
                           },
                         ),
                         const SizedBox(
@@ -236,7 +241,9 @@ class _RequestPageState extends State<RequestPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height:10 ,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       margin: const EdgeInsets.only(left: 15, right: 15),
                       height: 140,
@@ -244,9 +251,11 @@ class _RequestPageState extends State<RequestPage> {
                           color: Colors.greenAccent,
                           borderRadius: BorderRadius.circular(10)),
                     ),
-                    SizedBox(height: 30,),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(15, 0, 15,0),
+                      margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       height: 70,
                       child: const TextField(
                         keyboardType: TextInputType.text,
@@ -266,7 +275,8 @@ class _RequestPageState extends State<RequestPage> {
                             primary: orangeColor,
                           ),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
                               return SuccessRequest();
                             }));
                           },
@@ -278,11 +288,9 @@ class _RequestPageState extends State<RequestPage> {
                                 fontWeight: FontWeight.w500),
                           )),
                     ),
-                  ]
-              ),
+                  ]),
             ),
           ),
-
         ],
       ),
     ));
