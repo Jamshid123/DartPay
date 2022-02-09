@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:untitled/auth_pages/otp_sms.dart';
-import 'package:untitled/auth_pages/success_transfer.dart';
+import 'package:untitled/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 
 import '../constants.dart';
 

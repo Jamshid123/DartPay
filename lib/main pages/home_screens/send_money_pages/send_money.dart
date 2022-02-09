@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-
-import 'package:untitled/auth_pages/success_transfer.dart';
 import 'package:untitled/models/card_model.dart';
 import 'check_payment.dart';
 

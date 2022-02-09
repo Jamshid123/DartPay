@@ -35,7 +35,7 @@ dependencies:
   country_code_picker: ^2.0.2
   intl_phone_number_input: ^0.7.0+2
   flutter_datetime_picker: ^1.5.1
-
+  credit_card_scanner: ^1.0.4
 
 
 

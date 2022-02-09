@@ -1,13 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:credit_card_scanner/credit_card_scanner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:http/http.dart';
-import 'package:untitled/auth_pages/send_money.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/constants.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request_button.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/success_request.dart';
+import 'package:untitled/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:untitled/models/card_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -27,6 +28,27 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
+
+  CardDetails? _cardDetails;
+  CardScanOptions scanOptions = CardScanOptions(
+    scanCardHolderName: true,
+    // enableDebugLogs: true,
+    validCardsToScanBeforeFinishingScan: 5,
+    possibleCardHolderNamePositions: [
+      CardHolderNameScanPosition.aboveCardNumber,
+    ],
+  );
+
+  Future<void> scanCard() async {
+    var cardDetails = await CardScanner.scanCard(scanOptions: scanOptions);
+    if (!mounted) return;
+    setState(() {
+      _cardDetails = cardDetails!;
+    });
+  }
+
+  var _controller = MaskedTextController(mask: '0000 0000 0000 0000');
+  TextEditingController _textEditingController = TextEditingController();
   SendType? typeRequest;
   SendType? textTypeRequest;
   @override
@@ -59,12 +81,7 @@ class _RequestPageState extends State<RequestPage> {
                           colour: Colors.white,
                           data: const Text(
                             'Перевод',
-                            style: TextStyle(
-                                color: orangeColor,
-                                fontFamily: 'Gilroy-Regular',
-                                fontSize: 14,
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w500),
+                            style: kTransferButtonStyle,
                           ),
                           onPress: () {
                             Navigator.push(
@@ -79,12 +96,7 @@ class _RequestPageState extends State<RequestPage> {
                         RequestButton(
                           colour: orangeColor,
                           data: const Text('Запрос',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Gilroy-Regular',
-                                  fontSize: 14,
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500)),
+                              style:kRequestButtonStyle),
                           onPress: () {
                             setState(() {
                               typeRequest = SendType.sendRequest;
@@ -203,41 +215,34 @@ class _RequestPageState extends State<RequestPage> {
                                 ));
                           }),
                     ),
+                    SizedBox(height: 10,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Text('Введите номер карты', style: kInputCardNumberStyle,),
+                    ),
                     const SizedBox(height: 10),
-                    Column(
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            'Введите номер карты',
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Gilroy',
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xFF898A8D)),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
                         Container(
-                          margin: EdgeInsets.only(left: 15),
+                          margin: EdgeInsets.only(left: 10),
                           width: 250,
                           height: 50,
-                          child: TextFormField(
-                            obscureText: false,
+                          child: TextField(
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                             ),
                             keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                              CardNumberInputFormatter(),
-                              LengthLimitingTextInputFormatter(22),
-                            ],
+                            controller: _controller,
                           ),
                         ),
+                        SizedBox(width: 17,),
+                        Row(
+                          children: [IconButton(onPressed: () async{
+                            scanCard();
+                          }, icon: Image.asset('assets/images/barcode_scanner.png', color: orangeColor,)),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.person_add_alt_1_outlined, color: orangeColor, size: 35,))],
+                        )
                       ],
                     ),
                     SizedBox(
@@ -296,28 +301,3 @@ class _RequestPageState extends State<RequestPage> {
   }
 }
 
-class CardNumberInputFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    var text = newValue.text;
-
-    if (newValue.selection.baseOffset == 0) {
-      return newValue;
-    }
-
-    var buffer = StringBuffer();
-    for (int i = 0; i < text.length; i++) {
-      buffer.write(text[i]);
-      var nonZeroIndex = i + 1;
-      if (nonZeroIndex % 4 == 0 && nonZeroIndex != text.length) {
-        buffer.write('  '); // Add double spaces.
-      }
-    }
-
-    var string = buffer.toString();
-    return newValue.copyWith(
-        text: string,
-        selection: TextSelection.collapsed(offset: string.length));
-  }
-}

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/auth_pages/phone_add.dart';
-import 'package:untitled/start_pages/start_page.dart';
 import 'package:untitled/translations/locale_keys.g.dart';
 import '../../constants.dart';
 import 'package:easy_localization/easy_localization.dart';

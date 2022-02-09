@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:untitled/auth_pages/check_payment_end.dart';
-import 'package:untitled/auth_pages/success_transfer.dart';
 import 'package:untitled/models/card_model.dart';
+
+import 'check_payment_end.dart';
 
 class TransferPayment extends StatefulWidget {
   const TransferPayment({Key? key}) : super(key: key);
