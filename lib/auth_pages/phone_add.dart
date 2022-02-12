@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:untitled/auth_pages/otp_sms.dart';
-import 'package:untitled/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 
 import '../constants.dart';
 
@@ -13,6 +12,10 @@ class RegisterPhone extends StatefulWidget {
 }
 
 class _RegisterPhoneState extends State<RegisterPhone> {
+  final TextEditingController controller = TextEditingController();
+  String initialCountry = 'UZ';
+  PhoneNumber number = PhoneNumber(isoCode: 'UZ');
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -25,8 +28,9 @@ class _RegisterPhoneState extends State<RegisterPhone> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/logo Dartpay horizontal 1.png'),
+                Image.asset('assets/images/logo.png'),
                 SizedBox(height: 50),
                 Text(
                   'Введите номер вашего телефона',
@@ -40,26 +44,27 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                     children: [
                       InternationalPhoneNumberInput(
                         onInputChanged: (PhoneNumber value) {},
+                        textFieldController: controller,
+                        initialValue: number,
+                        hintText: 'Номер телефона',
+                        countries: ['UZ', 'RU'],
                       )
                     ],
                   ),
                 ),
                 SizedBox(height: 30),
-                Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 15, left: 15),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => OTPControllerSreen()));
-                      },
-                      child: Text('Продолжить'),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.deepOrange,
-                          fixedSize: Size(screenWidth * 0.91, 50)),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OTPControllerSreen()));
+                    },
+                    child: Text('Продолжить'),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.deepOrange, fixedSize: Size(280, 50)),
                   ),
                 ),
               ],
@@ -88,5 +93,14 @@ class _RegisterPhoneState extends State<RegisterPhone> {
         ),
       ),
     );
+  }
+
+  void getPhoneNumber(String phoneNumber) async {
+    PhoneNumber number =
+    await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
+
+    setState(() {
+      this.number = number;
+    });
   }
 }

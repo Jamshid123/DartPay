@@ -5,7 +5,6 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:untitled/card_scan_page.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
 import 'package:untitled/main%20pages/settings_screens/card_add.dart';
-import 'package:untitled/main%20pages/transfer_page.dart';
 import 'package:untitled/auth_pages/profile.dart';
 import 'package:untitled/start_pages/introduction_screen/intro.dart';
 import 'package:untitled/start_pages/language_page.dart';
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
         ],
       ),
       home: Scaffold(
-        body: RequestPage(),
+        body: Intro(),
       ),
     );
   }

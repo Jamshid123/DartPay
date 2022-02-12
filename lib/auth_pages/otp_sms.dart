@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:untitled/auth_pages/profile.dart';
 
 class OTPControllerSreen extends StatefulWidget {
@@ -12,7 +13,6 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
   final TextEditingController _pinOTPCodeController = TextEditingController();
 
   final FocusNode _pinOTPCodeFocus = FocusNode();
-  String? verificationCode;
 
   final BoxDecoration pinOTPCodeDecoration = BoxDecoration(
     color: Colors.white70,
@@ -20,38 +20,38 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
     border: Border.all(color: Colors.grey),
   );
 
+  String? currentText;
+
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      key: _scaffoldkey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        elevation: 0,
         backgroundColor: Colors.white,
         title: Text(''),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 56),
-          Container(
-            margin: EdgeInsets.only(top: 20.0),
-            child: Center(
-              child: GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 100),
-                  child: const Text(
-                    "Верицикация",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
-                  ),
-                ),
-              ),
+          Padding(
+            padding: EdgeInsets.only(left: 41, top: screenHeight * 0.19),
+            child: Text(
+              "Верификация",
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, letterSpacing: 1),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
-            padding: const EdgeInsets.only(left: 70),
+            padding: EdgeInsets.only(left: 41),
             child: Text(
               'Введите код отправленный на ваш номер',
               style: TextStyle(
@@ -60,20 +60,76 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
                   color: Colors.grey),
             ),
           ),
-          SizedBox(height: 30),
-          Center(
-            child: Padding(
-              padding: EdgeInsets.only(right: 15, left: 15),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Profile()));
-                },
-                child: Text('Продолжить'),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.deepOrange,
-                    fixedSize: Size(screenWidth * 0.91, 50)),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 41, right: 41),
+            child: Form(
+                child: PinCodeTextField(
+              pinTheme: PinTheme(
+                  selectedColor: Colors.grey,
+                  shape: PinCodeFieldShape.box,
+                  borderRadius: BorderRadius.circular(5),
+                  fieldHeight: 60,
+                  fieldWidth: 60,
+                  activeFillColor: Colors.white,
+                  inactiveFillColor: Colors.white),
+              keyboardType: TextInputType.number,
+              appContext: context,
+              length: 4,
+              enableActiveFill: false,
+              cursorColor: Colors.black,
+              boxShadows: [BoxShadow(color: Colors.white)],
+              onChanged: (value) {
+                print(value);
+                setState(() {
+                  currentText = value;
+                });
+              },
+            )),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 41),
+            child: Row(
+              children: [
+                Text(
+                  'Не получили код?',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Отправьте снова',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16),
+                    ))
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 40, right: 40),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Profile();
+                }));
+              },
+              child: Text(
+                'Продолжить',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xFFF37547),
+                  fixedSize: Size(screenWidth * 0.77, 45)),
             ),
           ),
         ],

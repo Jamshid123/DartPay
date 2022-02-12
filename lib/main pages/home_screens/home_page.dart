@@ -8,7 +8,6 @@ import 'package:untitled/main%20pages/home_screens/send_money_pages/send_money.d
 import 'package:untitled/models/card_transaction_model.dart';
 import '../../../models/card_model.dart';
 import '../../../constants.dart';
-import '../transfer_page.dart';
 import 'button.dart';
 
 enum SendType {

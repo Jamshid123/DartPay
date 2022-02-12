@@ -4,16 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/constants.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request_button.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/success_request.dart';
 import 'package:untitled/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:untitled/models/card_model.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-import '../../transfer_page.dart';
 
 enum SendType {
   sendRequest,

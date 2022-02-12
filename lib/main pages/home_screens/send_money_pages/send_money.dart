@@ -1,7 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
 import 'package:untitled/models/card_model.dart';
+import '../../../constants.dart';
+import '../request_page/request_button.dart';
 import 'check_payment.dart';
 
 class SendMoney extends StatefulWidget {
@@ -38,7 +42,40 @@ class _SendMoneyState extends State<SendMoney> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 59),
+                SizedBox(height: 12,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RequestButton(
+                      colour: orangeColor,
+                      data: const Text(
+                        'Перевод',
+                        style: TextStyle(color: Colors.white,fontFamily: 'Gilroy-Regular',
+                            fontSize: 14,
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      onPress: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    RequestButton(
+                      colour: Colors.white,
+                      data: const Text('Запрос',
+                          style:TextStyle(color: orangeColor,fontFamily: 'Gilroy-Regular',
+                              fontSize: 14,
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500)),
+                      onPress: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context){return RequestPage();}));
+                      },
+                    )
+                  ],
+                ),
+             SizedBox(height: 20,),
                 Padding(
                   padding: EdgeInsets.only(left: 15),
                   child: Text(
@@ -55,14 +92,14 @@ class _SendMoneyState extends State<SendMoney> {
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding:
-                          EdgeInsets.only(left: 16, right: screenWidth * 0.27),
+                      EdgeInsets.only(left: 16, right: screenWidth * 0.27),
                       itemCount: 2,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.only(right: 10),
                           width: 300,
                           decoration: BoxDecoration(
-                              color: Colors.deepOrange,
+                              color: orangeColor,
                               borderRadius: BorderRadius.circular(10)),
                           child: Stack(
                             children: <Widget>[
@@ -72,8 +109,8 @@ class _SendMoneyState extends State<SendMoney> {
                                   style:  TextStyle(
                                       fontFamily: 'Mont',
                                       fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
 
                                 ),
                                 top: 12,
@@ -88,8 +125,8 @@ class _SendMoneyState extends State<SendMoney> {
                                       fontFamily: 'Mont',
 
                                       fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white),
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white),
 
                                 ),
                                 top: 43,
@@ -98,7 +135,7 @@ class _SendMoneyState extends State<SendMoney> {
                                 bottom: 12,
                               ),
                               Positioned(
-                                child: Image.asset('images/logo1.png'),
+                                child: Image.asset('assets/images/logo_uzcard_512.png'),
                                 top: 19,
                                 right: 21,
                                 left: 237,
@@ -167,7 +204,7 @@ class _SendMoneyState extends State<SendMoney> {
                     },
                     child: Text('Продолжить'),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.deepOrange,
+                        primary: orangeColor,
                         fixedSize: Size(screenWidth * 0.91, 50)),
                   ),
                 )
