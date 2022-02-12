@@ -4,6 +4,8 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:untitled/start_pages/start_page.dart';
 
+import '../constants.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -31,6 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
+                      fontFamily: 'Mont',
+                      letterSpacing: 1
                     ),
                   ),
                 ),
@@ -86,15 +90,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 30,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return StartPage();
-                    }));
-                  },
-                  child: Text('Установить пароль'),
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.deepOrange, fixedSize: Size(280, 45)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return StartPage();
+                      }));
+                    },
+                    child: Text('Установить пароль', style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Gilroy-Regular',
+                      letterSpacing: 1,
+                      fontSize: 18
+                    ),),
+                    style: ElevatedButton.styleFrom(
+                        primary: orangeColor, minimumSize: Size(double.infinity, 45),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 25,
@@ -104,9 +117,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'Пропустить',
                     style: TextStyle(
-                        color: Colors.deepOrange,
+                      fontFamily: 'Gilroy-Regular',
+                        color: orangeColor,
                         fontSize: 18,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w600,
+                      letterSpacing: 1
+                    ),
                   ),
                   style: ElevatedButton.styleFrom(
                       primary: Colors.transparent, elevation: 0),

@@ -283,9 +283,10 @@ class _RequestPageState extends State<RequestPage> {
                           child: const Text(
                             'Отправить запрос',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                              fontFamily: 'Gilroy-Regular'
+                            )
                           )),
                     ),
                   ]),

@@ -22,6 +22,7 @@ class SuccessRequest extends StatelessWidget {
                 const Text(
                   'Запрос отправлен!',
                   style: TextStyle(
+                    fontFamily: 'Gilroy-Regular',
                       color: Colors.deepOrange,
                       fontWeight: FontWeight.w600,
                       fontSize: 18),

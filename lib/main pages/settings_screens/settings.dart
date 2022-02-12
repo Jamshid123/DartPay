@@ -237,6 +237,7 @@ class _SettingsButtonState extends State<SettingsButton> {
     bool val = false;
     return TextButton(
         onPressed: widget.onPressed,
+
         style: TextButton.styleFrom(
             backgroundColor: Colors.white,
             elevation: 0.25,

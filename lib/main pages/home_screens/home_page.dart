@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -279,6 +280,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ]),
+          SizedBox(height: 12,),
           Container(
             height: 150,
             child: ListView.builder(
@@ -286,128 +288,133 @@ class _HomePageState extends State<HomePage> {
                 itemCount: cardTransactionList.length,
                 itemBuilder: (context, int index) {
                   return Container(
-                      child: Column(children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage(cardTransactionList[index].userAvatar),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(cardTransactionList[index].userName,
-                                  style:  kCardTransactionStyle),
-                              Text(cardTransactionList[index].transactionStatus,
-                                  style:  kCardTransactionStyle)
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Column(
                             children: <Widget>[
-                              Text(
-                                cardTransactionList[index].transactionAmount,
-                                style:  kCardTransactionStyle),
+                              Row(
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage:
+                                    AssetImage(cardTransactionList[index].userAvatar),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(cardTransactionList[index].userName,
+                                            style:  kCardTransactionStyle),
+                                        Text(cardTransactionList[index].transactionStatus,
+                                            style:  kCardTransactionStyle)
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 120),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                            cardTransactionList[index].transactionAmount,
+                                            style:  kCardTransactionStyle),
 
-                              Padding(
-                                padding: const EdgeInsets.only(left: 40),
-                                child: Text(
-                                    cardTransactionList[index].transactionTime,
-                                    style:  kCardTransactionStyle1),
-                              )
-                            ],
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 40),
+                                          child: Text(
+                                              cardTransactionList[index].transactionTime,
+                                              style:  kCardTransactionStyle1),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              const SizedBox(
+                        height: 15,
+                    ),
+                    Row(
+                        children: <Widget>[
+                          CircleAvatar(
+                            backgroundImage:
+                                AssetImage(cardTransactionList[index].userAvatar),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(cardTransactionList[index].userName,
+                                    style:  kCardTransactionStyle),
+                                Text(cardTransactionList[index].transactionStatus,
+                                    style:  kCardTransactionStyle)
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 120),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  cardTransactionList[index].transactionAmount,
+                                  style:  kCardTransactionStyle),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: Text(
+                                      cardTransactionList[index].transactionTime,
+                                      style:  kCardTransactionStyle1),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                     ),
                     const SizedBox(
-                      height: 5,
+                        height: 15,
                     ),
                     Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage(cardTransactionList[index].userAvatar),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(cardTransactionList[index].userName,
+                        children: <Widget>[
+                          CircleAvatar(
+                            backgroundImage:
+                                AssetImage(cardTransactionList[index].userAvatar),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(cardTransactionList[index].userName,
+                                    style: kCardTransactionStyle),
+                                Text(cardTransactionList[index].transactionStatus,
+                                    style:  kCardTransactionStyle)
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 120),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  cardTransactionList[index].transactionAmount,
                                   style:  kCardTransactionStyle),
-                              Text(cardTransactionList[index].transactionStatus,
-                                  style:  kCardTransactionStyle)
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                cardTransactionList[index].transactionAmount,
-                                style:  kCardTransactionStyle),
 
-                              Padding(
-                                padding: const EdgeInsets.only(left: 40),
-                                child: Text(
-                                    cardTransactionList[index].transactionTime,
-                                    style:  kCardTransactionStyle1),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: Text(
+                                      cardTransactionList[index].transactionTime,
+                                      style: kCardTransactionStyle1),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage(cardTransactionList[index].userAvatar),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(cardTransactionList[index].userName,
-                                  style: kCardTransactionStyle),
-                              Text(cardTransactionList[index].transactionStatus,
-                                  style:  kCardTransactionStyle)
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                cardTransactionList[index].transactionAmount,
-                                style:  kCardTransactionStyle),
-
-                              Padding(
-                                padding: const EdgeInsets.only(left: 40),
-                                child: Text(
-                                    cardTransactionList[index].transactionTime,
-                                    style: kCardTransactionStyle1),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ]));
+                  ]),
+                      ));
                 }),
           )
         ]),
