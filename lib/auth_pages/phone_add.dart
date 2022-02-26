@@ -57,12 +57,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => OTPControllerSreen(),
-                          ),
-                        );
+                        Navigator.pushNamed(context,'/otpSms');
                       },
                       child: Text(
                         'Продолжить',

@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import '../../../constants.dart';
 import '../request_page/request_button.dart';
-import 'check_payment.dart';
+import 'transfer_payment.dart';
 
 class SendMoney extends StatefulWidget {
   const SendMoney({Key? key}) : super(key: key);
@@ -45,13 +45,21 @@ class _SendMoneyState extends State<SendMoney> {
         children: [
           Expanded(
             child: Container(
-              color: orangeColor,
-              child: Center(
-                child: const Text('Перевод',
-                    style: TextStyle(
-                        color: Color(0xFF535461),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700)),
+              color: Colors.grey,
+              child: Row(
+                children: [
+                  IconButton(
+
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.chevron_left),
+                    color: Color(0xFF2C313B),
+                    iconSize: 30,
+                  ),
+                  const SizedBox(width: 120),
+                  Center(child: Text('Перевод', style: kRequestText),),
+                ],
               ),
             ),
           ),
@@ -61,9 +69,9 @@ class _SendMoneyState extends State<SendMoney> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  SizedBox(
-                    height: 12,
+                children: [
+                  const SizedBox(
+                    height: 12
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +92,7 @@ class _SendMoneyState extends State<SendMoney> {
                         },
                       ),
                       const SizedBox(
-                        width: 15,
+                        width: 15
                       ),
                       RequestButton(
                         colour: Colors.white,
@@ -96,12 +104,9 @@ class _SendMoneyState extends State<SendMoney> {
                                 letterSpacing: 1,
                                 fontWeight: FontWeight.w500)),
                         onPress: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return RequestPage();
-                          }));
+                         Navigator.pushNamed(context, '/requestPage');
                         },
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -166,7 +171,7 @@ class _SendMoneyState extends State<SendMoney> {
                                   right: 21,
                                   left: 237,
                                   bottom: 27,
-                                )
+                                ),
                               ],
                             ),
                           );
@@ -241,10 +246,7 @@ class _SendMoneyState extends State<SendMoney> {
                         primary: orangeColor,
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const TransferPayment();
-                        }));
+                        Navigator.pushNamed(context,'/transferPayment');
                       },
                       child: const Text(
                         'Продолжить',

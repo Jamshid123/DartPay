@@ -56,8 +56,20 @@ class _RequestPageState extends State<RequestPage> {
             Expanded(
               child: Container(
                 color: Colors.grey,
-                child: const Center(
-                  child: Text('Запрос средств', style: kRequestText),
+                child: Row(
+                  children: [
+                    IconButton(
+
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.chevron_left),
+                      color: Color(0xFF2C313B),
+                      iconSize: 30,
+                    ),
+                    SizedBox(width: 88),
+                    Center(child: Text('Запрос средств', style: kRequestText)),
+                  ],
                 ),
               ),
             ),
@@ -77,12 +89,7 @@ class _RequestPageState extends State<RequestPage> {
                             'Перевод',
                             style: kTransferButtonStyle,
                           ),
-                          onPress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SendMoney()));
-                          },
+                          onPress: () {},
                         ),
                         const SizedBox(width: 15),
                         RequestButton(
@@ -284,10 +291,7 @@ class _RequestPageState extends State<RequestPage> {
                           primary: orangeColor,
                         ),
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const SuccessRequest();
-                          }));
+                          Navigator.pushNamed(context, '/successRequest');
                         },
                         child: const Text(
                           'Отправить запрос',

@@ -155,8 +155,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Button(
                   onPress: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SendMoney()));
+                    Navigator.pushNamed(context,'/sendMoney');
                     setState(() {
                       typeSelected = SendType.send;
                       textTypeSelected = SendType.textSend;
@@ -180,10 +179,7 @@ class _HomePageState extends State<HomePage> {
                       typeSelected = SendType.take;
                       textTypeSelected = SendType.textTake;
                     });
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RequestPage()));
+                    Navigator.pushNamed(context,'/requestPage');
                   },
                   colour: Colors.transparent,
                   data: const Text(

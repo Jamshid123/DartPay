@@ -50,18 +50,18 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 5
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: TextField(
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          border: OutlineInputBorder()),
+                          border: OutlineInputBorder(),),
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 16
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: screenWidth * 0.6),
@@ -71,14 +71,14 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 5
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: TextField(
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          border: OutlineInputBorder()),
+                          border: OutlineInputBorder(),),
                     ),
                   ),
                   const SizedBox(
@@ -92,18 +92,18 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 5
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: TextField(
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          border: OutlineInputBorder()),
+                          border: OutlineInputBorder(),),
                     ),
                   ),
                   const SizedBox(
-                    height: 17,
+                    height: 17
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: screenWidth * 0.7),
@@ -139,7 +139,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                         style: kChangeNameStyle,
                       ),
                       SizedBox(
-                        width: screenWidth * 0.3,
+                        width: screenWidth * 0.3
                       ),
                       GenderButton(
                         onTap: () {
@@ -155,7 +155,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             : greyColor,
                       ),
                       SizedBox(
-                        width: 9,
+                        width: 9
                       ),
                       const Text(
                         'Женщина',
@@ -164,7 +164,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     ],
                   ),
                   const SizedBox(
-                    height: 17,
+                    height: 17
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: screenWidth * 0.55),
@@ -174,7 +174,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 5
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40, right: 40),
@@ -188,11 +188,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             ),
                           ),
                           contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          border: OutlineInputBorder()),
+                          border: OutlineInputBorder(),),
                     ),
                   ),
                   SizedBox(
-                    height: 16,
+                    height: 16
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -201,8 +201,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     child: const Text('Сохранить'),
                     style: ElevatedButton.styleFrom(
                         primary: orangeColor,
-                        fixedSize: Size(screenWidth * 0.8, 45)),
-                  )
+                        fixedSize: Size(screenWidth * 0.8, 45),),
+                  ),
                 ],
               ),
             ),
@@ -231,13 +231,13 @@ class GenderButton extends StatelessWidget {
             elevation: 0,
             backgroundColor: const Color(0xFFF8FBFF),
             shape:
-                StadiumBorder(side: BorderSide(color: borderColor, width: 3)),
+                StadiumBorder(side: BorderSide(color: borderColor, width: 3),),
             onPressed: onTap,
             child: Icon(
               Icons.brightness_1_rounded,
               color: color,
               size: 50,
-            )),
+            ),),
       ),
     );
   }

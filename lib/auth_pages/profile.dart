@@ -50,7 +50,7 @@ class _ProfileState extends State<Profile> {
             padding: EdgeInsets.only(top: 70),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 100),
                   child: const Text(
@@ -63,7 +63,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 30
                 ),
                 Column(
                   children: [
@@ -77,11 +77,11 @@ class _ProfileState extends State<Profile> {
                             label: Text(
                               'Имя',
                               style: kChangeNameStyle,
-                            )),
+                            ),),
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 10
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 40, right: 40),
@@ -93,11 +93,11 @@ class _ProfileState extends State<Profile> {
                             label: Text(
                               'Фамилия',
                               style: kChangeNameStyle,
-                            )),
+                            ),),
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 10
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 40, right: 40),
@@ -111,13 +111,13 @@ class _ProfileState extends State<Profile> {
                             label: Text(
                               'Дата рождения',
                               style: kChangeNameStyle,
-                            )),
+                            ),),
                       ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 16
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: screenWidth * 0.7),
@@ -127,10 +127,10 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 const SizedBox(
-                  height: 16.0,
+                  height: 16.0
                 ),
                 const SizedBox(
-                  height: 17,
+                  height: 17
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +149,7 @@ class _ProfileState extends State<Profile> {
                           : greyColor,
                     ),
                     SizedBox(
-                      width: 9,
+                      width: 9
                     ),
                     Text(
                       'Мужчина',
@@ -172,7 +172,7 @@ class _ProfileState extends State<Profile> {
                           : greyColor,
                     ),
                     SizedBox(
-                      width: 9,
+                      width: 9
                     ),
                     const Text(
                       'Женщина',
@@ -181,13 +181,11 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
                 SizedBox(
-                  height: 32,
+                  height: 32
                 ),
                 ElevatedButton(
                   onPressed: ()  {
-                     Navigator.push(context, MaterialPageRoute(builder: (context){
-                       return LoginScreen();
-                     }));
+                    Navigator.pushNamed(context,'/loginScreen');
                   },
                   child: const Text(
                     'Создать профиль',
@@ -198,7 +196,7 @@ class _ProfileState extends State<Profile> {
                       shadowColor: orangeColor,
                       elevation: 2,
                       fixedSize: Size(screenWidth * 0.8, 45)),
-                )
+                ),
               ],
             ),
           ),
@@ -272,7 +270,7 @@ class _ProfileState extends State<Profile> {
                           primary: Colors.white,
                           side: BorderSide(color: orangeColor, width: 1),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(50),),
                         ),
                         displayStrings: [
                           '0',
@@ -318,13 +316,13 @@ class GenderButton extends StatelessWidget {
             elevation: 0,
             backgroundColor: const Color(0xFFF8FBFF),
             shape:
-                StadiumBorder(side: BorderSide(color: borderColor, width: 3)),
+                StadiumBorder(side: BorderSide(color: borderColor, width: 3),),
             onPressed: onTap,
             child: Icon(
               Icons.brightness_1_rounded,
               color: color,
               size: 50,
-            )),
+            ),),
       ),
     );
   }

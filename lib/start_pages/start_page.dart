@@ -5,7 +5,6 @@ import '../main pages/home_screens/home_page.dart';
 import '../main pages/home_screens/send_money_pages/send_money.dart';
 
 class StartPage extends StatefulWidget {
-  const StartPage({Key? key}) : super(key: key);
 
   @override
   _StartPageState createState() => _StartPageState();
@@ -66,7 +65,7 @@ class _StartPageState extends State<StartPage> {
                         color: _selectedScreen == 0 ? orangeColor : greyColor,
                         fontSize: 12,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -80,7 +79,7 @@ class _StartPageState extends State<StartPage> {
                       color: _selectedScreen == 1 ? orangeColor : greyColor,
                       fontSize: 12,
                     ),
-                  )),
+                  ),),
               MaterialButton(
                 minWidth: 40,
                 onPressed: () {
@@ -104,7 +103,7 @@ class _StartPageState extends State<StartPage> {
                         color: _selectedScreen == 2 ? orangeColor : greyColor,
                         fontSize: 12,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

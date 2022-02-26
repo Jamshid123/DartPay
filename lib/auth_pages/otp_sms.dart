@@ -51,7 +51,7 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 10
             ),
             Padding(
               padding: EdgeInsets.only(left: 41),
@@ -64,7 +64,7 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
               ),
             ),
             SizedBox(
-              height: 30,
+              height: 30
             ),
             Padding(
               padding: const EdgeInsets.only(left: 41, right: 41),
@@ -90,7 +90,7 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
                     currentText = value;
                   });
                 },
-              )),
+              ),),
             ),
             Padding(
               padding: EdgeInsets.only(left: 41),
@@ -111,20 +111,18 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                             fontSize: 16),
-                      ))
+                      ),),
                 ],
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 10
             ),
             Padding(
               padding: EdgeInsets.only(left: 40, right: 40),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Profile();
-                  }));
+                  Navigator.pushNamed(context,'/profileCreate');
                 },
                 child: Text(
                   'Продолжить',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:DartPay/models/card_model.dart';
 
-import 'check_payment_end.dart';
+import 'end_check.dart';
 
 class TransferPayment extends StatefulWidget {
   const TransferPayment({Key? key}) : super(key: key);
@@ -17,27 +17,28 @@ class _TransferPaymentState extends State<TransferPayment> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Column(children: <Widget>[
-      Expanded(
-        child: Container(
-          color: Colors.deepOrange,
-          child: const Center(
-            child: Text('Чек к оплате',
-                style: TextStyle(
-                    color: Color(0xFF535461),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700)),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              color: Colors.deepOrange,
+              child: const Center(
+                child: Text('Чек к оплате',
+                    style: TextStyle(
+                        color: Color(0xFF535461),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700),),
+              ),
+            ),
           ),
-        ),
-      ),
-      Expanded(
-          flex: 5,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Column(
+          Expanded(
+            flex: 5,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children: [
                     SizedBox(height: 59),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,29 +67,31 @@ class _TransferPaymentState extends State<TransferPayment> {
                           return Container(
                             margin: EdgeInsets.only(right: 15),
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: const Color(0xFFDADADA)),
-                                borderRadius: BorderRadius.circular(10)),
+                              border: Border.all(
+                                color: const Color(0xFFDADADA),
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                             child: Row(
-                              children: <Widget>[
+                              children: [
                                 Container(
                                   margin: EdgeInsets.only(left: 5),
                                   height: 50,
                                   width: 90,
                                   decoration: BoxDecoration(
-                                      color: Colors.deepOrange,
-                                      borderRadius: BorderRadius.circular(5)),
+                                    color: Colors.deepOrange,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
                                   child: Stack(
-                                    children: <Widget>[
+                                    children: [
                                       Positioned(
                                         child: Text(
                                           cardList[index].cardType,
-                                          style:  TextStyle(
-                                            fontFamily: 'Mont',
-                                                fontSize: 6,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white),
-
+                                          style: TextStyle(
+                                              fontFamily: 'Mont',
+                                              fontSize: 6,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.white),
                                         ),
                                         top: 15,
                                         bottom: 27,
@@ -98,12 +101,11 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       Positioned(
                                         child: Text(
                                           cardList[index].cardNumber,
-                                          style:  TextStyle(
-                                            fontFamily: 'Mont',
-                                                fontSize: 7,
-                                                fontWeight: FontWeight.w400,
-                                                color: Colors.white),
-
+                                          style: TextStyle(
+                                              fontFamily: 'Mont',
+                                              fontSize: 7,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.white),
                                         ),
                                         top: 35,
                                         bottom: 4,
@@ -112,48 +114,42 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       ),
                                       Positioned(
                                         child: Image(
-                                            image: AssetImage(
-                                                cardList[index].cardType)),
+                                          image: AssetImage(
+                                              cardList[index].cardType),
+                                        ),
                                         top: 5,
                                         bottom: 23,
                                         left: 70,
                                         right: 5,
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),
                                 Column(
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       cardList[index].cardName,
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           fontFamily: 'Mont',
-
-                                          color: Colors.black)),
-
-                                    const SizedBox(
-                                      height: 5,
-                                      width: 10,
+                                          color: Colors.black),
                                     ),
+                                    const SizedBox(height: 5, width: 10),
                                     Padding(
                                       padding: const EdgeInsets.only(right: 35),
                                       child: Text(
                                         cardList[index].cardNumber,
-                                        style:   TextStyle(
+                                        style: TextStyle(
                                             fontFamily: 'Mont',
-
-                                            color: Colors.black)),
-
-                                    )
+                                            color: Colors.black),
+                                      ),
+                                    ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
                           );
                         }),
-                    const SizedBox(
-                      height: 20.5,
-                    ),
+                    const SizedBox(height: 20.5),
                     Text(
                       'Карта получателя:',
                       style: TextStyle(color: Colors.grey),
@@ -209,7 +205,7 @@ class _TransferPaymentState extends State<TransferPayment> {
                                   color: Colors.grey),
                             ),
                             SizedBox(
-                              height: 5,
+                              height: 5
                             ),
                             Text(
                               '3 006 492 cум',
@@ -241,28 +237,29 @@ class _TransferPaymentState extends State<TransferPayment> {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 15
                     ),
                     Center(
                       child: Padding(
                         padding: EdgeInsets.only(right: 15),
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EndCheck()));
+                            Navigator.pushNamed(context, '/endCheck');
                           },
                           child: Text('Перевести'),
                           style: ElevatedButton.styleFrom(
                               primary: Colors.deepOrange,
-                              fixedSize: Size(screenWidth * 0.91, 50)),
+                              fixedSize: Size(screenWidth * 0.91, 50),),
                         ),
                       ),
-                    )
-                  ]),
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ))
-    ]));
+          ),
+        ],
+      ),
+    );
   }
 }

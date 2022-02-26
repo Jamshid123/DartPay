@@ -33,9 +33,9 @@ class SecurityPage extends StatelessWidget {
                         shadowColor: greyColor,
                         padding: EdgeInsets.only(left: 15, right: 15),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
+                            borderRadius: BorderRadius.circular(10),
                         ),
-                        fixedSize: Size(double.infinity, 50)
+                        fixedSize: Size(double.infinity, 50),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,8 +45,8 @@ class SecurityPage extends StatelessWidget {
 
                       ],
 
-                    )),
-                SizedBox(height: 10,),
+                    ),),
+                SizedBox(height: 10),
                 TextButton(onPressed: (){},
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.white,
@@ -66,7 +66,7 @@ class SecurityPage extends StatelessWidget {
 
                       ],
 
-                    )),
+                    ),),
               ],
             ),
             Divider(),
@@ -91,8 +91,8 @@ class SecurityPage extends StatelessWidget {
 
                       ],
 
-                    )),
-                SizedBox(height: 10,),
+                    ),),
+                SizedBox(height: 10),
                 TextButton(onPressed: (){},
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.white,
@@ -100,9 +100,9 @@ class SecurityPage extends StatelessWidget {
                         shadowColor: greyColor,
                         padding: EdgeInsets.only(left: 15, right: 15),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
+                            borderRadius: BorderRadius.circular(10),
                         ),
-                        fixedSize: Size(double.infinity, 50)
+                        fixedSize: Size(double.infinity, 50),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,7 +112,7 @@ class SecurityPage extends StatelessWidget {
 
                       ],
 
-                    )),
+                    ),),
               ],
             ),
             Divider(),
@@ -123,9 +123,9 @@ class SecurityPage extends StatelessWidget {
                     shadowColor: greyColor,
                     padding: EdgeInsets.only(left: 15, right: 15),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(10),
                     ),
-                    fixedSize: Size(double.infinity, 50)
+                    fixedSize: Size(double.infinity, 50),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,14 +135,14 @@ class SecurityPage extends StatelessWidget {
 
                   ],
 
-                )),
+                ),),
 
 
 
           ]
 
             ),
-      )
+      ),
     );
   }
 }
@@ -174,18 +174,18 @@ class _SecurityPageButtonState extends State<SecurityPageButton> {
             elevation: 0.25,
             shadowColor: greyColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10))),
+                borderRadius: BorderRadius.circular(10),),),
         child: Row(
           children: [
             widget.icon,
             const SizedBox(
-              width: 20,
+              width: 20
             ),
             Text(
               widget.label,
               style: kSettingsButton,
             ),
           ],
-        ));
+        ),);
   }
 }

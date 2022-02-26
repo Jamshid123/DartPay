@@ -54,7 +54,7 @@ class _CardScanState extends State<CardScan> {
                   initialOptions: scanOptions,
                   onScanOptionChanged: (newOptions) => scanOptions = newOptions,
                 ),
-              )
+              ),
             ],
           ),
         ),

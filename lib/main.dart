@@ -1,3 +1,11 @@
+import 'package:DartPay/auth_pages/login_screen.dart';
+import 'package:DartPay/auth_pages/otp_sms.dart';
+import 'package:DartPay/auth_pages/phone_add.dart';
+import 'package:DartPay/main%20pages/home_screens/request_page/success_request.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/transfer_payment.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/end_check.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/send_money.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
@@ -35,6 +43,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/': (context) => Intro(),
+        '/startPage': (context) => StartPage(),
+        '/language': (context) => Language(),
+        '/loginScreen': (context) => LoginScreen(),
+        '/otpSms': (context) => OTPControllerSreen(),
+        '/phoneAdd': (context) => RegisterPhone(),
+        '/profileCreate': (context) => Profile(),
+        '/homePage': (context) => HomePage(),
+        '/requestPage': (context) => RequestPage(),
+        '/successRequest': (context) => SuccessRequest(),
+        '/sendMoney': (context) => SendMoney(),
+        '/successTransfer': (context) => SuccessTransfer(),
+        '/transferPayment': (context) => TransferPayment(),
+        '/endCheck': (context) => EndCheck(),
+        '/settings': (context) => Settings(),
+        '/securitySettings': (context) => SecurityPage(),
+        '/profileChange': (context) => ChangeProfile(),
+        '/cardAdd': (context) => CardAdd(),
+      },
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
@@ -47,9 +75,6 @@ class MyApp extends StatelessWidget {
           ResponsiveBreakpoint.resize(800, name: DESKTOP),
           ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
         ],
-      ),
-      home: Scaffold(
-        body: Intro(),
       ),
     );
   }

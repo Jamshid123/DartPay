@@ -27,12 +27,12 @@ class SuccessRequest extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: 18),
                 ),
-              SizedBox(height: 150,),
+              SizedBox(height: 150),
               Column(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.share)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.share),),
                   const Text('Поделиться ссылкой', style: kShareTextStyle,),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   InkWell(
                     child: Text(
                       'https://cabinet.paymart.uz/ru/panel/buyers',

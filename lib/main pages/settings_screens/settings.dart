@@ -45,9 +45,9 @@ class _SettingsState extends State<Settings> {
                         child: Center(child: Padding(
                           padding: const EdgeInsets.only(top: 78),
                           child: Image.asset('assets/images/userAvatar_settings.png'),
-                        ))),
+                        ),),),
                   ],
-                )),
+                ),),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,15 +64,13 @@ class _SettingsState extends State<Settings> {
                       style: ElevatedButton.styleFrom(
                           primary: orangeColor,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
+                              borderRadius: BorderRadius.circular(30),),
                           fixedSize: const Size(170, 30)),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return ChangeProfile();
-                        }));
+                        Navigator.pushNamed(context, '/profileChange');
                       },
-                      child: Text('Изменить профиль')),
-                  SizedBox(height: 15,),
+                      child: Text('Изменить профиль'),),
+                  SizedBox(height: 15),
                   Container(
                     height: screenHeight * 0.5,
                     child: ListView(
@@ -85,13 +83,11 @@ class _SettingsState extends State<Settings> {
                             color: orangeColor,
                           ),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return SecurityPage();
-                            }));
+                            Navigator.pushNamed(context, '/securitySettings');
                           },
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 10
                         ),
                         SettingsButton(
                             label: 'Язык',
@@ -103,7 +99,7 @@ class _SettingsState extends State<Settings> {
                             ),
                             onPressed: () {}),
                         const SizedBox(
-                          height: 10,
+                          height: 10
                         ),
                         TextButton(
                             style: TextButton.styleFrom(
@@ -112,7 +108,7 @@ class _SettingsState extends State<Settings> {
                                 shadowColor: greyColor,
                                 fixedSize: Size(screenWidth * 0.9, 50),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
+                                    borderRadius: BorderRadius.circular(10),),),
                             onPressed: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,7 +121,7 @@ class _SettingsState extends State<Settings> {
                                         color: orangeColor,
                                       ),
                                       const SizedBox(
-                                        width: 15,
+                                        width: 15
                                       ),
                                       const Text(
                                         'Тёмный режим',
@@ -137,9 +133,9 @@ class _SettingsState extends State<Settings> {
 
 
                               ],
-                            )),
+                            ),),
                         const SizedBox(
-                          height: 10,
+                          height: 10
                         ),
                         TextButton(
                             style: TextButton.styleFrom(
@@ -148,7 +144,7 @@ class _SettingsState extends State<Settings> {
                                 shadowColor: greyColor,
                                 fixedSize: Size(screenWidth * 0.9, 50),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
+                                    borderRadius: BorderRadius.circular(10),),),
                             onPressed: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,7 +157,7 @@ class _SettingsState extends State<Settings> {
                                         color: orangeColor,
                                       ),
                                       SizedBox(
-                                        width: 15,
+                                        width: 15
                                       ),
                                       const Text(
                                         'Уведомления',
@@ -171,9 +167,9 @@ class _SettingsState extends State<Settings> {
                                   ),
                                 ),
                               ],
-                            )),
+                            ),),
                         const SizedBox(
-                          height: 10,
+                          height: 10
                         ),
                         SettingsButton(
                           label: 'Добавить контакт',
@@ -184,7 +180,7 @@ class _SettingsState extends State<Settings> {
                           onPressed: () {},
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 10
                         ),
                         SettingsButton(
                           label: 'Добавить карту',
@@ -193,17 +189,15 @@ class _SettingsState extends State<Settings> {
                             color: orangeColor,
                           ),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return CardAdd();
-                            }));
+                            Navigator.pushNamed(context, '/cardAdd');
                           },
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -241,7 +235,7 @@ class _SettingsButtonState extends State<SettingsButton> {
             shadowColor: greyColor,
             fixedSize: Size(screenWidth * 0.9, 50),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10))),
+                borderRadius: BorderRadius.circular(10),),),
         child: Row(
           children: [
             widget.icon,
