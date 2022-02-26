@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 import 'field_transfer.dart';
 
 class EndCheck extends StatefulWidget {

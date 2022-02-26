@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:untitled/main%20pages/settings_screens/card_add.dart';
-import 'package:untitled/main%20pages/settings_screens/settings.dart';
-import 'package:untitled/main%20pages/settings_screens/security_settings.dart';
-
 import '../../constants.dart';
+import 'card_add.dart';
 import 'profile_change.dart';
+import 'security_settings.dart';
 
 
 

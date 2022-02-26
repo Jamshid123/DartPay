@@ -1,12 +1,11 @@
+import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
+import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:credit_card_scanner/credit_card_scanner.dart';
 import 'package:credit_card_scanner/models/card_scan_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
-import 'package:untitled/main%20pages/home_screens/send_money_pages/success_transfer.dart';
-import 'package:untitled/models/card_model.dart';
 import '../../../constants.dart';
 import '../request_page/request_button.dart';
 import 'check_payment.dart';

@@ -2,19 +2,20 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
-import 'package:untitled/card_scan_page.dart';
-import 'package:untitled/main%20pages/home_screens/home_page.dart';
-import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
-import 'package:untitled/main%20pages/settings_screens/card_add.dart';
-import 'package:untitled/auth_pages/profile.dart';
-import 'package:untitled/start_pages/introduction_screen/intro.dart';
-import 'package:untitled/start_pages/language_page.dart';
-import 'package:untitled/main%20pages/settings_screens/settings.dart';
-import 'package:untitled/main%20pages/settings_screens/profile_change.dart';
-import 'package:untitled/request_page/request.dart';
-import 'package:untitled/main%20pages/settings_screens/security_settings.dart';
-import 'package:untitled/start_pages/start_page.dart';
-import 'package:untitled/translations/codegen_loader.g.dart';
+import 'package:DartPay/card_scan_page.dart';
+import 'package:DartPay/main%20pages/home_screens/home_page.dart';
+import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
+import 'package:DartPay/main%20pages/settings_screens/card_add.dart';
+import 'package:DartPay/auth_pages/profile.dart';
+import 'package:DartPay/start_pages/language_page.dart';
+import 'package:DartPay/main%20pages/settings_screens/settings.dart';
+import 'package:DartPay/main%20pages/settings_screens/profile_change.dart';
+import 'package:DartPay/request_page/request.dart';
+import 'package:DartPay/main%20pages/settings_screens/security_settings.dart';
+import 'package:DartPay/start_pages/start_page.dart';
+import 'package:DartPay/translations/codegen_loader.g.dart';
+
+import 'introduction_screen/intro.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,7 @@
+import 'package:DartPay/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
-import 'package:untitled/constants.dart';
 
 enum GenderType { male, female }
 

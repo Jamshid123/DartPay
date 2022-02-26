@@ -1,7 +1,8 @@
+import 'package:DartPay/auth_pages/profile.dart';
+import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:untitled/auth_pages/profile.dart';
-import 'package:untitled/constants.dart';
+
 
 class OTPControllerSreen extends StatefulWidget {
   @override

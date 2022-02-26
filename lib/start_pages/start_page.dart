@@ -1,8 +1,8 @@
+import 'package:DartPay/constants.dart';
+import 'package:DartPay/main%20pages/settings_screens/settings.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/constants.dart';
-import 'package:untitled/main%20pages/home_screens/home_page.dart';
-import 'package:untitled/main%20pages/home_screens/send_money_pages/send_money.dart';
-import 'package:untitled/main%20pages/settings_screens/settings.dart';
+import '../main pages/home_screens/home_page.dart';
+import '../main pages/home_screens/send_money_pages/send_money.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/auth_pages/phone_add.dart';
+import 'package:DartPay/auth_pages/phone_add.dart';
 import '../constants.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 

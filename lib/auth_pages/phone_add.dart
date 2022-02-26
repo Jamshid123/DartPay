@@ -1,6 +1,6 @@
+import 'package:DartPay/auth_pages/otp_sms.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:untitled/auth_pages/otp_sms.dart';
 
 import '../constants.dart';
 
@@ -20,8 +20,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    print(screenHeight);
-    print(screenWidth);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -49,7 +48,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                           initialValue: number,
                           hintText: 'Номер телефона',
                           countries: ['UZ', 'RU'],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -59,23 +58,28 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => OTPControllerSreen()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OTPControllerSreen(),
+                          ),
+                        );
                       },
-                      child: Text('Продолжить', style: TextStyle(
-                        fontFamily: 'Gilroy-Regular',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 2
-                      ),),
+                      child: Text(
+                        'Продолжить',
+                        style: TextStyle(
+                          fontFamily: 'Gilroy-Regular',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 2,
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
                           primary: orangeColor, fixedSize: Size(280, 50)),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.07,),
+              SizedBox(height: screenHeight * 0.07),
               Column(
                 children: [
                   const Text(
@@ -95,7 +99,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                     onTap: () {},
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -105,7 +109,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
 
   void getPhoneNumber(String phoneNumber) async {
     PhoneNumber number =
-    await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
+        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
 
     setState(() {
       this.number = number;

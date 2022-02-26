@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
-import 'package:untitled/auth_pages/login_screen.dart';
+import 'package:DartPay/auth_pages/login_screen.dart';
 
 
 import 'dart:async';
-import 'package:untitled/main%20pages/settings_screens/profile_change.dart';
-import 'package:untitled/start_pages/start_page.dart';
+import 'package:DartPay/main%20pages/settings_screens/profile_change.dart';
+import 'package:DartPay/start_pages/start_page.dart';
 
 import '../constants.dart';
 

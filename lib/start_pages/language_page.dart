@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:untitled/constants.dart';
-import 'package:untitled/introduction_screen/intro.dart';
+import 'package:DartPay/constants.dart';
+import 'package:DartPay/introduction_screen/intro.dart';
 import '../main.dart';
 import '../translations/locale_keys.g.dart';
 

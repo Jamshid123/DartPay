@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled/start_pages/start_page.dart';
+import 'package:DartPay/start_pages/start_page.dart';
 
 import '../constants.dart';
 
