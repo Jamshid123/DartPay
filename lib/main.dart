@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:untitled/card_scan_page.dart';
+import 'package:untitled/main%20pages/home_screens/home_page.dart';
 import 'package:untitled/main%20pages/home_screens/request_page/request.dart';
 import 'package:untitled/main%20pages/settings_screens/card_add.dart';
 import 'package:untitled/auth_pages/profile.dart';

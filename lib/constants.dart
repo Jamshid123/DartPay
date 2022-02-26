@@ -76,15 +76,16 @@ const kCardScreenTextStyle = TextStyle(
     letterSpacing: 1
 );
 const kCardUserTextStyle = TextStyle(
+    fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
   fontSize: 14,
     letterSpacing: 1
 );
 const kCardNumTextStyle = TextStyle(
+    fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
   fontSize: 14,
   color: Color(0xFF535461),
-    letterSpacing: 1
 );
 const kRecentTextStyle = TextStyle(
     fontWeight: FontWeight.w600,

@@ -65,7 +65,7 @@ flutter:
   fonts:
     - family: Gilroy-Regular
       fonts:
-        - asset: fonts/Gilroy-Regular.ttf
+        - asset: fonts/gilroy/Gilroy-Regular.ttf
     - family: Mont
       fonts:
         - asset: fonts/montserrat/Montserrat-Regular.ttf
