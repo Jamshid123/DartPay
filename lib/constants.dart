@@ -5,6 +5,7 @@ const kIntroductionScreen1Style = TextStyle(
   color: Color(0xFF4C4D4E),
   fontSize: 22.0,
   fontFamily: 'Gilroy-Regular',
+    letterSpacing: 1
 );
 
 const kIntroductionScreenStyle2 = TextStyle(
@@ -12,6 +13,7 @@ const kIntroductionScreenStyle2 = TextStyle(
   color: Color(0xFF4C4D4E),
   fontSize: 18.0,
   fontFamily: 'Gilroy-Regular',
+    letterSpacing: 1
 );
 
 const kButtonTextStyle = TextStyle(
@@ -31,6 +33,7 @@ const kMasterCardColor = Color(0xBFFF6612);
 const kTitleTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.bold,
+    letterSpacing: 1
 );
 const orangeColor = Color(0xFFF37547);
 const greyColor = Color(0xFF898A8D);
@@ -39,10 +42,12 @@ const kCardTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
   fontFamily: 'Gilroy-Regular',
   fontSize: 17,
+    letterSpacing: 1
 );
 const kCardNumberTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 18,
+    letterSpacing: 1
 );
 
 const kCardName = TextStyle(
@@ -55,7 +60,8 @@ const kCardButtonStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontSize: 18.0,
     fontWeight: FontWeight.w500,
-    letterSpacing: 1);
+    letterSpacing: 1,
+);
 const activeButtonColor = Color(0xFFF37547);
 const inActiveButtonColor = Colors.white;
 
@@ -67,12 +73,16 @@ const kCardScreenTextStyle = TextStyle(
   fontFamily: 'Gilroy-Regular',
   fontSize: 18,
   color: Color(0xFF535461),
+    letterSpacing: 1
 );
 const kCardUserTextStyle = TextStyle(
+    fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
   fontSize: 14,
+    letterSpacing: 1
 );
 const kCardNumTextStyle = TextStyle(
+    fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
   fontSize: 14,
   color: Color(0xFF535461),
@@ -85,10 +95,12 @@ const kRecentTextStyle = TextStyle(
 const kCardTransactionStyle = TextStyle(
   fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
+    letterSpacing: 1
 );
 const kCardTransactionStyle1 = TextStyle(
   fontFamily: 'Mont',
   fontWeight: FontWeight.w400,
+    letterSpacing: 1
 );
 const kRequestButtonTextStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
@@ -97,37 +109,42 @@ const kRequestButtonTextStyle = TextStyle(
     letterSpacing: 1);
 
 const kCardChooseStyle =
-    TextStyle(fontWeight: FontWeight.w400, color: greyColor, fontSize: 15);
+    TextStyle(fontWeight: FontWeight.w400, color: greyColor, fontSize: 15, letterSpacing: 1);
 
 const kRequestText = TextStyle(
     color: Color(0xFF535461),
     fontFamily: 'Gilroy-Regular',
     fontSize: 18,
-    fontWeight: FontWeight.w700);
+    fontWeight: FontWeight.w700,
+    letterSpacing: 1);
 
 const ktoCardStyle = TextStyle(
     fontSize: 14,
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
-    color: Color(0xFF898A8D));
+    color: Color(0xFF898A8D),
+    letterSpacing: 1);
 
 const kRequestAmount = TextStyle(
     fontSize: 12,
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
-    color: Color(0xFF898A8D));
+    color: Color(0xFF898A8D),
+    letterSpacing: 1);
 
 const kCommentInStyle = TextStyle(
     fontSize: 14,
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
-    color: Color(0xFFC4C4C4));
+    color: Color(0xFFC4C4C4),
+    letterSpacing: 1);
 
 const kShareTextStyle = TextStyle(
     fontSize: 16,
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
-    color: Color(0xFF898A8D));
+    color: Color(0xFF898A8D),
+    letterSpacing: 1);
 
 const kSettingsUserStyle =
     TextStyle(fontSize: 18, fontFamily: 'Gilroy', fontWeight: FontWeight.w600);
@@ -135,9 +152,11 @@ const kSettingsNumStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16,
     fontFamily: 'Gilroy-Regular',
-    color: greyColor);
+    color: greyColor,
+    letterSpacing: 1
+);
 const kSettingsButton = TextStyle(
-    fontWeight: FontWeight.w500, fontSize: 16, color: Color(0xFF2C313B));
+    fontWeight: FontWeight.w500, fontSize: 16, color: Color(0xFF2C313B), letterSpacing: 1);
 const kChangeNameStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontSize: 16,
@@ -147,7 +166,9 @@ const kChangeNameStyle = TextStyle(
 
 const kChangePhotoStyle = TextStyle(
     fontFamily: 'Mont',
-    fontSize: 14, fontWeight: FontWeight.w500);
+    fontSize: 14, fontWeight: FontWeight.w500,
+    letterSpacing: 1
+);
 
 const kCardAddStyle = TextStyle(
     fontFamily: 'Mont',
@@ -228,3 +249,11 @@ fontFamily: 'Gilroy-Regular',
 letterSpacing: 1,
 fontWeight: FontWeight.w400,
 color: Color(0xFF898A8D));
+
+const kManualStyle = TextStyle(
+    fontFamily: 'Gilroy-Regular',
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 2
+);
+

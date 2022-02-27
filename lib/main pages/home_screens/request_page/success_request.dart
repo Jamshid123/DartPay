@@ -1,7 +1,7 @@
+import 'package:DartPay/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:untitled/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SuccessRequest extends StatelessWidget {
@@ -22,16 +22,17 @@ class SuccessRequest extends StatelessWidget {
                 const Text(
                   'Запрос отправлен!',
                   style: TextStyle(
+                    fontFamily: 'Gilroy-Regular',
                       color: Colors.deepOrange,
                       fontWeight: FontWeight.w600,
                       fontSize: 18),
                 ),
-              SizedBox(height: 150,),
+              SizedBox(height: 150),
               Column(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.share)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.share),),
                   const Text('Поделиться ссылкой', style: kShareTextStyle,),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   InkWell(
                     child: Text(
                       'https://cabinet.paymart.uz/ru/panel/buyers',

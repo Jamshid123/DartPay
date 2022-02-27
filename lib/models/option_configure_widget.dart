@@ -147,10 +147,10 @@ class _OptionConfigureWidgetState extends State<OptionConfigureWidget> {
             IconButton(
               icon: Icon(Icons.arrow_downward),
               onPressed: () {
-                onChanged(max(0, value - 1));
+                onChanged(max(0, value - 1),);
                 setState(() {});
               },
-            )
+            ),
           ],
         ),
       ],
@@ -170,7 +170,7 @@ class _OptionConfigureWidgetState extends State<OptionConfigureWidget> {
         initialScansToDrop: initialScansToDrop,
         maxCardHolderNameLength: maxCardHolderNameLength,
         scanExpiryDate: scanExpiryDate,
-        validCardsToScanBeforeFinishingScan: validCardsToScanBeforeFinishingScan));
+        validCardsToScanBeforeFinishingScan: validCardsToScanBeforeFinishingScan),);
     super.setState(fn);
   }
 }

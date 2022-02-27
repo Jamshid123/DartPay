@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 import 'field_transfer.dart';
 
 class EndCheck extends StatefulWidget {
@@ -29,7 +29,7 @@ class _EndCheckState extends State<EndCheck> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: [
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: Text(
@@ -50,7 +50,7 @@ class _EndCheckState extends State<EndCheck> {
                 Text(
                   transaction[0].transactionDate,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                )
+                ),
               ],
             ),
           ),
@@ -62,9 +62,9 @@ class _EndCheckState extends State<EndCheck> {
               children: [
                 Text(transaction[0].transactionStatus,
                     style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
                 Text(transaction[0].sent,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
               ],
             ),
           ),
@@ -76,9 +76,9 @@ class _EndCheckState extends State<EndCheck> {
               children: [
                 const Text('Сумма',
                     style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
                 Text(transaction[0].amount,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
               ],
             ),
           ),
@@ -90,9 +90,9 @@ class _EndCheckState extends State<EndCheck> {
               children: [
                 const Text('Получатель',
                     style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
                 Text(transaction[0].person,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
               ],
             ),
           ),
@@ -102,7 +102,7 @@ class _EndCheckState extends State<EndCheck> {
               padding: EdgeInsets.only(right: 15, left: 15),
               child: ElevatedButton(
                 onPressed: ()  {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SuccessTransfer()));
+                 Navigator.pushNamed(context, '/successTransfer');
 
                 },
                 child: Text('Перевести'),
@@ -111,7 +111,7 @@ class _EndCheckState extends State<EndCheck> {
                     fixedSize: Size(screenWidth * 0.91, 50)),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

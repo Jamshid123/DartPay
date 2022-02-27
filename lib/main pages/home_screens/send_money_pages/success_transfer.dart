@@ -11,7 +11,7 @@ class SuccessTransfer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 320),
             child: Container(
-              child: Center(child: Image.asset('images/Vector.png')),
+              child: Center(child: Image.asset('images/Vector.png'),),
             ),
           ),
           const Text(
@@ -20,7 +20,7 @@ class SuccessTransfer extends StatelessWidget {
                 color: Colors.deepOrange,
                 fontWeight: FontWeight.w600,
                 fontSize: 24),
-          )
+          ),
         ],
       ),
     );
