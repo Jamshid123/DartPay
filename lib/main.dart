@@ -6,6 +6,7 @@ import 'package:DartPay/main%20pages/home_screens/send_money_pages/transfer_paym
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/end_check.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:DartPay/main%20pages/pinScreen.dart';
 import 'package:DartPay/theme/themeData.dart';
 import 'package:DartPay/theme/themePage.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -55,12 +56,14 @@ class MyApp extends StatelessWidget {
           theme: MyTheme.lightTheme,
           routes: {
             '/': (context) => Intro(),
-            '/startPage': (context) => StartPage(),
             '/language': (context) => Language(),
-            '/loginScreen': (context) => LoginScreen(),
-            '/otpSms': (context) => OTPControllerSreen(),
             '/phoneAdd': (context) => RegisterPhone(),
+            '/otpSms': (context) => OTPControllerSreen(),
             '/profileCreate': (context) => Profile(),
+            '/pinCodeScreen': (context) => PinCodeScreen(),
+            // '/confirmPinCode': (context) => PinCodeScreen2(),
+            '/loginScreen': (context) => LoginScreen(),
+            '/startPage': (context) => StartPage(),
             '/homePage': (context) => HomePage(),
             '/requestPage': (context) => RequestPage(),
             '/successRequest': (context) => SuccessRequest(),
