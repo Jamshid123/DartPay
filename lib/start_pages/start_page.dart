@@ -5,14 +5,17 @@ import '../main pages/home_screens/home_page.dart';
 import '../main pages/home_screens/send_money_pages/send_money.dart';
 
 class StartPage extends StatefulWidget {
-
   @override
   _StartPageState createState() => _StartPageState();
 }
 
 class _StartPageState extends State<StartPage> {
   int _selectedScreen = 0;
-  final List<Widget> _screens = [HomePage(), const SendMoney(), const Settings()];
+  final List<Widget> _screens = [
+    HomePage(),
+    const SendMoney(),
+    const Settings()
+  ];
   Widget currentScreen = HomePage();
   PageStorageBucket bucket = PageStorageBucket();
 
@@ -21,19 +24,23 @@ class _StartPageState extends State<StartPage> {
     return Scaffold(
       body: PageStorage(bucket: bucket, child: currentScreen),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: _selectedScreen == 1 ? orangeColor : greyColor,
+        backgroundColor: orangeColor,
         onPressed: () {
-          setState(() {
-            _selectedScreen = 1;
-            currentScreen = const SendMoney();
-          });
+          setState(
+            () {
+              _selectedScreen = 1;
+              currentScreen = const SendMoney();
+            },
+          );
         },
-        child: const ImageIcon(
+        child: ImageIcon(
           AssetImage('assets/images/arrow_icon.png'),
+          color: Colors.white,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).primaryColor,
         elevation: 0,
         shape: const CircularNotchedRectangle(),
         notchMargin: 10,
@@ -70,16 +77,17 @@ class _StartPageState extends State<StartPage> {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.only(top: 35, left: 15),
-                  child: Text(
-                    'Переводы',
-                    style: TextStyle(
-                      fontFamily: 'Mont',
-                      fontWeight: FontWeight.w500,
-                      color: _selectedScreen == 1 ? orangeColor : greyColor,
-                      fontSize: 12,
-                    ),
-                  ),),
+                padding: const EdgeInsets.only(top: 35, left: 15),
+                child: Text(
+                  'Переводы',
+                  style: TextStyle(
+                    fontFamily: 'Mont',
+                    fontWeight: FontWeight.w500,
+                    color: _selectedScreen == 1 ? orangeColor : greyColor,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
               MaterialButton(
                 minWidth: 40,
                 onPressed: () {
