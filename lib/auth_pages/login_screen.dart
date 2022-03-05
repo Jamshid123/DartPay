@@ -27,9 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: EdgeInsets.only(top: screenHeight * 0.17),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+              const Center(
                 child: Text(
                   'Установите пароль',
                   style: TextStyle(
@@ -39,44 +39,38 @@ class _LoginScreenState extends State<LoginScreen> {
                       letterSpacing: 1),
                 ),
               ),
-              SizedBox(height: 40),
-              Padding(
-                padding: EdgeInsets.only(right: screenWidth * 0.47, left: 45),
-                child: Text(
+              const SizedBox(height: 40),
+              Container(
+                padding: EdgeInsets.only(left: 45),
+                child: const Text(
                   "Ваш номер телефона",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                  style: kYourNumberStyle,
                 ),
               ),
-              SizedBox(
-                height: 10
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 40, right: 40),
+              const SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.only(left: 40, right: 40),
+                height: 40,
                 child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
                   keyboardType: TextInputType.number,
                   controller: _phoneController,
                 ),
               ),
-              SizedBox(height: 13),
-              Padding(
-                padding: EdgeInsets.only(left: 45, right: screenWidth * 0.73),
-                child: Text(
+              const SizedBox(height: 13),
+              Container(
+                padding: const EdgeInsets.only(left: 45),
+                child: const Text(
                   'Пароль',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.grey),
+                  style: kYourNumberStyle,
                 ),
               ),
-              SizedBox(
-                height: 10
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40, left: 40),
+              const SizedBox(height: 10),
+              Container(
+                height: 40,
+                padding: EdgeInsets.only(left: 40, right: 40),
                 child: TextField(
                   obscureText: isHidePassword,
                   decoration: InputDecoration(
@@ -88,14 +82,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.only(left: 40, right: 40),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/startPage');
                   },
-                  child: Text(
+                  child: const Text(
                     'Установить пароль',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -105,24 +99,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: orangeColor,
-                    minimumSize: Size(double.infinity, 45),
+                    minimumSize: const Size(double.infinity, 45),
                   ),
                 ),
               ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'Пропустить',
-                  style: TextStyle(
-                      fontFamily: 'Gilroy-Regular',
-                      color: orangeColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1),
+              const SizedBox(height: 25),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child:const Text(
+                    'Пропустить',
+                    style: TextStyle(
+                        fontFamily: 'Gilroy-Regular',
+                        color: orangeColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.transparent, elevation: 0),
                 ),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.transparent, elevation: 0),
               ),
             ],
           ),

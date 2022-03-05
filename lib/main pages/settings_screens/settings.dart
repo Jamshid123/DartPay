@@ -23,34 +23,34 @@ class _SettingsState extends State<Settings> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: screenWidth,
-              child: Stack(
-                children: [
-                  Container(
-                    child: Image.asset(
-                      'assets/images/background_image_settings.png',
-                      fit: BoxFit.fill,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: screenWidth,
+                child: Stack(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        'assets/images/background_image_settings.png',
+                        fit: BoxFit.fill,
+                      ),
+                      width: screenWidth,
                     ),
-                    width: screenWidth,
-                  ),
-                  Positioned(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 78),
-                        child: Image.asset(
-                            'assets/images/userAvatar_settings.png'),
+                    Positioned(
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 78),
+                          child: Image.asset(
+                              'assets/images/userAvatar_settings.png'),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
@@ -76,7 +76,7 @@ class _SettingsState extends State<Settings> {
                   ),
                   SizedBox(height: 15),
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.44,
                     child: ListView(
                       scrollDirection: Axis.vertical,
                       children: [
@@ -118,7 +118,7 @@ class _SettingsState extends State<Settings> {
                             children: [
                               Container(
                                 child: Row(
-                                  children: [
+                                  children: const [
                                     ImageIcon(
                                       AssetImage('assets/images/icon_moon.png'),
                                       color: orangeColor,
@@ -193,8 +193,8 @@ class _SettingsState extends State<Settings> {
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

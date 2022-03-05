@@ -1,3 +1,4 @@
+import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:DartPay/models/card_model.dart';
@@ -21,13 +22,12 @@ class _TransferPaymentState extends State<TransferPayment> {
         children: [
           Expanded(
             child: Container(
-              color: Colors.deepOrange,
+              color: orangeColor,
               child: const Center(
-                child: Text('Чек к оплате',
-                    style: TextStyle(
-                        color: Color(0xFF535461),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700),),
+                child: Text(
+                  'Чек к оплате',
+                  style: kCheckToPayText,
+                ),
               ),
             ),
           ),
@@ -52,14 +52,12 @@ class _TransferPaymentState extends State<TransferPayment> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                     CarouselSlider.builder(
                         itemCount: 2,
                         options: CarouselOptions(
                           viewportFraction: 0.9,
-                          height: 80,
+                          height: 50,
                           enableInfiniteScroll: false,
                         ),
                         itemBuilder:
@@ -76,24 +74,20 @@ class _TransferPaymentState extends State<TransferPayment> {
                               children: [
                                 Container(
                                   margin: EdgeInsets.only(left: 5),
-                                  height: 50,
-                                  width: 90,
+                                  height: 38,
+                                  width: 68,
                                   decoration: BoxDecoration(
-                                    color: Colors.deepOrange,
+                                    color: orangeColor,
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Stack(
                                     children: [
                                       Positioned(
                                         child: Text(
-                                          cardList[index].cardType,
-                                          style: TextStyle(
-                                              fontFamily: 'Mont',
-                                              fontSize: 6,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.white),
+                                          cardList[index].cardName,
+                                          style: kCardNameCheckPage,
                                         ),
-                                        top: 15,
+                                        top: 5,
                                         bottom: 27,
                                         left: 5,
                                         right: 20,
@@ -101,15 +95,11 @@ class _TransferPaymentState extends State<TransferPayment> {
                                       Positioned(
                                         child: Text(
                                           cardList[index].cardNumber,
-                                          style: TextStyle(
-                                              fontFamily: 'Mont',
-                                              fontSize: 7,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.white),
+                                          style: kCardNumberCheckPage,
                                         ),
-                                        top: 35,
+                                        top: 27,
                                         bottom: 4,
-                                        left: 5,
+                                        left: 3,
                                         right: 25,
                                       ),
                                       Positioned(
@@ -117,31 +107,26 @@ class _TransferPaymentState extends State<TransferPayment> {
                                           image: AssetImage(
                                               cardList[index].cardType),
                                         ),
-                                        top: 5,
+                                        top: 6,
                                         bottom: 23,
-                                        left: 70,
+                                        left: 58,
                                         right: 5,
                                       ),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(width: 10),
                                 Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       cardList[index].cardName,
-                                      style: TextStyle(
-                                          fontFamily: 'Mont',
-                                          color: Colors.black),
+                                      style: kCardNameMedium,
                                     ),
-                                    const SizedBox(height: 5, width: 10),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 35),
-                                      child: Text(
-                                        cardList[index].cardNumber,
-                                        style: TextStyle(
-                                            fontFamily: 'Mont',
-                                            color: Colors.black),
-                                      ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      cardList[index].cardNumber,
+                                      style: kCardNameMedium,
                                     ),
                                   ],
                                 ),
@@ -150,106 +135,85 @@ class _TransferPaymentState extends State<TransferPayment> {
                           );
                         }),
                     const SizedBox(height: 20.5),
-                    Text(
+                    const Text(
                       'Карта получателя:',
-                      style: TextStyle(color: Colors.grey),
+                      style: kRecipientStyle,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '8600 **** **** 0000',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
+                    const SizedBox(height: 10),
+                    const Text('8600 **** **** 0000', style: kCardNumberLarge),
+                    const SizedBox(height: 10),
+                    const Text(
                       'Сумма:',
-                      style: TextStyle(color: Colors.grey),
+                      style: kRecipientStyle,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       '3 000 000 сум (=20 583,05 рублей)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                      style: kCardNumberLarge,
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
+                    SizedBox(height: 10),
+                    const Text(
                       'Комиссия:',
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
+                      style: kRecipientStyle,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
+                    const SizedBox(height: 10),
+                    const Text(
                       '6 492 cум',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                      style: kCardNumberLarge,
                     ),
                     const SizedBox(height: 10),
                     Center(
                       child: Container(
                         child: Column(
-                          children: [
+                          children: const [
                             Text(
                               'К оплате',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                  color: Colors.grey),
+                              style: kToPayStyle,
                             ),
-                            SizedBox(
-                              height: 5
-                            ),
+                            SizedBox(height: 5),
                             Text(
                               '3 006 492 cум',
-                              style: TextStyle(
-                                  color: Colors.deepOrange,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w700),
+                              style: kAmountMoney,
                             ),
                           ],
                         ),
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
+                    const Text(
                       'Комментарий',
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      style: kCommentStyle,
                     ),
                     const SizedBox(height: 5),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(right: 15),
                       child: TextField(
                         keyboardType: TextInputType.text,
                         maxLines: null,
                         decoration: InputDecoration(
                           hintText: 'Добавьте ваш комментарий',
+                          hintStyle: kAddCommentStyle,
                           border: OutlineInputBorder(),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 15
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 15),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/endCheck');
-                          },
-                          child: Text('Перевести'),
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.deepOrange,
-                              fixedSize: Size(screenWidth * 0.91, 50),),
+                    const SizedBox(height: 15),
+                    Container(
+                      margin: const EdgeInsets.only(right: 15),
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: orangeColor,
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/transferPayment');
+                        },
+                        child: const Text(
+                          'Перевести',
+                          style: kManualStyle,
                         ),
                       ),
                     ),

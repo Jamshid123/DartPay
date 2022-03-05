@@ -1,9 +1,9 @@
 import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_screen_lock/flutter_screen_lock.dart';
 
 class CardAdd extends StatefulWidget {
   const CardAdd({Key? key}) : super(key: key);
@@ -60,27 +60,20 @@ class _CardAddState extends State<CardAdd> {
                       TextFormField(
                         obscureText: false,
                         decoration: InputDecoration(
-                          label: Text('Введите номер карты',
-                              style:  kCardAddStyle)),
-
+                            label: Text('Введите номер карты',
+                                style: kCardAddStyle)),
                         keyboardType: TextInputType.number,
                         controller: _controllerNum,
                       ),
                       TextFormField(
-                        controller: _controllerYear,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            label: Text(
-                          'ММ/ГГ',
-                          style:
-
-                              kCardAddStyle),
-                        )),
-
+                          controller: _controllerYear,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            label: Text('ММ/ГГ', style: kCardAddStyle),
+                          )),
                       TextField(
                         decoration: InputDecoration(
-                          label: Text('Название карты',
-                              style:  kCardAddStyle),
+                          label: Text('Название карты', style: kCardAddStyle),
                         ),
                       ),
                       SizedBox(
@@ -89,11 +82,7 @@ class _CardAddState extends State<CardAdd> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(
-                            'Сделать карту основной',
-                            style:  kMainCardStyle),
-
-
+                          Text('Сделать карту основной', style: kMainCardStyle),
                         ],
                       ),
                     ],
@@ -109,13 +98,15 @@ class _CardAddState extends State<CardAdd> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: orangeColor),
-                  onPressed: () {},
+                  onPressed: () {
+
+                  },
                   child: Text(
                     'Добавить',
                     style: kAddCardButton,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -123,3 +114,4 @@ class _CardAddState extends State<CardAdd> {
     );
   }
 }
+
