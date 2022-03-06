@@ -82,8 +82,10 @@ const kRecentTextStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     letterSpacing: 1);
 const kCardTransactionStyle = TextStyle(
-    fontFamily: 'Mont', fontWeight: FontWeight.w500, letterSpacing: 1,
-color: Color(0xFFBFBFBF));
+    fontFamily: 'Mont',
+    fontWeight: FontWeight.w500,
+    letterSpacing: 1,
+    color: Color(0xFFBFBFBF));
 const kCardTransactionStyle1 = TextStyle(
     fontFamily: 'Mont', fontWeight: FontWeight.w400, letterSpacing: 1);
 const kRequestButtonTextStyle = TextStyle(
@@ -211,6 +213,7 @@ const kProfileCreateButton = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     letterSpacing: 1);
+
 const kSetUpPin = TextStyle(
     fontFamily: 'Mont',
     fontSize: 18,
@@ -318,7 +321,10 @@ const kAddCommentStyle = TextStyle(
   color: greyColor,
 );
 const kCheckToPayText = TextStyle(
-    fontSize: 18, fontFamily: 'Gilroy-Regular', fontWeight: FontWeight.w700);
+    fontSize: 18,
+    fontFamily: 'Gilroy-Regular',
+    fontWeight: FontWeight.w700,
+    letterSpacing: 1);
 
 const kTransactionNameStyle = TextStyle(
   fontWeight: FontWeight.w500,
@@ -326,8 +332,24 @@ const kTransactionNameStyle = TextStyle(
   fontFamily: 'Mont',
   color: Color(0xFF535461),
 );
-const kTransactionAmount =  TextStyle(
+const kTransactionAmount = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: 'Mont',
   color: Color(0xFF535461),
 );
+const kTransactionAmountReceived = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontFamily: 'Mont',
+  color: Color(0xFF14DC5A),
+);
+
+const kSendMoneyCardNumStyle = TextStyle(
+    fontFamily: 'Mont',
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Colors.white);
+
+const kDateStyle =  TextStyle(
+    fontFamily: 'Gilroy-Regular',
+    fontWeight: FontWeight.w500,
+    fontSize: 14, color: orangeColor);

@@ -1,30 +1,15 @@
-class CardTransactionModel {
-  String userAvatar;
-  String userName;
-  String transactionStatus;
-  String transactionAmount;
-  String transactionTime;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-  CardTransactionModel(this.userAvatar, this.userName, this.transactionStatus,
-      this.transactionAmount, this.transactionTime);
+class CardTransactionModel {
+  String userAvatar = "assets/images/userAvatar.png";
+  String userName = "Bayahmedov S.R";
+  String transactionStatus = "Отправлено";
+  String transactionsStatusReceived = "+ 2 500 000";
+  String transactionAmount = "- 1 000 000";
+  String transactionTime = "14:00";
+
 }
 
-List<CardTransactionModel> cardTransactionList = cardTransactionData
-    .map((item) => CardTransactionModel(
-        item['userAvatar'].toString(),
-        item['userName'].toString(),
-        item['transactionStatus'].toString(),
-        item['transactionAmount'].toString(),
-        item['transactionTime'].toString()))
-    .toList();
 
-var cardTransactionData = [
-  {
-    "userAvatar": "assets/images/userAvatar.png",
-    "userName": "Bayahmedov S.R",
-    "transactionStatus": "Отправлено",
-    "transactionAmount": "- 1 000 000",
-    "transactionTime": "14:00"
-  },
 
-];
+

@@ -103,7 +103,6 @@ class _EndCheckState extends State<EndCheck> {
               child: ElevatedButton(
                 onPressed: ()  {
                  Navigator.pushNamed(context, '/successTransfer');
-
                 },
                 child: Text('Перевести'),
                 style: ElevatedButton.styleFrom(
