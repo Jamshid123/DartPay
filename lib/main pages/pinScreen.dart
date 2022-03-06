@@ -1,3 +1,4 @@
+import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 
 class PinCodeScreen extends StatefulWidget {
@@ -22,14 +23,32 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/loginScreen');
+                },
+                child: const Text(
+                  'Ввести пароль',
+                  style: kPasscode,
+                ),
+              ),
+            ),
+          ],
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               buildSecurityText(),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               buildPinRow(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               buildNumberPad(),
             ],
           ),
@@ -64,7 +83,7 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
                   }),
             ],
           ),
-          SizedBox(height: 22),
+          const SizedBox(height: 22),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -85,7 +104,7 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
                   }),
             ],
           ),
-          SizedBox(height: 22),
+          const SizedBox(height: 22),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -106,20 +125,20 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
                   }),
             ],
           ),
-          SizedBox(height: 22),
+          const SizedBox(height: 22),
           Padding(
             padding: const EdgeInsets.only(left: 23),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(Icons.directions_transit),
+                const Icon(Icons.directions_transit),
                 KeyboardNumber(
                     n: 0,
                     onPressed: () {
                       pinIndexSetup("0");
                     }),
                 IconButton(
-                  icon: Icon(Icons.backspace_outlined, color: Colors.orange),
+                  icon: const Icon(Icons.backspace_outlined, color: Colors.orange),
                   onPressed: () {
                     clearPin();
                   },
@@ -184,17 +203,17 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
           outlineInputBorder: outlineInputBorder,
           textEditingController: pinOneController,
         ),
-        SizedBox(width: 25),
+        const SizedBox(width: 25),
         PINNumber(
           outlineInputBorder: outlineInputBorder,
           textEditingController: pinTwoController,
         ),
-        SizedBox(width: 25),
+        const SizedBox(width: 25),
         PINNumber(
           outlineInputBorder: outlineInputBorder,
           textEditingController: pinThreeController,
         ),
-        SizedBox(width: 25),
+        const SizedBox(width: 25),
         PINNumber(
           outlineInputBorder: outlineInputBorder,
           textEditingController: pinFourController,
@@ -204,9 +223,9 @@ class _PinCodeScreenState extends State<PinCodeScreen> {
   }
 
   buildSecurityText() {
-    return Text(
-      "Установите Pin Code",
-      style: TextStyle(color: Colors.black, fontSize: 18),
+    return const Text(
+      "Установите PIN-код",
+      style: kSetPinStyle,
     );
   }
 }
@@ -227,12 +246,12 @@ class PINNumber extends StatelessWidget {
         obscureText: true,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(16.0),
+          contentPadding: const EdgeInsets.all(16.0),
           border: outlineInputBorder,
           filled: true,
           fillColor: Colors.deepOrange,
         ),
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 21,
           color: Colors.black,
@@ -253,11 +272,11 @@ class KeyboardNumber extends StatelessWidget {
       height: 80.0,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.deepOrangeAccent.withOpacity(0.1),
+        border: Border.all(color: orangeColor),
       ),
       alignment: Alignment.center,
       child: MaterialButton(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(60.0),
@@ -266,9 +285,8 @@ class KeyboardNumber extends StatelessWidget {
         child: Text(
           "$n",
           textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 24 * MediaQuery.of(context).textScaleFactor,
-              color: Colors.deepOrangeAccent),
+          style: const TextStyle(
+              fontSize: 32, fontWeight: FontWeight.w400, color: orangeColor),
         ),
       ),
     );
