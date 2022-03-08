@@ -12,12 +12,7 @@ import 'button.dart';
 import 'request_page/request.dart';
 import 'send_money_pages/send_money.dart';
 
-enum SendType {
-  send,
-  take,
-  textSend,
-  textTake,
-}
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,11 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   final dateFormatter = DateFormat('yyyy-MM-dd');
   var _data = DateFormat('dd.MM.yyyy').format(DateTime.now());
   int _currentIndex = 0;
-  SendType? typeSelected;
-  SendType? textTypeSelected;
   CardTransactionModel transactionModel = CardTransactionModel();
 
   @override
@@ -74,19 +68,20 @@ class _HomePageState extends State<HomePage> {
               CarouselSlider.builder(
                 itemCount: cardList.length,
                 options: CarouselOptions(
+                  enlargeCenterPage: true,
                   onPageChanged: (index, reason) {
                     setState(() {
                       _currentIndex = index;
                     });
                   },
-                  viewportFraction: 0.78,
+                  viewportFraction: 0.8,
                   height: 150,
                   enableInfiniteScroll: false,
                 ),
                 itemBuilder: (BuildContext context, int index, int realIndex) {
                   return Container(
                     width: 280,
-                    margin: const EdgeInsets.only(left: 15, right: 15),
+                    // margin: const EdgeInsets.only(left: 15, right: 15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: orangeColor,
@@ -161,44 +156,26 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
+                children:[
                   Button(
                     onPress: () {
                       Navigator.pushNamed(context, '/sendMoney');
-                      setState(() {
-                        typeSelected = SendType.send;
-                        textTypeSelected = SendType.textSend;
-                      });
                     },
                     colour: Colors.transparent,
                     data: const Text(
                       'Перевести средства',
-                      style: TextStyle(
-                          color: buttonTextColorInactive,
-                          fontFamily: 'Gilroy-Regular',
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                      style: kButtonHomePageStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Button(
                     onPress: () {
-                      setState(() {
-                        typeSelected = SendType.take;
-                        textTypeSelected = SendType.textTake;
-                      });
                       Navigator.pushNamed(context, '/requestPage');
                     },
                     colour: Colors.transparent,
                     data: const Text(
                       'Запросить средства',
-                      style: TextStyle(
-                          color: buttonTextColorInactive,
-                          fontFamily: 'Gilroy-Regular',
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                      style: kButtonHomePageStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -256,110 +233,168 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(height: 12),
-              CarouselSlider.builder(
-                options: CarouselOptions(
-                    height: 150,
-                    scrollDirection: Axis.vertical,
-                    enableInfiniteScroll: false),
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  return Container(
-                    padding: EdgeInsets.only(left: 15, right: 15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage:
-                                  AssetImage(transactionModel.userAvatar),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 18),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        transactionModel.userName,
-                                        style: kTransactionNameStyle,
-                                      ),
-                                      Text(
-                                        transactionModel.transactionStatus,
-                                        style: kCardTransactionStyle,
-                                      ),
-                                    ],
+              Container(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: 1,
+                  itemBuilder: (context, int index) {
+                    return Container(
+                      padding: EdgeInsets.only(left: 15, right: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundImage:
+                                    AssetImage(transactionModel.userAvatar),
                                   ),
-                                ),
-                              ],
-                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 18),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          transactionModel.userName,
+                                          style: kTransactionNameStyle,
+                                        ),
+                                        Text(
+                                          transactionModel.transactionStatus,
+                                          style: kCardTransactionStyle,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  transactionModel.transactionAmount,
-                                  style: kTransactionAmount,
-                                ),
-                                Text(
-                                  transactionModel.transactionTime,
-                                  style: kCardTransactionStyle,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage:
-                                  AssetImage(transactionModel.userAvatar),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 18),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        transactionModel.userName,
-                                        style: kTransactionNameStyle,
-                                      ),
-                                      Text(
-                                        transactionModel.transactionStatus,
-                                        style: kCardTransactionStyle,
-                                      ),
-                                    ],
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    transactionModel.transactionAmount,
+                                    style: kTransactionAmount,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  transactionModel.transactionAmount,
-                                  style: kTransactionAmount,
-                                ),
-                                Text(
-                                  transactionModel.transactionTime,
-                                  style: kCardTransactionStyle,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                                  Text(
+                                    transactionModel.transactionTime,
+                                    style: kCardTransactionStyle,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    height: 35,
+                                    width: 35,
+                                    child: Stack(
+                                      alignment: AlignmentDirectional.center,
+                                      children: [
+                                        SvgPicture.asset('assets/svg/elipse.svg'),
+                                        Text('RM', style: TextStyle(
+                                            fontFamily: 'Mont',
+                                            color: greyColor,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500
+                                        ),),
+                                      ],
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 18),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Muhamedova R.S',
+                                          style: kTransactionNameStyle,
+                                        ),
+                                        Text(
+                                          'Получено',
+                                          style: kCardTransactionStyle,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    '+ 2 500 000',
+                                    style: kTransactionAmountReceived,
+                                  ),
+                                  Text(
+                                    transactionModel.transactionTime,
+                                    style: kCardTransactionStyle,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundImage:
+                                    AssetImage(transactionModel.userAvatar),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 18),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          transactionModel.userName,
+                                          style: kTransactionNameStyle,
+                                        ),
+                                        Text(
+                                          transactionModel.transactionStatus,
+                                          style: kCardTransactionStyle,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    transactionModel.transactionAmount,
+                                    style: kTransactionAmount,
+                                  ),
+                                  Text(
+                                    transactionModel.transactionTime,
+                                    style: kCardTransactionStyle,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

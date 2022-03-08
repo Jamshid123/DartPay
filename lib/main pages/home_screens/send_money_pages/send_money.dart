@@ -51,6 +51,7 @@ class _SendMoneyState extends State<SendMoney> {
                 alignment: AlignmentDirectional.topCenter,
                 children: [
                   Container(
+                    height: screenHeight,
                     width: screenWidth,
                     child: Image.asset(
                       'assets/images/cardPicture5.png',
@@ -65,13 +66,13 @@ class _SendMoneyState extends State<SendMoney> {
                     },
                     iconSize: 30,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 25),
                     child: Text('Перевод', style: kCheckToPayText),
                   ),
                   Container(
-                    height: screenHeight * 0.9,
-                    width: MediaQuery.of(context).size.width,
+                    height: screenHeight,
+                    width: screenWidth,
                     margin: EdgeInsets.only(top: screenHeight * 0.12),
                     decoration: const BoxDecoration(
                       color: Colors.white,

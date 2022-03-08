@@ -289,6 +289,7 @@ class _RequestPageState extends State<RequestPage> {
                             maxLines: null,
                             decoration: InputDecoration(
                               hintText: 'Добавьте ваш комментарий',
+                              hintStyle: kAddCommentStyle,
                               border: OutlineInputBorder(),
                             ),
                           ),

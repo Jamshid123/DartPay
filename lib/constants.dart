@@ -353,3 +353,9 @@ const kDateStyle =  TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
     fontSize: 14, color: orangeColor);
+const kButtonHomePageStyle = TextStyle(
+    color: buttonTextColorInactive,
+    fontFamily: 'Gilroy-Regular',
+    fontSize: 18.0,
+    fontWeight: FontWeight.w500,
+    letterSpacing: 1);
