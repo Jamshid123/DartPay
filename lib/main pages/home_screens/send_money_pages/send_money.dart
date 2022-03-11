@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,6 +22,7 @@ class SendMoney extends StatefulWidget {
 }
 
 class _SendMoneyState extends State<SendMoney> {
+  final c = TextEditingController();
   final _controller = MaskedTextController(mask: '0000 0000 0000 0000');
   CardDetails? _cardDetails;
   CardScanOptions scanOptions = const CardScanOptions(
@@ -59,7 +62,8 @@ class _SendMoneyState extends State<SendMoney> {
                     ),
                   ),
                   IconButton(
-                    padding: EdgeInsets.only(top: 20, right: screenWidth * 0.88),
+                    padding:
+                        EdgeInsets.only(top: 20, right: screenWidth * 0.88),
                     icon: Icon(Icons.chevron_left, color: Colors.black),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/startPage');
