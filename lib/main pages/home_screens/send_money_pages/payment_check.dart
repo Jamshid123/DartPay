@@ -1,3 +1,4 @@
+import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
 import 'field_transfer.dart';
@@ -98,16 +99,18 @@ class _EndCheckState extends State<EndCheck> {
           ),
           const SizedBox(height: 50),
           Center(
-            child: Padding(
-              padding: EdgeInsets.only(right: 15, left: 15),
+            child: Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              width: double.infinity,
+              height: 50,
               child: ElevatedButton(
                 onPressed: ()  {
                  Navigator.pushNamed(context, '/successTransfer');
                 },
-                child: Text('Перевести'),
+                child: Text('Перевести', style: kManualStyle,),
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.deepOrange,
-                    fixedSize: Size(screenWidth * 0.91, 50)),
+                    primary: orangeColor,
+                ),
               ),
             ),
           ),

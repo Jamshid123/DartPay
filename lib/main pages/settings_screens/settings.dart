@@ -4,7 +4,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import '../../constants.dart';
 import 'card_add.dart';
 import 'profile_change.dart';
-import 'security_settings.dart';
+import 'security_page/security_settings.dart';
 import 'settings_button.dart';
 
 class Settings extends StatefulWidget {

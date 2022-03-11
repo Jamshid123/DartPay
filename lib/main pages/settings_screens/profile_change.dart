@@ -23,10 +23,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
     print(screenWidth);
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: SingleChildScrollView(
-          child: SafeArea(
+        body: SafeArea(
+
+          child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.1),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -40,6 +41,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
                       'Изменить фото',
                       style:
                           kChangePhotoStyle),
+                    style: TextButton.styleFrom(
+                      primary: greyColor,)
                     ),
 
                   Padding(
@@ -198,7 +201,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Сохранить'),
+                    child: const Text('Сохранить', style: kManualStyle,),
                     style: ElevatedButton.styleFrom(
                         primary: orangeColor,
                         fixedSize: Size(screenWidth * 0.8, 45),),
