@@ -38,7 +38,7 @@ var transactionData = [
     "transactionStatus": "Статус",
     "transactionSum": "Сумма",
     "transactionPerson": "Получатель",
-    "sent": "Отравлено",
+    "sent": "Отправлено",
     "amount": "3 000 000 UZS",
     "person": "Bayahmedov Sardor"
   },

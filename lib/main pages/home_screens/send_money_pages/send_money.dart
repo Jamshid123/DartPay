@@ -58,7 +58,8 @@ class _SendMoneyState extends State<SendMoney> {
                     ),
                   ),
                   IconButton(
-                    padding: EdgeInsets.only(top: 20, right: screenWidth * 0.88),
+                    padding:
+                        EdgeInsets.only(top: 20, right: screenWidth * 0.88),
                     icon: Icon(Icons.chevron_left, color: Colors.black),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/startPage');
