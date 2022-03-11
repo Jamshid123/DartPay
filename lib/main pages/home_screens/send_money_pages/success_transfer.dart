@@ -11,16 +11,13 @@ class SuccessTransfer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 320),
             child: Container(
-              child: Center(
-                child: Image.asset('images/Vector.png'),
-              ),
+              child: Center(child: Image.asset('assets/images/done.png'),),
             ),
           ),
-          SizedBox(height: 42),
           const Text(
             'Успешно!',
             style: TextStyle(
-                color: Color(0xFFF37547),
+                color: Colors.deepOrange,
                 fontWeight: FontWeight.w600,
                 fontSize: 24),
           ),

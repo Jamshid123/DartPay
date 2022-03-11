@@ -20,15 +20,12 @@ class _EndCheckState extends State<EndCheck> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: BackButton(
-          color: Color(0xFF535461),
+          color: Colors.black,
         ),
         title: const Text(
           'Главная',
           style: TextStyle(
-              color: Color(0xFF535461),
-              fontFamily: 'Gilroy-Regular',
-              fontWeight: FontWeight.w500,
-              fontSize: 18),
+              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 18),
         ),
       ),
       body: Column(
@@ -38,11 +35,7 @@ class _EndCheckState extends State<EndCheck> {
             padding: const EdgeInsets.only(left: 15),
             child: Text(
               'Перевод',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 24,
-                fontFamily: 'Gilroy-Regular',
-              ),
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
             ),
           ),
           const SizedBox(height: 20),
@@ -57,37 +50,6 @@ class _EndCheckState extends State<EndCheck> {
                 ),
                 Text(
                   transaction[0].transactionDate,
-                  style: kTransactionAmount,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  transaction[0].transactionStatus,
-                  style: kTransactionAmount,
-                ),
-                Text(transaction[0].sent, style: kTransactionAmountReceived),
-              ],
-            ),
-          ),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Сумма',
-                  style: kTransactionAmount,
-                ),
-                Text(
-                  transaction[0].amount,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
               ],
@@ -99,29 +61,56 @@ class _EndCheckState extends State<EndCheck> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Получатель',
-                  style: kTransactionAmount,
-                ),
-                Text(
-                  transaction[0].person,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                ),
+                Text(transaction[0].transactionStatus,
+                    style:
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                Text(transaction[0].sent,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Сумма',
+                    style:
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                Text(transaction[0].amount,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Получатель',
+                    style:
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                Text(transaction[0].person,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
               ],
             ),
           ),
           const SizedBox(height: 50),
           Center(
-            child: Padding(
-              padding: EdgeInsets.only(right: 15, left: 15),
+            child: Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              width: double.infinity,
+              height: 50,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/successTransfer');
+                onPressed: ()  {
+                 Navigator.pushNamed(context, '/successTransfer');
                 },
-                child: Text('Перевести'),
+                child: Text('Перевести', style: kManualStyle,),
                 style: ElevatedButton.styleFrom(
-                    primary: activeButtonColor,
-                    fixedSize: Size(screenWidth * 0.91, 50)),
+                    primary: orangeColor,
+                ),
               ),
             ),
           ),

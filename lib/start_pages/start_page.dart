@@ -99,12 +99,7 @@ class _StartPageState extends State<StartPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: orangeColor,
         onPressed: () {
-          setState(
-            () {
-              _selectedScreen = 1;
-              currentScreen = const SendMoney();
-            },
-          );
+          Navigator.pushNamed(context, '/sendMoney');
         },
         child: const ImageIcon(
           AssetImage('assets/images/arrow_icon.png'),

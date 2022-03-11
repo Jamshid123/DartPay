@@ -66,8 +66,7 @@ class _RequestPageState extends State<RequestPage> {
                     ),
                   ),
                   IconButton(
-                    padding:
-                        EdgeInsets.only(top: 20, right: screenWidth * 0.88),
+                    padding: EdgeInsets.only(top: 20, right: screenWidth * 0.88),
                     icon: Icon(Icons.chevron_left, color: Colors.black),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/startPage');
@@ -90,8 +89,9 @@ class _RequestPageState extends State<RequestPage> {
                       ),
                     ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const SizedBox(height: 12),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -101,9 +101,7 @@ class _RequestPageState extends State<RequestPage> {
                                 'Перевод',
                                 style: kTransferButtonStyle,
                               ),
-                              onPress: () {
-                                Navigator.pushNamed(context, '/sendMoney');
-                              },
+                              onPress: () {},
                             ),
                             const SizedBox(width: 15),
                             RequestButton(
@@ -228,181 +226,92 @@ class _RequestPageState extends State<RequestPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: EdgeInsets.only(left: 15),
-                              child: Text(
-                                'Введите номер карты',
-                                style: kInputCardNumberStyle,
+                          ],
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 15),
+                          child: Text(
+                            'Введите номер карты',
+                            style: kInputCardNumberStyle,
+                          ),
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(left: 10),
+                              width: 250,
+                              height: 50,
+                              child: TextField(
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                ),
+                                keyboardType: TextInputType.number,
+                                controller: _controller,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(width: 10),
                             Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  margin: const EdgeInsets.only(left: 10),
-                                  width: 250,
-                                  height: 50,
-                                  child: TextField(
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
-                                    ),
-                                    keyboardType: TextInputType.number,
-                                    controller: _controller,
+                                IconButton(
+                                  onPressed: () async {
+                                    scanCard();
+                                  },
+                                  icon: Image.asset(
+                                    'assets/images/barcode_scanner.png',
+                                    color: orangeColor,
                                   ),
                                 ),
-                                const SizedBox(width: 10),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () async {
-                                        scanCard();
-                                      },
-                                      icon: Image.asset(
-                                        'assets/images/barcode_scanner.png',
-                                        color: orangeColor,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.person_add_alt_1_outlined,
-                                        color: orangeColor,
-                                        size: 35,
-                                      ),
-                                    ),
-                                  ],
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.person_add_alt_1_outlined,
+                                    color: orangeColor,
+                                    size: 35,
+                                  ),
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
-                            Container(
-                              margin:
-                                  const EdgeInsets.only(left: 15, right: 15),
-                              height: 140,
-                              decoration: BoxDecoration(
-                                  color: Colors.greenAccent,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                            SizedBox(height: 37),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                              height: 70,
-                              child: const TextField(
-                                keyboardType: TextInputType.text,
-                                maxLines: null,
-                                decoration: InputDecoration(
-                                  hintText: 'Добавьте ваш комментарий',
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 16),
-                            Container(
-                              margin: const EdgeInsets.only(
-                                  left: 15, right: 15, bottom: 23),
-                              height: 50,
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: orangeColor,
-                                ),
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, '/successRequest');
-                                },
-                                child: const Text(
-                                  'Отправить запрос',
-                                  style: kManualStyle,
-                                ),
-                              ),
-                            ),
-                            // Padding(
-                            //   padding: EdgeInsets.only(left: 15),
-                            //   child: Text(
-                            //     'Введите номер карты',
-                            //     style: kInputCardNumberStyle,
-                            //   ),
-                            // ),
-                            // Row(
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   children: [
-                            //     Container(
-                            //       margin: const EdgeInsets.only(left: 10),
-                            //       width: 250,
-                            //       height: 50,
-                            //       child: TextField(
-                            //         decoration: const InputDecoration(
-                            //           border: OutlineInputBorder(),
-                            //         ),
-                            //         keyboardType: TextInputType.number,
-                            //         controller: _controller,
-                            //       ),
-                            //     ),
-                            //     const SizedBox(width: 10),
-                            //     Row(
-                            //       children: [
-                            //         IconButton(
-                            //           onPressed: () async {
-                            //             scanCard();
-                            //           },
-                            //           icon: Image.asset(
-                            //             'assets/images/barcode_scanner.png',
-                            //             color: orangeColor,
-                            //           ),
-                            //         ),
-                            //         IconButton(
-                            //           onPressed: () {},
-                            //           icon: const Icon(
-                            //             Icons.person_add_alt_1_outlined,
-                            //             color: orangeColor,
-                            //             size: 35,
-                            //           ),
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   ],
-                            // ),
-                            // Container(
-                            //   margin: const EdgeInsets.only(left: 15, right: 15),
-                            //   height: 140,
-                            //   decoration: BoxDecoration(
-                            //       color: Colors.greenAccent,
-                            //       borderRadius: BorderRadius.circular(10)),
-                            // ),
-                            // Container(
-                            //   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                            //   height: 70,
-                            //   child: const TextField(
-                            //     keyboardType: TextInputType.text,
-                            //     maxLines: null,
-                            //     decoration: InputDecoration(
-                            //       hintText: 'Добавьте ваш комментарий',
-                            //       border: OutlineInputBorder(),
-                            //     ),
-                            //   ),
-                            // ),
-                            // Container(
-                            //   margin: const EdgeInsets.only(
-                            //       left: 15, right: 15, bottom: 23),
-                            //   height: 50,
-                            //   width: double.infinity,
-                            //   child: ElevatedButton(
-                            //     style: ElevatedButton.styleFrom(
-                            //       primary: orangeColor,
-                            //     ),
-                            //     onPressed: () {
-                            //       Navigator.pushNamed(context, '/successRequest');
-                            //     },
-                            //     child: const Text(
-                            //       'Отправить запрос',
-                            //       style: kManualStyle,
-                            //     ),
-                            //   ),
-                            // ),
                           ],
-                        )
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 15, right: 15),
+                          height: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.greenAccent,
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          height: 70,
+                          child: const TextField(
+                            keyboardType: TextInputType.text,
+                            maxLines: null,
+                            decoration: InputDecoration(
+                              hintText: 'Добавьте ваш комментарий',
+                              hintStyle: kAddCommentStyle,
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 23),
+                          height: 50,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: orangeColor,
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/successRequest');
+                            },
+                            child: const Text(
+                              'Отправить запрос',
+                              style: kManualStyle,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

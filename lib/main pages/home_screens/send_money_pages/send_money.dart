@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,6 +22,7 @@ class SendMoney extends StatefulWidget {
 }
 
 class _SendMoneyState extends State<SendMoney> {
+  final c = TextEditingController();
   final _controller = MaskedTextController(mask: '0000 0000 0000 0000');
   CardDetails? _cardDetails;
   CardScanOptions scanOptions = const CardScanOptions(
@@ -51,6 +54,7 @@ class _SendMoneyState extends State<SendMoney> {
                 alignment: AlignmentDirectional.topCenter,
                 children: [
                   Container(
+                    height: screenHeight,
                     width: screenWidth,
                     child: Image.asset(
                       'assets/images/cardPicture5.png',
@@ -66,13 +70,13 @@ class _SendMoneyState extends State<SendMoney> {
                     },
                     iconSize: 30,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 25),
                     child: Text('Перевод', style: kCheckToPayText),
                   ),
                   Container(
-                    height: screenHeight * 0.9,
-                    width: MediaQuery.of(context).size.width,
+                    height: screenHeight,
+                    width: screenWidth,
                     margin: EdgeInsets.only(top: screenHeight * 0.12),
                     decoration: const BoxDecoration(
                       color: Colors.white,
