@@ -135,7 +135,7 @@ class _SendMoneyState extends State<SendMoney> {
                         const SizedBox(height: 15),
                         CarouselSlider.builder(
                             options: CarouselOptions(
-                              viewportFraction: 0.75,
+                              viewportFraction: 0.950,
                               height: 75,
                               enableInfiniteScroll: false,
                             ),
@@ -143,7 +143,8 @@ class _SendMoneyState extends State<SendMoney> {
                             itemBuilder: (BuildContext context, int index,
                                 int realIndex) {
                               return Container(
-                                width: 280,
+                                margin: EdgeInsets.only(right: 10),
+                                width: screenWidth,
                                 decoration: BoxDecoration(
                                     color: orangeColor,
                                     borderRadius: BorderRadius.circular(10)),
@@ -157,8 +158,8 @@ class _SendMoneyState extends State<SendMoney> {
                                         style: kSendMoneyCardNumStyle,
                                       ),
                                       top: 12,
-                                      right: 139,
-                                      left: 35,
+                                      right: 130,
+                                      left: 20,
                                       bottom: 45,
                                     ),
                                     Positioned(
@@ -176,8 +177,8 @@ class _SendMoneyState extends State<SendMoney> {
                                           'assets/images/logo_uzcard_512.png'),
                                       top: 19,
                                       right: 21,
-                                      left: 237,
-                                      bottom: 27,
+                                      left: 320,
+                                      bottom: 25,
                                     ),
                                   ],
                                 ),
@@ -202,8 +203,13 @@ class _SendMoneyState extends State<SendMoney> {
                               child: TextField(
                                 cursorColor: greyColor,
                                 decoration: const InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: greyColor),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: greyColor),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: greyColor),
                                   ),
                                 ),
                                 keyboardType: TextInputType.number,

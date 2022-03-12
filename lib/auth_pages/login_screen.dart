@@ -54,8 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   cursorColor: greyColor,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: greyColor),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: greyColor),
                     ),
                   ),
                   keyboardType: TextInputType.number,
@@ -78,8 +83,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   cursorColor: greyColor,
                   obscureText: isHidePassword,
                   decoration: InputDecoration(
-                    border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor)
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: greyColor),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: greyColor),
                     ),
                     suffixIcon: InkWell(
                       onTap: _togglePasswordView,
