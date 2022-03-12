@@ -53,12 +53,17 @@ class _SendMoneyState extends State<SendMoney> {
               Stack(
                 alignment: AlignmentDirectional.topCenter,
                 children: [
-                  Container(
-                    height: screenHeight,
-                    width: screenWidth,
-                    child: Image.asset(
-                      'assets/images/cardPicture5.png',
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.popAndPushNamed(context, '/startPage');
+                    },
+                    child: Container(
+                      height: screenHeight * 0.85,
+                      width: screenWidth,
+                      child: Image.asset(
+                        'assets/images/cardPicture5.png',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   IconButton(
@@ -75,7 +80,7 @@ class _SendMoneyState extends State<SendMoney> {
                     child: Text('Перевод', style: kCheckToPayText),
                   ),
                   Container(
-                    height: screenHeight,
+                    height: screenHeight * 0.85,
                     width: screenWidth,
                     margin: EdgeInsets.only(top: screenHeight * 0.12),
                     decoration: const BoxDecoration(

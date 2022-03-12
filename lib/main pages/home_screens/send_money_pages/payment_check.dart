@@ -19,13 +19,16 @@ class _EndCheckState extends State<EndCheck> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: BackButton(
-          color: Colors.black,
-        ),
+        leading:IconButton(onPressed: (){
+          Navigator.popAndPushNamed(context, '/sendMoney');
+        }, icon: Icon(Icons.chevron_left), color: Color(0xFF535461),),
         title: const Text(
           'Главная',
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 18),
+              color: Color(0xFF535461),
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              fontFamily: 'Gilroy-Regular'),
         ),
       ),
       body: Column(
@@ -35,7 +38,7 @@ class _EndCheckState extends State<EndCheck> {
             padding: const EdgeInsets.only(left: 15),
             child: Text(
               'Перевод',
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, fontFamily: 'Gilroy-Regular'),
             ),
           ),
           const SizedBox(height: 20),
@@ -46,11 +49,11 @@ class _EndCheckState extends State<EndCheck> {
               children: [
                 Text(
                   transaction[0].transactionNumber,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, fontFamily: 'Gilroy-Regular'),
                 ),
                 Text(
                   transaction[0].transactionDate,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: greyColor, fontFamily: 'Gilroy-Regular'),
                 ),
               ],
             ),
@@ -61,11 +64,14 @@ class _EndCheckState extends State<EndCheck> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(transaction[0].transactionStatus,
-                    style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
-                Text(transaction[0].sent,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                Text(
+                  transaction[0].transactionStatus,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: greyColor, fontFamily: 'Gilroy-Regular'),
+                ),
+                Text(
+                  transaction[0].sent,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xFF05B242), fontFamily: 'Gilroy-Regular'),
+                ),
               ],
             ),
           ),
@@ -75,11 +81,14 @@ class _EndCheckState extends State<EndCheck> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Сумма',
-                    style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
-                Text(transaction[0].amount,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                const Text(
+                  'Сумма',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: greyColor, fontFamily: 'Gilroy-Regular'),
+                ),
+                Text(
+                  transaction[0].amount,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, fontFamily:'Gilroy-Regular', color:Color(0xFF3F3D56)  ),
+                ),
               ],
             ),
           ),
@@ -89,11 +98,14 @@ class _EndCheckState extends State<EndCheck> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Получатель',
-                    style:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
-                Text(transaction[0].person,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
+                const Text(
+                  'Получатель',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: greyColor, fontFamily: 'Gilroy-Regular'),
+                ),
+                Text(
+                  transaction[0].person,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, fontFamily: 'Gilroy-Regular', color: Color(0xFF3F3D56)),
+                ),
               ],
             ),
           ),
@@ -104,12 +116,15 @@ class _EndCheckState extends State<EndCheck> {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: ()  {
-                 Navigator.pushNamed(context, '/successTransfer');
+                onPressed: () {
+                  Navigator.pushNamed(context, '/successTransfer');
                 },
-                child: Text('Перевести', style: kManualStyle,),
+                child: Text(
+                  'Перевести',
+                  style: kManualStyle,
+                ),
                 style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
+                  primary: orangeColor,
                 ),
               ),
             ),

@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 
 class SuccessTransfer extends StatelessWidget {
@@ -5,23 +8,24 @@ class SuccessTransfer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer(Duration(milliseconds: 800), () {
+      Navigator.pushNamed(context, '/sendMoney');
+    });
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 320),
-            child: Container(
-              child: Center(child: Image.asset('assets/images/done.png'),),
-            ),
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/done.png'),
+              SizedBox(height: 42),
+              const Text(
+                'Успешно!',
+                style: kSuccessTextStyle,
+              ),
+            ],
           ),
-          const Text(
-            'Успешно!',
-            style: TextStyle(
-                color: Colors.deepOrange,
-                fontWeight: FontWeight.w600,
-                fontSize: 24),
-          ),
-        ],
+        ),
       ),
     );
   }

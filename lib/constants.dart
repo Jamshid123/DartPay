@@ -359,3 +359,8 @@ const kButtonHomePageStyle = TextStyle(
     fontSize: 18.0,
     fontWeight: FontWeight.w500,
     letterSpacing: 1);
+const kSuccessTextStyle = TextStyle(
+    fontFamily: 'Gilroy-Regular',
+    color: orangeColor,
+    fontWeight: FontWeight.w600,
+    fontSize: 24);

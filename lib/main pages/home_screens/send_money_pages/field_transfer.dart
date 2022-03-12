@@ -21,14 +21,14 @@ class TransactionModel {
 
 List<TransactionModel> transaction = transactionData
     .map((item) => TransactionModel(
-        item['transactionNumber'].toString(),
-        item['transactionDate'].toString(),
-        item['transactionStatus'].toString(),
-        item['transactionSum'].toString(),
-        item['transactionPerson'].toString(),
-        item['sent'].toString(),
-        item['amount'].toString(),
-        item['person'].toString()))
+    item['transactionNumber'].toString(),
+    item['transactionDate'].toString(),
+    item['transactionStatus'].toString(),
+    item['transactionSum'].toString(),
+    item['transactionPerson'].toString(),
+    item['sent'].toString(),
+    item['amount'].toString(),
+    item['person'].toString()))
     .toList();
 
 var transactionData = [
