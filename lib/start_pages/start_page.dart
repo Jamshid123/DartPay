@@ -92,8 +92,6 @@ class _StartPageState extends State<StartPage> {
   //     );
   //   });}
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,10 +120,12 @@ class _StartPageState extends State<StartPage> {
               MaterialButton(
                 minWidth: 40,
                 onPressed: () {
-                  setState(() {
-                    _selectedScreen = 0;
-                    currentScreen = HomePage();
-                  },);
+                  setState(
+                    () {
+                      _selectedScreen = 0;
+                      currentScreen = HomePage();
+                    },
+                  );
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -161,10 +161,12 @@ class _StartPageState extends State<StartPage> {
               MaterialButton(
                 minWidth: 40,
                 onPressed: () {
-                  setState(() {
-                    _selectedScreen = 2;
-                    currentScreen = const Settings();
-                  },);
+                  setState(
+                    () {
+                      _selectedScreen = 2;
+                      currentScreen = const Settings();
+                    },
+                  );
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
