@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           darkTheme: MyTheme.darkTheme,
           theme: MyTheme.lightTheme,
           routes: {
-            '/': (context) => SendMoney(),
+            '/': (context) => Intro(),
             '/language': (context) => const Language(),
             '/phoneAdd': (context) => const RegisterPhone(),
             '/otpSms': (context) => OTPControllerSreen(),
