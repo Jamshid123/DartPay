@@ -1,5 +1,4 @@
 import 'dart:core';
-
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -201,8 +200,11 @@ class _SendMoneyState extends State<SendMoney> {
                               width: 250,
                               height: 50,
                               child: TextField(
+                                cursorColor: greyColor,
                                 decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: greyColor),
+                                  ),
                                 ),
                                 keyboardType: TextInputType.number,
                                 controller: _controller,
