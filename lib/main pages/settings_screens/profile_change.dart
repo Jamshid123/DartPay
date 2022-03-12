@@ -51,7 +51,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   child: const TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: greyColor),
+                      ),
+                      focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: greyColor),
                       ),
@@ -75,7 +79,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
 
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: greyColor),
+                      ),
+                      focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: greyColor),
                       ),
@@ -100,7 +108,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     cursorColor: greyColor,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: greyColor),
+                      ),
+                      focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: greyColor),
                       ),
@@ -183,7 +195,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                           style: kChangeNameStyle,
                         ),
                       ),
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: greyColor),
+                      ),
+                      focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: greyColor),
                       ),

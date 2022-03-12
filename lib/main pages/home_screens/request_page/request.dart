@@ -144,153 +144,159 @@ class _RequestPageState extends State<RequestPage> {
                               ),
                             ),
                             SizedBox(height: 3),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: CarouselSlider.builder(
-                                itemCount: cardList.length,
-                                options: CarouselOptions(
-                                  height: 50,
-                                  viewportFraction: 0.9,
-                                  enableInfiniteScroll: false,
-                                ),
-                                itemBuilder: (BuildContext context, int index,
-                                    int realIndex) {
-                                  return Container(
-                                    margin: const EdgeInsets.only(right: 15),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color(0xFFDADADA),
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
+                            CarouselSlider.builder(
+                              itemCount: cardList.length,
+                              options: CarouselOptions(
+                                height: 50,
+                                viewportFraction: 0.95,
+                                enableInfiniteScroll: false,
+                              ),
+                              itemBuilder: (BuildContext context, int index,
+                                  int realIndex) {
+                                return Container(
+                                  width: screenWidth,
+                                  margin: const EdgeInsets.only(left: 10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: const Color(0xFFDADADA),
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 5),
-                                          height: 36,
-                                          width: 68,
-                                          decoration: BoxDecoration(
-                                            color: orangeColor,
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                child: Text(
-                                                  cardList[index].cardName,
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Mont',
-                                                      fontSize: 5,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color: Colors.white),
-                                                ),
-                                                top: 5,
-                                                bottom: 27,
-                                                left: 5,
-                                                right: 20,
-                                              ),
-                                              Positioned(
-                                                child: Text(
-                                                  cardList[index].cardNumber,
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Mont',
-                                                      fontSize: 4,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Colors.white),
-                                                ),
-                                                top: 27,
-                                                bottom: 4,
-                                                left: 3,
-                                                right: 25,
-                                              ),
-                                              Positioned(
-                                                child: Image(
-                                                  image: AssetImage(
-                                                      cardList[index].cardType),
-                                                ),
-                                                top: 6,
-                                                bottom: 23,
-                                                left: 58,
-                                                right: 5,
-                                              ),
-                                            ],
-                                          ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        margin:
+                                            const EdgeInsets.only(left: 5),
+                                        height: 36,
+                                        width: 68,
+                                        decoration: BoxDecoration(
+                                          color: orangeColor,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
                                         ),
-                                        const SizedBox(width: 5),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            Text(
-                                              cardList[index].cardName,
-                                              style: kCardChooseStyle,
+                                        child: Stack(
+                                          children: [
+                                            Positioned(
+                                              child: Text(
+                                                cardList[index].cardName,
+                                                style: const TextStyle(
+                                                    fontFamily: 'Mont',
+                                                    fontSize: 5,
+                                                    fontWeight:
+                                                        FontWeight.w500,
+                                                    color: Colors.white),
+                                              ),
+                                              top: 5,
+                                              bottom: 27,
+                                              left: 5,
+                                              right: 20,
                                             ),
-                                            const SizedBox(height: 5),
-                                            Text(cardList[index].cardNumber,
-                                                style: kCardChooseStyle),
+                                            Positioned(
+                                              child: Text(
+                                                cardList[index].cardNumber,
+                                                style: const TextStyle(
+                                                    fontFamily: 'Mont',
+                                                    fontSize: 4,
+                                                    fontWeight:
+                                                        FontWeight.w400,
+                                                    color: Colors.white),
+                                              ),
+                                              top: 27,
+                                              bottom: 4,
+                                              left: 3,
+                                              right: 25,
+                                            ),
+                                            Positioned(
+                                              child: Image(
+                                                image: AssetImage(
+                                                    cardList[index].cardType),
+                                              ),
+                                              top: 6,
+                                              bottom: 23,
+                                              left: 58,
+                                              right: 5,
+                                            ),
                                           ],
                                         ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Text(
-                                'Введите номер карты',
-                                style: kInputCardNumberStyle,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(left: 10),
-                                  width: 250,
-                                  height: 50,
-                                  child: TextField(
-                                    cursorColor: greyColor,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide(color: greyColor),
                                       ),
-                                    ),
-                                    keyboardType: TextInputType.number,
-                                    controller: _controller,
+                                      const SizedBox(width: 5),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text(
+                                            cardList[index].cardName,
+                                            style: kCardChooseStyle,
+                                          ),
+                                          const SizedBox(height: 5),
+                                          Text(cardList[index].cardNumber,
+                                              style: kCardChooseStyle),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                const SizedBox(width: 10),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () async {
-                                        scanCard();
-                                      },
-                                      icon: Image.asset(
-                                        'assets/images/barcode_scanner.png',
-                                        color: orangeColor,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.person_add_alt_1_outlined,
-                                        color: orangeColor,
-                                        size: 35,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                );
+                              },
                             ),
+                            SizedBox(height: 10),
+                           Padding(
+                             padding: const EdgeInsets.only(left: 10),
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Padding(
+                                   padding: const EdgeInsets.only(left: 15),
+                                   child: Text(
+                                     'Введите номер карты',
+                                     style: kInputCardNumberStyle,
+                                   ),
+                                 ),
+                                 SizedBox(height: 10),
+                                 Row(
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: [
+                                     Container(
+                                       margin: const EdgeInsets.only(left: 10),
+                                       width: 250,
+                                       height: 50,
+                                       child: TextField(
+                                         cursorColor: greyColor,
+                                         decoration: const InputDecoration(
+                                           border: OutlineInputBorder(
+                                             borderSide: BorderSide(color: greyColor),
+                                           ),
+                                         ),
+                                         keyboardType: TextInputType.number,
+                                         controller: _controller,
+                                       ),
+                                     ),
+                                     const SizedBox(width: 10),
+                                     Row(
+                                       children: [
+                                         IconButton(
+                                           onPressed: () async {
+                                             scanCard();
+                                           },
+                                           icon: Image.asset(
+                                             'assets/images/barcode_scanner.png',
+                                             color: orangeColor,
+                                           ),
+                                         ),
+                                         IconButton(
+                                           onPressed: () {},
+                                           icon: const Icon(
+                                             Icons.person_add_alt_1_outlined,
+                                             color: orangeColor,
+                                             size: 35,
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                   ],
+                                 ),
+                               ],
+                             ),
+                           ),
                             SizedBox(height: 10),
                             Container(
                               margin:

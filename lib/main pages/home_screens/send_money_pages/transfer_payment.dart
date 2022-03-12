@@ -79,14 +79,16 @@ class _TransferPaymentState extends State<TransferPayment> {
                         CarouselSlider.builder(
                             itemCount: 2,
                             options: CarouselOptions(
-                              viewportFraction: 0.9,
+                              viewportFraction: 0.95,
                               height: 50,
                               enableInfiniteScroll: false,
                             ),
                             itemBuilder: (BuildContext context, int index,
                                 int realIndex) {
                               return Container(
-                                margin: EdgeInsets.only(right: 15),
+                                width: screenWidth,
+                                margin: EdgeInsets.only(right: 10),
+
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     color: const Color(0xFFDADADA),
