@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,6 +22,7 @@ class SendMoney extends StatefulWidget {
 }
 
 class _SendMoneyState extends State<SendMoney> {
+  final c = TextEditingController();
   final _controller = MaskedTextController(mask: '0000 0000 0000 0000');
   CardDetails? _cardDetails;
   CardScanOptions scanOptions = const CardScanOptions(
@@ -50,16 +53,22 @@ class _SendMoneyState extends State<SendMoney> {
               Stack(
                 alignment: AlignmentDirectional.topCenter,
                 children: [
-                  Container(
-                    height: screenHeight,
-                    width: screenWidth,
-                    child: Image.asset(
-                      'assets/images/cardPicture5.png',
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.popAndPushNamed(context, '/startPage');
+                    },
+                    child: Container(
+                      height: screenHeight * 0.85,
+                      width: screenWidth,
+                      child: Image.asset(
+                        'assets/images/cardPicture5.png',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   IconButton(
-                    padding: EdgeInsets.only(top: 20, right: screenWidth * 0.88),
+                    padding:
+                    EdgeInsets.only(top: 20, right: screenWidth * 0.88),
                     icon: Icon(Icons.chevron_left, color: Colors.black),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/startPage');
@@ -71,7 +80,7 @@ class _SendMoneyState extends State<SendMoney> {
                     child: Text('Перевод', style: kCheckToPayText),
                   ),
                   Container(
-                    height: screenHeight,
+                    height: screenHeight * 0.85,
                     width: screenWidth,
                     margin: EdgeInsets.only(top: screenHeight * 0.12),
                     decoration: const BoxDecoration(
