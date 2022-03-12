@@ -215,12 +215,15 @@ class _TransferPaymentState extends State<TransferPayment> {
                         const Padding(
                           padding: EdgeInsets.only(right: 15),
                           child: TextField(
+                            cursorColor: greyColor,
                             keyboardType: TextInputType.text,
                             maxLines: null,
                             decoration: InputDecoration(
                               hintText: 'Добавьте ваш комментарий',
                               hintStyle: kAddCommentStyle,
-                              border: OutlineInputBorder(),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: greyColor),
+                              ),
                             ),
                           ),
                         ),

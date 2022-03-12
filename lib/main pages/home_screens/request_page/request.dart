@@ -257,8 +257,11 @@ class _RequestPageState extends State<RequestPage> {
                                   width: 250,
                                   height: 50,
                                   child: TextField(
+                                    cursorColor: greyColor,
                                     decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(color: greyColor),
+                                      ),
                                     ),
                                     keyboardType: TextInputType.number,
                                     controller: _controller,
@@ -302,12 +305,15 @@ class _RequestPageState extends State<RequestPage> {
                               margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                               height: 70,
                               child: const TextField(
+                                cursorColor: greyColor,
                                 keyboardType: TextInputType.text,
                                 maxLines: null,
                                 decoration: InputDecoration(
                                   hintText: 'Добавьте ваш комментарий',
                                   hintStyle: kAddCommentStyle,
-                                  border: OutlineInputBorder(),
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: greyColor),
+                                  ),
                                 ),
                               ),
                             ),

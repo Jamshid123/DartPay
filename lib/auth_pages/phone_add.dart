@@ -45,6 +45,7 @@ class _RegisterPhoneState extends State<RegisterPhone> {
                         InternationalPhoneNumberInput(
                           onInputChanged: (PhoneNumber value) {},
                           textFieldController: controller,
+                          cursorColor: greyColor,
                           initialValue: number,
                           hintText: 'Номер телефона',
                           countries: ['UZ', 'RU'],
