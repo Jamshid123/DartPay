@@ -1,17 +1,18 @@
 import 'package:DartPay/models/card_transaction_model.dart';
+import 'package:credit_card_scanner/credit_card_scanner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import '../../../models/card_model.dart';
 import '../../../constants.dart';
 import 'button.dart';
 import 'request_page/request.dart';
+import 'request_page/request_button.dart';
 import 'send_money_pages/send_money.dart';
-
+import 'package:visibility_detector/visibility_detector.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final dateFormatter = DateFormat('yyyy-MM-dd');
   var _data = DateFormat('dd.MM.yyyy').format(DateTime.now());
   int _currentIndex = 0;
@@ -28,109 +28,116 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 10.0),
-                      child: const CircleAvatar(
-                        backgroundImage:
-                            AssetImage('assets/images/userAvatar.png'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/profileChange');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 10.0),
+                        child: const CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/userAvatar.png'),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
-                          Text('Bayahmedov S.R.', style: kCardUserTextStyle),
-                          SizedBox(height: 5),
-                          Text(' (+ 998 90 211 35 09)',
-                              style: kCardNumTextStyle),
-                        ],
+                      const SizedBox(width: 10.0),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Text('Bayahmedov S.R.', style: kCardUserTextStyle),
+                            SizedBox(height: 5),
+                            Text(' (+ 998 90 211 35 09)',
+                                style: kCardNumTextStyle),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 15),
-              CarouselSlider.builder(
-                itemCount: cardList.length,
-                options: CarouselOptions(
-                  enlargeCenterPage: true,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
+              Container(
+                height: 150,
+                child: ListView.builder(
+                  itemCount: cardData.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, index) {
+                    return VisibilityDetector(
+                      key: Key(index.toString()),
+                      onVisibilityChanged: (VisibilityInfo info) {
+                        if (info.visibleFraction == 1) {
+                          setState(() {
+                          _currentIndex = index;
+                        });
+                        }
+                      },
+                      child: Container(
+                        width: 280,
+                         margin: EdgeInsets.only(left: 15),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: orangeColor,
+                        ),
+                        child: Stack(
+                          children: [
+                            SvgPicture.asset('assets/svg/cardPicture2.svg'),
+                            Positioned(
+                              child: Text(cardList[index].cardName,
+                                  style: kCardName),
+                              top: 23,
+                              bottom: 110,
+                              left: 21,
+                              right: 140,
+                            ),
+                            Positioned(
+                              child: Container(
+                                margin: const EdgeInsets.only(
+                                    left: 21, right: 170, top: 78, bottom: 54),
+                                width: 90,
+                                height: 18,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white),
+                              ),
+                            ),
+                            Positioned(
+                              child: Text(cardList[index].cardNumber,
+                                  style: const TextStyle(
+                                      fontFamily: 'Mont',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white)),
+                              left: 20,
+                              top: 110,
+                              right: 111,
+                              bottom: 20,
+                            ),
+                            Positioned(
+                              child: Image.asset(cardList[index].cardType),
+                              top: 25,
+                              bottom: 95,
+                              left: 237.5,
+                              right: 22,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
                   },
-                  viewportFraction: 0.8,
-                  height: 150,
-                  enableInfiniteScroll: false,
                 ),
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  return Container(
-                    width: 280,
-                    // margin: const EdgeInsets.only(left: 15, right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: orangeColor,
-                    ),
-                    child: Stack(
-                      children: [
-                        SvgPicture.asset('assets/svg/cardPicture2.svg'),
-                        Positioned(
-                          child:
-                              Text(cardList[index].cardName, style: kCardName),
-                          top: 23,
-                          bottom: 110,
-                          left: 21,
-                          right: 140,
-                        ),
-                        Positioned(
-                          child: Container(
-                            margin: const EdgeInsets.only(
-                                left: 21, right: 170, top: 78, bottom: 54),
-                            width: 90,
-                            height: 18,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white),
-                          ),
-                        ),
-                        Positioned(
-                          child: Text(cardList[index].cardNumber,
-                              style: const TextStyle(
-                                  fontFamily: 'Mont',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.white)),
-                          left: 20,
-                          top: 110,
-                          right: 111,
-                          bottom: 20,
-                        ),
-                        Positioned(
-                          child: Image.asset(cardList[index].cardType),
-                          top: 25,
-                          bottom: 95,
-                          left: 238,
-                          right: 22,
-                        ),
-                      ],
-                    ),
-                  );
-                },
               ),
               const SizedBox(height: 15),
               Row(
@@ -139,10 +146,9 @@ class _HomePageState extends State<HomePage> {
                   (item) {
                     int index = cardData.indexOf(item);
                     return Container(
-                      width: 8,
-                      height: 8,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 2.0),
+                      width: 5,
+                      height: 5,
+                      margin: EdgeInsets.only(right: 7),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _currentIndex == index
@@ -155,19 +161,20 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:[
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   Button(
                     onPress: () {
                       Navigator.pushNamed(context, '/sendMoney');
                     },
-                    colour: Colors.transparent,
+                    colour: orangeColor,
                     data: const Text(
                       'Перевести средства',
-                      style: kButtonHomePageStyle,
+                      style: kButtonSendMoneyHomePage,
                       textAlign: TextAlign.center,
                     ),
                   ),
+                  SizedBox(width: 10),
                   Button(
                     onPress: () {
                       Navigator.pushNamed(context, '/requestPage');
@@ -175,68 +182,75 @@ class _HomePageState extends State<HomePage> {
                     colour: Colors.transparent,
                     data: const Text(
                       'Запросить средства',
-                      style: kButtonHomePageStyle,
+                      style: kButtonRequestMoneyHomePage,
                       textAlign: TextAlign.center,
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
                       'Недавние операции',
                       style: kRecentTextStyle,
                       textAlign: TextAlign.left,
                     ),
-                  ),
-                  Container(
-                    height: 28,
-                    width: 130,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: orangeColor),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            _data,
-                            style: kDateStyle,
+                    SizedBox(width: 35),
+                    Container(
+                      height: 28,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: orangeColor),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              _data,
+                              style: kDateStyle,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            DatePicker.showDatePicker(context,
-                                showTitleActions: true,
-                                minTime: DateTime(2020, 1, 1),
-                                maxTime: DateTime(2022, 1, 1),
-                                onChanged: (date) {}, onConfirm: (date) {
-                              setState(() {
-                                _data = DateFormat("dd.MM.yyyy").format(date);
-                              });
-                            }, locale: LocaleType.ru);
-                          },
-                          child: const Icon(
-                            Icons.arrow_drop_down,
-                            color: orangeColor,
+                          GestureDetector(
+                            onTap: () {
+                              DatePicker.showDatePicker(context,
+                                  showTitleActions: true,
+                                  minTime: DateTime(2020, 1, 1),
+                                  maxTime: DateTime(2022, 1, 1),
+                                  onChanged: (date) {}, onConfirm: (date) {
+                                setState(() {
+                                  _data = DateFormat("dd.MM.yyyy").format(date);
+                                });
+                              }, locale: LocaleType.ru);
+                            },
+                            child: const Icon(
+                              Icons.arrow_drop_down,
+                              color: orangeColor,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 15),
+                    GestureDetector(
+                      onTap: () {
+                        //TODO Добавить навигацию!
+                      },
+                      child: SvgPicture.asset('assets/svg/dot_3.svg'),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Container(
                 height: 150,
                 child: ListView.builder(
-                  scrollDirection: Axis.vertical,
                   itemCount: 1,
                   itemBuilder: (context, int index) {
                     return Container(
@@ -252,12 +266,13 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   CircleAvatar(
                                     backgroundImage:
-                                    AssetImage(transactionModel.userAvatar),
+                                        AssetImage(transactionModel.userAvatar),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 18),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           transactionModel.userName,
@@ -272,7 +287,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
@@ -301,21 +315,24 @@ class _HomePageState extends State<HomePage> {
                                     child: Stack(
                                       alignment: AlignmentDirectional.center,
                                       children: [
-                                        SvgPicture.asset('assets/svg/elipse.svg'),
-                                        Text('RM', style: TextStyle(
-                                            fontFamily: 'Mont',
-                                            color: greyColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500
-                                        ),),
+                                        SvgPicture.asset(
+                                            'assets/svg/elipse.svg'),
+                                        Text(
+                                          'RM',
+                                          style: TextStyle(
+                                              fontFamily: 'Mont',
+                                              color: greyColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
                                       ],
                                     ),
                                   ),
-
                                   Padding(
                                     padding: const EdgeInsets.only(left: 18),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'Muhamedova R.S',
@@ -354,12 +371,13 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   CircleAvatar(
                                     backgroundImage:
-                                    AssetImage(transactionModel.userAvatar),
+                                        AssetImage(transactionModel.userAvatar),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 18),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           transactionModel.userName,
@@ -389,7 +407,6 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-
                         ],
                       ),
                     );
@@ -403,3 +420,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+

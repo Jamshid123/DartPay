@@ -353,14 +353,34 @@ const kDateStyle =  TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
     fontSize: 14, color: orangeColor);
-const kButtonHomePageStyle = TextStyle(
-    color: buttonTextColorInactive,
+const kButtonSendMoneyHomePage = TextStyle(
+    color: Color(0xFFFFFFFF),
     fontFamily: 'Gilroy-Regular',
-    fontSize: 18.0,
-    fontWeight: FontWeight.w500,
-    letterSpacing: 1);
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500);
+
+const kButtonRequestMoneyHomePage = TextStyle(
+    color: orangeColor,
+    fontFamily: 'Gilroy-Regular',
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500);
+
+
 const kSuccessTextStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     color: orangeColor,
     fontWeight: FontWeight.w600,
     fontSize: 24);
+const kSkipButtonTextStyle = TextStyle(
+    fontFamily: 'Gilroy-Regular',
+    color: orangeColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 1);
+
+const kAddYourNumber = TextStyle(
+  fontSize: 14,
+  fontFamily: 'Gilroy-Regular',
+  color: greyColor,
+  fontWeight: FontWeight.w600,
+);

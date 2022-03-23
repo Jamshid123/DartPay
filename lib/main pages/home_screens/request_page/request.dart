@@ -59,9 +59,7 @@ class _RequestPageState extends State<RequestPage> {
                 alignment: AlignmentDirectional.topCenter,
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.popAndPushNamed(context, '/startPage');
-                    },
+                    onTap: (){Navigator.pushNamed(context, '/sendMoney');},
                     child: Container(
                       height: screenHeight * 0.85,
                       width: screenWidth,
@@ -80,9 +78,14 @@ class _RequestPageState extends State<RequestPage> {
                     },
                     iconSize: 30,
                   ),
-                  const Padding(
+                   Padding(
                     padding: EdgeInsets.only(top: 25),
-                    child: Text('Запрос средств', style: kCheckToPayText),
+                    child: Text('Запрос средств', style:  TextStyle(
+                      color: Theme.of(context).primaryColor,
+                        fontSize: 18,
+                        fontFamily: 'Gilroy-Regular',
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1),),
                   ),
                   Container(
                     height: screenHeight * 0.85,
@@ -90,8 +93,8 @@ class _RequestPageState extends State<RequestPage> {
                     margin: EdgeInsets.only(
                       top: screenHeight * 0.12,
                     ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    decoration:  BoxDecoration(
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                         topLeft: Radius.circular(15),
@@ -120,15 +123,8 @@ class _RequestPageState extends State<RequestPage> {
                             RequestButton(
                               colour: orangeColor,
                               data: const Text('Запрос',
-                                  style: kRequestButtonStyle),
-                              onPress: () {
-                                setState(
-                                  () {
-                                    typeRequest = SendType.sendRequest;
-                                    textTypeRequest = SendType.textRequest;
-                                  },
-                                );
-                              },
+                                  style: kRequestButtonTextStyle),
+                              onPress: () {},
                             ),
                           ],
                         ),
@@ -144,99 +140,98 @@ class _RequestPageState extends State<RequestPage> {
                               ),
                             ),
                             SizedBox(height: 3),
-                            CarouselSlider.builder(
-                              itemCount: cardList.length,
-                              options: CarouselOptions(
-                                height: 50,
-                                viewportFraction: 0.95,
-                                enableInfiniteScroll: false,
-                              ),
-                              itemBuilder: (BuildContext context, int index,
-                                  int realIndex) {
-                                return Container(
-                                  width: screenWidth,
-                                  margin: const EdgeInsets.only(left: 10),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: const Color(0xFFDADADA),
+                            Container(
+                              height: 50,
+                              width: screenWidth,
+                              margin: EdgeInsets.only(right: 5),
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: cardList.length,
+                                itemBuilder: (BuildContext, int index) {
+                                  return Container(
+                                    width: screenWidth - 40,
+                                    margin: const EdgeInsets.only(left: 10),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: const Color(0xFFDADADA),
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(left: 5),
-                                        height: 36,
-                                        width: 68,
-                                        decoration: BoxDecoration(
-                                          color: orangeColor,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.only(left: 5),
+                                          height: 36,
+                                          width: 68,
+                                          decoration: BoxDecoration(
+                                            color: orangeColor,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                child: Text(
+                                                  cardList[index].cardName,
+                                                  style: const TextStyle(
+                                                      fontFamily: 'Mont',
+                                                      fontSize: 5,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white),
+                                                ),
+                                                top: 5,
+                                                bottom: 27,
+                                                left: 5,
+                                                right: 20,
+                                              ),
+                                              Positioned(
+                                                child: Text(
+                                                  cardList[index].cardNumber,
+                                                  style: const TextStyle(
+                                                      fontFamily: 'Mont',
+                                                      fontSize: 4,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Colors.white),
+                                                ),
+                                                top: 27,
+                                                bottom: 4,
+                                                left: 3,
+                                                right: 25,
+                                              ),
+                                              Positioned(
+                                                child: Image(
+                                                  image: AssetImage(
+                                                      cardList[index].cardType),
+                                                ),
+                                                top: 6,
+                                                bottom: 23,
+                                                left: 58,
+                                                right: 5,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              child: Text(
-                                                cardList[index].cardName,
-                                                style: const TextStyle(
-                                                    fontFamily: 'Mont',
-                                                    fontSize: 5,
-                                                    fontWeight:
-                                                        FontWeight.w500,
-                                                    color: Colors.white),
-                                              ),
-                                              top: 5,
-                                              bottom: 27,
-                                              left: 5,
-                                              right: 20,
+                                        const SizedBox(width: 5),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Text(
+                                              cardList[index].cardName,
+                                              style: kCardChooseStyle,
                                             ),
-                                            Positioned(
-                                              child: Text(
-                                                cardList[index].cardNumber,
-                                                style: const TextStyle(
-                                                    fontFamily: 'Mont',
-                                                    fontSize: 4,
-                                                    fontWeight:
-                                                        FontWeight.w400,
-                                                    color: Colors.white),
-                                              ),
-                                              top: 27,
-                                              bottom: 4,
-                                              left: 3,
-                                              right: 25,
-                                            ),
-                                            Positioned(
-                                              child: Image(
-                                                image: AssetImage(
-                                                    cardList[index].cardType),
-                                              ),
-                                              top: 6,
-                                              bottom: 23,
-                                              left: 58,
-                                              right: 5,
-                                            ),
+                                            const SizedBox(height: 5),
+                                            Text(cardList[index].cardNumber,
+                                                style: kCardChooseStyle),
                                           ],
                                         ),
-                                      ),
-                                      const SizedBox(width: 5),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Text(
-                                            cardList[index].cardName,
-                                            style: kCardChooseStyle,
-                                          ),
-                                          const SizedBox(height: 5),
-                                          Text(cardList[index].cardNumber,
-                                              style: kCardChooseStyle),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
                             SizedBox(height: 10),
                            Padding(

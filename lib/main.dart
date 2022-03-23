@@ -6,6 +6,7 @@ import 'package:DartPay/main%20pages/home_screens/send_money_pages/transfer_paym
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/payment_check.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:DartPay/test_page.dart';
 import 'package:DartPay/theme/themeData.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           darkTheme: MyTheme.darkTheme,
           theme: MyTheme.lightTheme,
           routes: {
-            '/': (context) => Intro(),
+            '/': (context) => HomePage(),
             '/language': (context) => const Language(),
             '/phoneAdd': (context) => const RegisterPhone(),
             '/otpSms': (context) => OTPControllerSreen(),

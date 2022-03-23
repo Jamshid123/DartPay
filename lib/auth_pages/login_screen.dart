@@ -23,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(top: screenHeight * 0.17),
@@ -53,14 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 40,
                 child: TextField(
                   cursorColor: greyColor,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.all(10),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                      borderSide: BorderSide(color: greyColor),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                      borderSide: BorderSide(color: greyColor),
                     ),
                   ),
                   keyboardType: TextInputType.number,
@@ -82,18 +82,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   cursorColor: greyColor,
                   obscureText: isHidePassword,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                  decoration:  InputDecoration(
+                    contentPadding: const EdgeInsets.all(10),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: greyColor),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: greyColor),
                     ),
                     suffixIcon: InkWell(
                       onTap: _togglePasswordView,
-                      child: Icon(Icons.visibility),
+                      child: Icon(Icons.visibility, color: greyColor,),
                     ),
                   ),
                 ),
@@ -121,19 +120,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 25),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {},
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/startPage');
+                  },
                   child:const Text(
                     'Пропустить',
-                    style: TextStyle(
-                        fontFamily: 'Gilroy-Regular',
-                        color: orangeColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1),
+                    style: kSkipButtonTextStyle,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent, elevation: 0),
+                  style: TextButton.styleFrom(
+                      primary: Colors.transparent,
+                      elevation: 0,
+                  ),
                 ),
               ),
             ],

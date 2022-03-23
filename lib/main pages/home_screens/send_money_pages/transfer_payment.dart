@@ -33,9 +33,9 @@ class _TransferPaymentState extends State<TransferPayment> {
                   ),
                   IconButton(
                     padding: EdgeInsets.only(top: 20),
-                    icon: Icon(Icons.chevron_left, color: Colors.black),
+                    icon: const Icon(Icons.chevron_left, color: Colors.black),
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, '/startPage');
+                      Navigator.popAndPushNamed(context, '/sendMoney');
                     },
                     iconSize: 30,
                   ),
@@ -43,17 +43,26 @@ class _TransferPaymentState extends State<TransferPayment> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: Text('Чек к оплате', style: kCheckToPayText),
+                        padding: EdgeInsets.only(top: 25),
+                        child: Text(
+                          'Чек к оплате',
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 18,
+                              fontFamily: 'Gilroy-Regular',
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 1),
+                        ),
                       ),
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 15),
+                    height: screenHeight * 0.85,
+                    padding: const EdgeInsets.only(left: 15),
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.only(top: screenHeight * 0.12),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                         topLeft: Radius.circular(15),
@@ -79,7 +88,7 @@ class _TransferPaymentState extends State<TransferPayment> {
                         CarouselSlider.builder(
                             itemCount: 2,
                             options: CarouselOptions(
-                              viewportFraction: 0.95,
+                              viewportFraction: 0.96,
                               height: 50,
                               enableInfiniteScroll: false,
                             ),
@@ -88,7 +97,6 @@ class _TransferPaymentState extends State<TransferPayment> {
                               return Container(
                                 width: screenWidth,
                                 margin: EdgeInsets.only(right: 10),
-
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     color: const Color(0xFFDADADA),
