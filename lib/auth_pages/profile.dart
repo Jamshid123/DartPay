@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:local_auth/local_auth.dart';
 import '../constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -204,7 +206,15 @@ class _ProfileState extends State<Profile> {
 
   buildScreenLock(BuildContext context) async {
 
-    final inputController = InputController();
+    // Future<void> localAuth(BuildContext context) async {
+    //   final localAuth = LocalAuthentication();
+    //   final didAuthenticate = await localAuth.authenticate(
+    //       localizedReason: 'Please authenticate');
+    //   if (didAuthenticate) {
+    //     Navigator.pop(context);
+    //   }
+    // }
+
     screenLock(
       context: context,
       title: const Text(
@@ -216,7 +226,7 @@ class _ProfileState extends State<Profile> {
         style: kSetPinStyle,
       ),
       correctString: '',
-      inputController: inputController,
+      // customizedButtonChild: SvgPicture.asset('assets/svg/fingerPrint.svg'),
       confirmation: true,
       didConfirmed: (matchedText) async {
         final prefs = await SharedPreferences.getInstance();
@@ -270,18 +280,12 @@ class _ProfileState extends State<Profile> {
           backgroundColor: Colors.white,
         ),
       ),
-      cancelButton: const Icon(
-        Icons.close,
-        color: orangeColor,
-      ),
       deleteButton: const Icon(
         Icons.backspace_outlined,
         color: orangeColor,
       ),
     );
-
   }
-
 }
 
 

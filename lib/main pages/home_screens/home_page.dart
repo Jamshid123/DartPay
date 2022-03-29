@@ -14,7 +14,6 @@ import 'request_page/request_button.dart';
 import 'send_money_pages/send_money.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -25,12 +24,14 @@ class _HomePageState extends State<HomePage> {
   var _data = DateFormat('dd.MM.yyyy').format(DateTime.now());
   int _currentIndex = 0;
   CardTransactionModel transactionModel = CardTransactionModel();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: scaffoldKey,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -80,13 +81,13 @@ class _HomePageState extends State<HomePage> {
                       onVisibilityChanged: (VisibilityInfo info) {
                         if (info.visibleFraction == 1) {
                           setState(() {
-                          _currentIndex = index;
-                        });
+                            _currentIndex = index;
+                          });
                         }
                       },
                       child: Container(
                         width: 280,
-                         margin: EdgeInsets.only(left: 15),
+                        margin: EdgeInsets.only(left: 15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: orangeColor,
@@ -164,16 +165,17 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Button(
-                    onPress: () {
-                      Navigator.pushNamed(context, '/sendMoney');
-                    },
-                    colour: orangeColor,
-                    data: const Text(
-                      'Перевести средства',
-                      style: kButtonSendMoneyHomePage,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+                        onPress: () {
+                          Navigator.pushNamed(context, '/sendMoney');
+
+                        },
+                        colour: orangeColor,
+                        data: const Text(
+                          'Перевести средства',
+                          style: kButtonSendMoneyHomePage,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                   SizedBox(width: 10),
                   Button(
                     onPress: () {
@@ -420,4 +422,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

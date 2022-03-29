@@ -31,7 +31,6 @@ dependencies:
   flutter_masked_text2: ^0.9.1
   easy_localization: ^3.0.0
   flutter_screen_lock: ^5.0.4
-  intl_phone_number_input: ^0.7.0+2
   country_code_picker: ^2.0.2
   flutter_datetime_picker: ^1.5.1
   credit_card_scanner: ^1.0.4
@@ -41,6 +40,7 @@ dependencies:
   dots_indicator: ^2.1.0
   flutter_multi_formatter: ^2.5.1
   visibility_detector: ^0.2.2
+  local_auth: ^1.1.11
 
 
 

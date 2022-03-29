@@ -4,7 +4,6 @@ import 'package:country_code_picker/country_codes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import '../constants.dart';
 
 
@@ -19,7 +18,6 @@ class RegisterPhone extends StatefulWidget {
 class _RegisterPhoneState extends State<RegisterPhone> {
   final TextEditingController _controller = TextEditingController();
   String initialCountry = 'UZ';
-  PhoneNumber number = PhoneNumber(isoCode: 'UZ');
 
   List<DropdownMenuItem<String>> get dropdownItems{
     List<DropdownMenuItem<String>> menuItems = [

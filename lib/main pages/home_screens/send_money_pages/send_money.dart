@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:core';
+import 'package:http/http.dart' as http;
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -37,6 +39,40 @@ class _SendMoneyState extends State<SendMoney> {
     if (!mounted) return;
     setState(() {
       _cardDetails = cardDetails!;
+    });
+  }
+
+  var _textController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the Widget is disposed
+    _textController.dispose();
+    super.dispose();
+  }
+
+  var amount;
+
+  @override
+  void initState() {
+    _textController.addListener(() {
+      setState(() {
+        amount = int.parse(_textController.text);
+      });
+    });
+    super.initState();
+  }
+
+  var url = Uri.parse('https://cbu.uz/oz/arkhiv-kursov-valyut/json/');
+  var showedCurrency;
+  fetch() async {
+    var response = await http.get(url);
+    var jsData = jsonDecode(response.body);
+    var rate = jsData[0]['Rate'];
+    var sumOfCurrency = double.parse(rate);
+    var convertedAmount = (sumOfCurrency * amount);
+    setState(() {
+      showedCurrency = convertedAmount;
     });
   }
 
@@ -237,11 +273,46 @@ class _SendMoneyState extends State<SendMoney> {
                         const SizedBox(height: 20),
                         Container(
                           margin: const EdgeInsets.only(left: 15, right: 15),
-                          height: 160,
+                          height: 165,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: Colors.greenAccent,
                               borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              TextField(
+                                keyboardType: TextInputType.number,
+                                controller: _textController,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 10, right: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(color: Colors.grey)),
+                                height: 50,
+                                width: MediaQuery.of(context).size.width,
+                                child: Center(
+                                  child: showedCurrency == null
+                                      ? Text('')
+                                      : Text(
+                                          "$showedCurrency",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              ElevatedButton(
+                                onPressed: () {
+                                  fetch();
+                                },
+                                child: Text('Click'),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 30),
                         Container(
@@ -275,7 +346,7 @@ class _SendMoneyState extends State<SendMoney> {
   }
 }
 
-// Container(
+// child: Container(
 //   height: screenHeight * 0.85,
 //   width: screenWidth,
 //   margin: EdgeInsets.only(top: screenHeight * 0.12),
@@ -339,7 +410,8 @@ class _SendMoneyState extends State<SendMoney> {
 //                 width: 280,
 //                 decoration: BoxDecoration(
 //                     color: orangeColor,
-//                     borderRadius: BorderRadius.circular(10)),
+//                     borderRadius:
+//                         BorderRadius.circular(10)),
 //                 child: Stack(
 //                   children: [
 //                     SvgPicture.asset(
@@ -446,7 +518,8 @@ class _SendMoneyState extends State<SendMoney> {
 //             primary: orangeColor,
 //           ),
 //           onPressed: () {
-//             Navigator.pushNamed(context, '/transferPayment');
+//             Navigator.pushNamed(
+//                 context, '/transferPayment');
 //           },
 //           child: const Text(
 //             'Продолжить',

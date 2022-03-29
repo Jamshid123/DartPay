@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const kIntroductionScreen1Style = TextStyle(
@@ -136,7 +137,7 @@ const kShareTextStyle = TextStyle(
     letterSpacing: 1);
 
 const kSettingsUserStyle =
-    TextStyle(fontSize: 18, fontFamily: 'Gilroy', fontWeight: FontWeight.w600);
+    TextStyle(fontSize: 18, fontFamily: 'Gilroy-Regular', fontWeight: FontWeight.w600);
 const kSettingsNumStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16,
@@ -144,6 +145,7 @@ const kSettingsNumStyle = TextStyle(
     color: greyColor,
     letterSpacing: 1);
 const kSettingsButton = TextStyle(
+  fontFamily: 'Mont',
     fontWeight: FontWeight.w500,
     fontSize: 16,
     color: Color(0xFF2C313B),
@@ -383,4 +385,16 @@ const kAddYourNumber = TextStyle(
   fontFamily: 'Gilroy-Regular',
   color: greyColor,
   fontWeight: FontWeight.w600,
+);
+const kQuitButtonStyle = TextStyle(
+  fontFamily: 'Gilroy-Regular',
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color: Colors.red
+);
+
+const kChangeProfileSettingsStyle = TextStyle(
+    fontFamily: 'Gilroy-Regular',
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
 );
