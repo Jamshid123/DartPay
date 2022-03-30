@@ -2,8 +2,8 @@ import 'package:DartPay/auth_pages/profile.dart';
 import 'package:DartPay/constants.dart';
 import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-
 
 class OTPControllerSreen extends StatefulWidget {
   @override
@@ -33,11 +33,10 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+            icon: SvgPicture.asset('assets/svg/arrow_left.svg'),
+            onPressed: () => Navigator.pop(context)),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         title: Text(''),
       ),
       body: SingleChildScrollView(
@@ -46,14 +45,12 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
           children: [
             Padding(
               padding: EdgeInsets.only(left: 41, top: screenHeight * 0.19),
-              child: Text(
+              child: const Text(
                 "Верификация",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, letterSpacing: 1),
+                style: kAuthPagesTextStyle,
               ),
             ),
-            SizedBox(
-              height: 10
-            ),
+            const SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.only(left: 41),
               child: Text(
@@ -64,34 +61,32 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
                     color: Colors.grey),
               ),
             ),
-            SizedBox(
-              height: 30
-            ),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.only(left: 41, right: 41),
               child: Form(
-                  child: PinCodeTextField(
-                pinTheme: PinTheme(
-                    selectedColor: Colors.grey,
-                    shape: PinCodeFieldShape.box,
-                    borderRadius: BorderRadius.circular(5),
-                    fieldHeight: 60,
-                    fieldWidth: 60,
-                    activeFillColor: Colors.white,
-                    inactiveFillColor: Colors.white),
-                keyboardType: TextInputType.number,
-                appContext: context,
-                length: 4,
-                enableActiveFill: false,
-                cursorColor: Colors.black,
-                boxShadows: [BoxShadow(color: Colors.white)],
-                onChanged: (value) {
-                  print(value);
-                  setState(() {
-                    currentText = value;
-                  });
-                },
-              ),),
+                child: PinCodeTextField(
+                  pinTheme: PinTheme(
+                      selectedColor: Colors.grey,
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(5),
+                      fieldHeight: 60,
+                      fieldWidth: 60,
+                      activeFillColor: Colors.white,
+                      inactiveFillColor: Colors.white),
+                  keyboardType: TextInputType.number,
+                  appContext: context,
+                  length: 4,
+                  enableActiveFill: false,
+                  cursorColor: Colors.black,
+                  boxShadows: [BoxShadow(color: Colors.white)],
+                  onChanged: (value) {
+                    setState(() {
+                      currentText = value;
+                    });
+                  },
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 41),
@@ -105,23 +100,25 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
                         fontWeight: FontWeight.w600),
                   ),
                   TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Отправьте снова',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16),
-                      ),),
+                    onPressed: () {},
+                    child: Text(
+                      'Отправьте снова',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16),
+                    ),
+                  ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 10
+            const SizedBox(height: 10),
+            ManualButton(
+              title: 'Продолжить',
+              onPressed: () {
+                Navigator.pushNamed(context, '/profileCreate');
+              },
             ),
-            ManualButton(title: 'Продолжить', onPressed: (){
-              Navigator.pushNamed(context,'/profileCreate');
-            })
           ],
         ),
       ),

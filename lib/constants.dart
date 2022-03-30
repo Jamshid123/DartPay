@@ -418,3 +418,13 @@ const kInputTextStyleTextField = TextStyle(
   fontFamily: 'Mont',
   color: Color(0xFF3F3D56)
 );
+
+const kTextFieldBorderColor = Color(0xFFCCCCCC);
+
+const kAuthPagesTextStyle = TextStyle(
+  fontFamily: 'Gilroy-Regular',
+  fontWeight: FontWeight.w700,
+  fontSize: 24,
+  color: Color(0xFF2F2E41)
+);
+const kInputPhoneNumberStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w400, fontFamily: 'Gilroy-Regular', color: greyColor);

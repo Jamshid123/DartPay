@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:DartPay/start_pages/start_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constants.dart';
 
@@ -59,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.all(10),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
                   ),
                   keyboardType: TextInputType.number,
@@ -87,18 +88,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration:  InputDecoration(
                     contentPadding: const EdgeInsets.all(10),
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
-                    suffixIcon: InkWell(
-                      onTap: _togglePasswordView,
-                      child: Icon(Icons.visibility, color: greyColor,),
+                    suffixIcon: IconButton(onPressed: _togglePasswordView, icon: SvgPicture.asset('assets/svg/eye.svg')),
                     ),
                   ),
                 ),
-              ),
               const SizedBox(height: 30),
               ManualButton(title: 'Установить пароль', onPressed: (){
                 Navigator.pushNamed(context, '/startPage');

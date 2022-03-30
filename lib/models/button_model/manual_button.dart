@@ -12,8 +12,8 @@ class ManualButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 45,
-      margin: EdgeInsets.only(left: 40, right: 40),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(left: 40, right: 40),
+      decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Color(0xfffcdcd1),
@@ -30,8 +30,9 @@ class ManualButton extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           primary: orangeColor,
-          // shadowColor: orangeColor,
-          // elevation: 15,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5)
+          )
         ),
       ),
     );

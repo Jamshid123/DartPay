@@ -30,9 +30,11 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         title: Text(''),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: SvgPicture.asset('assets/svg/arrow_left.svg')),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,13 +46,8 @@ class _ProfileState extends State<Profile> {
                 padding: EdgeInsets.only(right: 100),
                 child: Text(
                   'Создайте профиль',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 24.0,
-                      letterSpacing: 1,
-                      fontFamily: 'Gilroy-Regular'),
+                  style: kAuthPagesTextStyle),
                 ),
-              ),
               const SizedBox(height: 30),
               Column(
                 children: [
@@ -61,10 +58,10 @@ class _ProfileState extends State<Profile> {
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -83,10 +80,10 @@ class _ProfileState extends State<Profile> {
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -107,10 +104,10 @@ class _ProfileState extends State<Profile> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -147,7 +144,7 @@ class _ProfileState extends State<Profile> {
                     },
                     borderColor: gender == GenderType.male
                         ? activeButtonColor
-                        : greyColor,
+                        : const Color(0xFF979797),
                   ),
                   const SizedBox(width: 9),
                   const Text(
@@ -166,7 +163,7 @@ class _ProfileState extends State<Profile> {
                         : Colors.white70,
                     borderColor: gender == GenderType.female
                         ? activeButtonColor
-                        : greyColor,
+                        : const Color(0xFF979797),
                   ),
                   const SizedBox(width: 9),
                   const Text(

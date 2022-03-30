@@ -55,11 +55,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                       contentPadding: EdgeInsets.only(left: 10),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                     ),
                   ),
@@ -78,23 +78,20 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   margin: const EdgeInsets.only(left: 40, right: 40),
                   child: const TextField(
                     cursorColor: greyColor,
-
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
+                const SizedBox(height: 16),
                 Padding(
                   padding: EdgeInsets.only(right: screenWidth * 0.45),
                   child: const Text(
@@ -112,11 +109,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                       contentPadding: EdgeInsets.only(left: 10),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                     ),
                   ),
@@ -129,9 +126,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                     style: kChangeNameStyle,
                   ),
                 ),
-                const SizedBox(
-                  height: 17,
-                ),
+                const SizedBox(height: 17),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -146,7 +141,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                       },
                       borderColor: gender == GenderType.male
                           ? activeButtonColor
-                          : greyColor,
+                          : const Color(0xFF979797),
                     ),
                     const SizedBox(width: 9),
                     const Text(
@@ -165,7 +160,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                           : Colors.white70,
                       borderColor: gender == GenderType.female
                           ? activeButtonColor
-                          : greyColor,
+                          : const Color(0xFF979797),
                     ),
                     const SizedBox(width: 9),
                     const Text(
@@ -200,11 +195,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: greyColor),
+                            color: kTextFieldBorderColor),
                       ),
                     ),
                   ),
