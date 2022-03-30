@@ -89,23 +89,31 @@ const kCardTransactionStyle = TextStyle(
     color: Color(0xFFBFBFBF));
 const kCardTransactionStyle1 = TextStyle(
     fontFamily: 'Mont', fontWeight: FontWeight.w400, letterSpacing: 1);
-const kRequestButtonTextStyle = TextStyle(
+const kRequestTextRequestPage = TextStyle(
     fontFamily: 'Gilroy-Regular',
+    color: Colors.white,
     fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 1);
 
 const kCardChooseStyle = TextStyle(
     fontWeight: FontWeight.w400,
+    fontFamily: 'Mont',
     color: greyColor,
-    fontSize: 15,
-    letterSpacing: 1);
+    fontSize: 12);
 
-const kRequestText = TextStyle(
+const kHeaderTextManualStyle = TextStyle(
     color: Color(0xFF535461),
     fontFamily: 'Gilroy-Regular',
     fontSize: 18,
     fontWeight: FontWeight.w700,
+    letterSpacing: 1);
+
+const kMainTextStyle = TextStyle(
+    color: Color(0xFF535461),
+    fontFamily: 'Gilroy-Regular',
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
     letterSpacing: 1);
 
 const ktoCardStyle = TextStyle(
@@ -223,7 +231,7 @@ const kSetUpPin = TextStyle(
     letterSpacing: 1,
     color: Color(0xFF3F3D56));
 
-const kTransferButtonStyle = TextStyle(
+const kSendTextRequestPage = TextStyle(
     color: orangeColor,
     fontFamily: 'Gilroy-Regular',
     fontSize: 14,
@@ -247,10 +255,10 @@ const kManualStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    letterSpacing: 2);
+    );
 
 const kSetPinStyle = TextStyle(
-    fontFamily: 'Mont',
+    fontFamily: 'Gilroy-Regular',
     fontSize: 18,
     fontWeight: FontWeight.w600,
     color: Color(0xFF3F3D56),
@@ -268,8 +276,14 @@ const kYourNumberStyle = TextStyle(
     fontWeight: FontWeight.w600,
     color: Colors.grey);
 
-const kSendText = TextStyle(
+const kSendTextSendMoneyPage = TextStyle(
     color: Colors.white,
+    fontFamily: 'Gilroy-Regular',
+    fontSize: 14,
+    letterSpacing: 1,
+    fontWeight: FontWeight.w500);
+const kRequestTextSendMoneyPage = TextStyle(
+    color: orangeColor,
     fontFamily: 'Gilroy-Regular',
     fontSize: 14,
     letterSpacing: 1,
@@ -397,4 +411,10 @@ const kChangeProfileSettingsStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
     fontSize: 14,
+);
+const kInputTextStyleTextField = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  fontFamily: 'Mont',
+  color: Color(0xFF3F3D56)
 );

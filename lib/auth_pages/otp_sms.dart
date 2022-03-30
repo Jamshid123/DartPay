@@ -1,5 +1,6 @@
 import 'package:DartPay/auth_pages/profile.dart';
 import 'package:DartPay/constants.dart';
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -118,21 +119,9 @@ class _OTPControllerSreenState extends State<OTPControllerSreen> {
             SizedBox(
               height: 10
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 40, right: 40),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context,'/profileCreate');
-                },
-                child: Text(
-                  'Продолжить',
-                  style: kManualStyle,
-                ),
-                style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    minimumSize: Size(double.infinity, 45)),
-              ),
-            ),
+            ManualButton(title: 'Продолжить', onPressed: (){
+              Navigator.pushNamed(context,'/profileCreate');
+            })
           ],
         ),
       ),

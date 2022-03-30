@@ -1,17 +1,11 @@
 import 'package:DartPay/models/card_transaction_model.dart';
-import 'package:credit_card_scanner/credit_card_scanner.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import '../../../models/card_model.dart';
-import '../../../constants.dart';
-import 'button.dart';
-import 'request_page/request.dart';
-import 'request_page/request_button.dart';
-import 'send_money_pages/send_money.dart';
+import 'package:DartPay/models/card_model.dart';
+import 'package:DartPay/models/button_model/homePage_button.dart';
+import 'package:DartPay/constants.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,6 +67,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 150,
                 child: ListView.builder(
+                  padding: EdgeInsets.only(right: 15),
                   itemCount: cardData.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, index) {
@@ -164,7 +159,7 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Button(
+                  HomePageButton(
                         onPress: () {
                           Navigator.pushNamed(context, '/sendMoney');
 
@@ -177,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                   SizedBox(width: 10),
-                  Button(
+                  HomePageButton(
                     onPress: () {
                       Navigator.pushNamed(context, '/requestPage');
                     },

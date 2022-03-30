@@ -11,9 +11,6 @@ class SuccessRequest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(milliseconds: 800), () {
-      Navigator.pushNamed(context, '/requestPage');
-    });
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 226),

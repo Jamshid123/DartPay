@@ -1,5 +1,5 @@
 import 'package:DartPay/constants.dart';
-import 'package:DartPay/main%20pages/home_screens/request_page/request_button.dart';
+import 'package:DartPay/models/button_model/request_button.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -80,12 +81,7 @@ class _RequestPageState extends State<RequestPage> {
                   ),
                    Padding(
                     padding: EdgeInsets.only(top: 25),
-                    child: Text('Запрос средств', style:  TextStyle(
-                      color: Theme.of(context).primaryColor,
-                        fontSize: 18,
-                        fontFamily: 'Gilroy-Regular',
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1),),
+                    child: Text('Запрос средств', style:  kHeaderTextManualStyle),
                   ),
                   Container(
                     height: screenHeight * 0.85,
@@ -95,7 +91,7 @@ class _RequestPageState extends State<RequestPage> {
                     ),
                     decoration:  BoxDecoration(
                       color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(15),
                         topLeft: Radius.circular(15),
                       ),
@@ -112,10 +108,10 @@ class _RequestPageState extends State<RequestPage> {
                               colour: Colors.white,
                               data: const Text(
                                 'Перевод',
-                                style: kTransferButtonStyle,
+                                style: kSendTextRequestPage,
                               ),
                               onPress: () {
-                                Navigator.popAndPushNamed(
+                                Navigator.pushReplacementNamed(
                                     context, '/sendMoney');
                               },
                             ),
@@ -123,7 +119,7 @@ class _RequestPageState extends State<RequestPage> {
                             RequestButton(
                               colour: orangeColor,
                               data: const Text('Запрос',
-                                  style: kRequestButtonTextStyle),
+                                  style: kRequestTextRequestPage),
                               onPress: () {},
                             ),
                           ],
@@ -133,7 +129,7 @@ class _RequestPageState extends State<RequestPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Padding(
-                              padding: EdgeInsets.only(left: 18),
+                              padding: EdgeInsets.only(left: 15),
                               child: Text(
                                 'На карту',
                                 style: ktoCardStyle,
@@ -145,11 +141,12 @@ class _RequestPageState extends State<RequestPage> {
                               width: screenWidth,
                               margin: EdgeInsets.only(right: 5),
                               child: ListView.builder(
+                                padding: EdgeInsets.only(right: 15),
                                 scrollDirection: Axis.horizontal,
                                 itemCount: cardList.length,
                                 itemBuilder: (BuildContext, int index) {
                                   return Container(
-                                    width: screenWidth - 40,
+                                    width: 280,
                                     margin: const EdgeInsets.only(left: 10),
                                     decoration: BoxDecoration(
                                       border: Border.all(
@@ -234,32 +231,38 @@ class _RequestPageState extends State<RequestPage> {
                               ),
                             ),
                             SizedBox(height: 10),
-                           Padding(
-                             padding: const EdgeInsets.only(left: 10),
-                             child: Column(
-                               crossAxisAlignment: CrossAxisAlignment.start,
-                               children: [
-                                 Padding(
-                                   padding: const EdgeInsets.only(left: 15),
-                                   child: Text(
-                                     'Введите номер карты',
-                                     style: kInputCardNumberStyle,
-                                   ),
+                           Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               const Padding(
+                                 padding: EdgeInsets.only(left: 15),
+                                 child: Text(
+                                   'Введите номер карты',
+                                   style: kInputCardNumberStyle,
                                  ),
-                                 SizedBox(height: 10),
-                                 Row(
+                               ),
+                               const SizedBox(height: 10),
+                               Padding(
+                                 padding: const EdgeInsets.only(left: 15),
+                                 child: Row(
                                    crossAxisAlignment: CrossAxisAlignment.start,
                                    children: [
                                      Container(
-                                       margin: const EdgeInsets.only(left: 10),
+                                       decoration: BoxDecoration(
+                                           borderRadius: BorderRadius.circular(10),
+                                           border: Border.all(color: Color(0xFFDADADA))
+                                       ),
+                                       // margin: const EdgeInsets.only(left: 15),
                                        width: 250,
                                        height: 50,
                                        child: TextField(
+                                         style: kInputTextStyleTextField,
                                          cursorColor: greyColor,
+                                         cursorHeight: 20,
                                          decoration: const InputDecoration(
-                                           border: OutlineInputBorder(
-                                             borderSide: BorderSide(color: greyColor),
-                                           ),
+                                             contentPadding: EdgeInsets.all(15),
+                                             enabledBorder:InputBorder.none,
+                                             focusedBorder: InputBorder.none
                                          ),
                                          keyboardType: TextInputType.number,
                                          controller: _controller,
@@ -272,27 +275,20 @@ class _RequestPageState extends State<RequestPage> {
                                            onPressed: () async {
                                              scanCard();
                                            },
-                                           icon: Image.asset(
-                                             'assets/images/barcode_scanner.png',
-                                             color: orangeColor,
-                                           ),
+                                           icon: SvgPicture.asset('assets/svg/scan_svg.svg')
                                          ),
                                          IconButton(
                                            onPressed: () {},
-                                           icon: const Icon(
-                                             Icons.person_add_alt_1_outlined,
-                                             color: orangeColor,
-                                             size: 35,
-                                           ),
+                                           icon: SvgPicture.asset('assets/svg/user_plus.svg')
                                          ),
                                        ],
                                      ),
                                    ],
                                  ),
-                               ],
-                             ),
+                               ),
+                             ],
                            ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
                               margin:
                                   const EdgeInsets.only(left: 15, right: 15),
@@ -303,18 +299,22 @@ class _RequestPageState extends State<RequestPage> {
                             ),
                             SizedBox(height: 37),
                             Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xFFDADADA))
+                              ),
                               margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                               height: 70,
                               child: const TextField(
                                 cursorColor: greyColor,
+                                cursorHeight: 20,
                                 keyboardType: TextInputType.text,
-                                maxLines: null,
                                 decoration: InputDecoration(
                                   hintText: 'Добавьте ваш комментарий',
+                                  contentPadding: EdgeInsets.all(15),
+                                  enabledBorder:InputBorder.none,
+                                  focusedBorder: InputBorder.none,
                                   hintStyle: kAddCommentStyle,
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: greyColor),
-                                  ),
                                 ),
                               ),
                             ),
@@ -327,6 +327,9 @@ class _RequestPageState extends State<RequestPage> {
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: orangeColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)
+                                  )
                                 ),
                                 onPressed: () {
                                   Navigator.pushNamed(

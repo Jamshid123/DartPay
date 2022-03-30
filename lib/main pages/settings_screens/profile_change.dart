@@ -1,4 +1,6 @@
+import 'package:DartPay/auth_pages/profile.dart';
 import 'package:DartPay/constants.dart';
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/material.dart';
 
 enum GenderType { male, female }
@@ -185,6 +187,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   height: 40,
                   margin: const EdgeInsets.only(left: 40, right: 40),
                   child: const TextField(
+                    keyboardType: TextInputType.emailAddress,
                     cursorColor: greyColor,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
@@ -207,19 +210,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Сохранить',
-                    style: kManualStyle,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    fixedSize: Size(screenWidth * 0.8, 45),
-                  ),
-                ),
+               ManualButton(title: 'Сохранить', onPressed: (){Navigator.pop(context);})
               ],
             ),
           ),

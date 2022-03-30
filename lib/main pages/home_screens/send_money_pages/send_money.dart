@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../constants.dart';
-import '../request_page/request_button.dart';
+import '../../../models/button_model/request_button.dart';
 import 'transfer_payment.dart';
 
 class SendMoney extends StatefulWidget {
@@ -80,9 +80,9 @@ class _SendMoneyState extends State<SendMoney> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               Stack(
@@ -113,11 +113,7 @@ class _SendMoneyState extends State<SendMoney> {
                   const Padding(
                     padding: EdgeInsets.only(top: 25),
                     child: Text('Перевод',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'Gilroy-Regular',
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 1)),
+                        style: kHeaderTextManualStyle),
                   ),
                   Container(
                     height: screenHeight * 0.85,
@@ -141,7 +137,7 @@ class _SendMoneyState extends State<SendMoney> {
                               colour: orangeColor,
                               data: const Text(
                                 'Перевод',
-                                style: kSendText,
+                                style: kSendTextSendMoneyPage,
                               ),
                               onPress: () {},
                             ),
@@ -149,14 +145,9 @@ class _SendMoneyState extends State<SendMoney> {
                             RequestButton(
                               colour: Colors.white,
                               data: const Text('Запрос',
-                                  style: TextStyle(
-                                      color: orangeColor,
-                                      fontFamily: 'Gilroy-Regular',
-                                      fontSize: 14,
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.w500)),
+                                  style: kRequestTextSendMoneyPage),
                               onPress: () {
-                                Navigator.pushNamed(context, '/requestPage');
+                                Navigator.pushReplacementNamed(context, '/requestPage');
                               },
                             ),
                           ],
@@ -175,6 +166,7 @@ class _SendMoneyState extends State<SendMoney> {
                         Container(
                           height: 75,
                           child: ListView.builder(
+                              padding: EdgeInsets.only(right: 15),
                               scrollDirection: Axis.horizontal,
                               itemCount: cardList.length,
                               itemBuilder: (BuildContext context, int index) {
@@ -234,18 +226,21 @@ class _SendMoneyState extends State<SendMoney> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              margin: const EdgeInsets.only(left: 10),
+                              margin: const EdgeInsets.only(left: 15),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xFFDADADA))
+                              ),
                               width: 250,
                               height: 50,
                               child: TextField(
+                                style: kInputTextStyleTextField,
                                 cursorColor: greyColor,
+                                cursorHeight: 20,
                                 decoration: const InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: greyColor),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: greyColor),
-                                  ),
+                                  contentPadding: EdgeInsets.all(15),
+                                  enabledBorder:InputBorder.none,
+                                  focusedBorder: InputBorder.none
                                 ),
                                 keyboardType: TextInputType.number,
                                 controller: _controller,
@@ -322,6 +317,9 @@ class _SendMoneyState extends State<SendMoney> {
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                              ),
                               primary: orangeColor,
                             ),
                             onPressed: () {

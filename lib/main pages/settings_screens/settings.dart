@@ -8,7 +8,7 @@ import '../../constants.dart';
 import 'card_add.dart';
 import 'profile_change.dart';
 import 'security_page/security_settings.dart';
-import 'settings_button.dart';
+import '../../models/button_model/settings_button.dart';
 
 class Settings extends StatefulWidget {
   const Settings({
@@ -78,15 +78,15 @@ class _SettingsState extends State<Settings> {
                     onPressed: () {
                       Navigator.pushNamed(context, '/profileChange');
                     },
-                    child: Text('Изменить профиль', style: kChangeProfileSettingsStyle,),
+                    child: const Text('Изменить профиль', style: kChangeProfileSettingsStyle,),
                   ),
                   Container(
                     height: screenHeight * 0.5,
                     child: ListView(
                       children: [
                         SettingsButton(
-                          label: Text(
-                            'Безопастность',
+                          label: const Text(
+                            'Безопасность',
                             style: kSettingsButton,
                           ),
                           icon: SvgPicture.asset('assets/svg/lock.svg'),
@@ -96,7 +96,7 @@ class _SettingsState extends State<Settings> {
                         ),
                         const SizedBox(height: 10),
                         SettingsButton(
-                          label: Text(
+                          label: const Text(
                             'Язык',
                             style: kSettingsButton,
                           ),
@@ -106,7 +106,7 @@ class _SettingsState extends State<Settings> {
                         const SizedBox(height: 10),
                         Container(
                           height: 50,
-                          margin: EdgeInsets.only(left: 15, right: 15),
+                          margin: const EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -124,7 +124,7 @@ class _SettingsState extends State<Settings> {
                                   child: Row(
                                     children: [
                                       SvgPicture.asset('assets/svg/moon.svg'),
-                                      SizedBox(width: 15),
+                                      const SizedBox(width: 15),
                                       const Text(
                                         'Тёмный режим',
                                         style: kSettingsButton,

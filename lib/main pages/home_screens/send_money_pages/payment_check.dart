@@ -22,13 +22,12 @@ class _EndCheckState extends State<EndCheck> {
         leading:IconButton(onPressed: (){
           Navigator.popAndPushNamed(context, '/sendMoney');
         }, icon: Icon(Icons.chevron_left), color: Color(0xFF535461),),
-        title: const Text(
-          'Главная',
-          style: TextStyle(
-              color: Color(0xFF535461),
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
-              fontFamily: 'Gilroy-Regular'),
+        title: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: const Text(
+            'Главная',
+            style: kMainTextStyle,
+          ),
         ),
       ),
       body: Column(
@@ -117,14 +116,17 @@ class _EndCheckState extends State<EndCheck> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/successTransfer');
+                  Navigator.pushNamed(context, '/sendMoney');
                 },
                 child: Text(
-                  'Перевести',
+                  'Повторить',
                   style: kManualStyle,
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: orangeColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
+                  )
                 ),
               ),
             ),

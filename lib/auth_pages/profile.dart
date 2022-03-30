@@ -1,3 +1,4 @@
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -60,12 +61,10 @@ class _ProfileState extends State<Profile> {
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -81,16 +80,13 @@ class _ProfileState extends State<Profile> {
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: TextField(
                       cursorColor: greyColor,
-
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -111,12 +107,10 @@ class _ProfileState extends State<Profile> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: greyColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -182,21 +176,7 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               const SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: () {
-
-                 buildScreenLock(context);
-                },
-                child: const Text(
-                  'Создать профиль',
-                  style: kProfileCreateButton,
-                ),
-                style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    shadowColor: orangeColor,
-                    elevation: 5,
-                    fixedSize: Size(screenWidth * 0.8, 45)),
-              ),
+              ManualButton(title: 'Создать профиль', onPressed: () {buildScreenLock(context);},),
             ],
           ),
         ),
@@ -205,7 +185,6 @@ class _ProfileState extends State<Profile> {
   }
 
   buildScreenLock(BuildContext context) async {
-
     // Future<void> localAuth(BuildContext context) async {
     //   final localAuth = LocalAuthentication();
     //   final didAuthenticate = await localAuth.authenticate(
@@ -287,8 +266,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 }
-
-
 
 
 class GenderButton extends StatelessWidget {

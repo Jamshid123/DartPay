@@ -1,5 +1,7 @@
-import 'package:DartPay/main%20pages/home_screens/home_page.dart';
+import 'package:DartPay/auth_pages/profile.dart';
+import 'package:DartPay/main%20pages/home_screens/home_page/home_page.dart';
 import 'package:DartPay/main%20pages/settings_screens/settings.dart';
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -98,26 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(left: 40, right: 40),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/startPage');
-                  },
-                  child: const Text(
-                    'Установить пароль',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Gilroy-Regular',
-                        letterSpacing: 1,
-                        fontSize: 18),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    minimumSize: const Size(double.infinity, 45),
-                  ),
-                ),
-              ),
+              ManualButton(title: 'Установить пароль', onPressed: (){
+                Navigator.pushNamed(context, '/startPage');
+              }),
+
               const SizedBox(height: 25),
               Center(
                 child: TextButton(
