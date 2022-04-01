@@ -147,7 +147,14 @@ class _SendMoneyState extends State<SendMoney> {
                               data: const Text('Запрос',
                                   style: kRequestTextSendMoneyPage),
                               onPress: () {
-                                Navigator.pushReplacementNamed(context, '/requestPage');
+                                Navigator.pushReplacement(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation1, animation2) => RequestPage(),
+                                    transitionDuration: Duration.zero,
+                                    reverseTransitionDuration: Duration.zero,
+                                  ),
+                                );
                               },
                             ),
                           ],
@@ -266,49 +273,50 @@ class _SendMoneyState extends State<SendMoney> {
                           ],
                         ),
                         const SizedBox(height: 20),
-                        Container(
-                          margin: const EdgeInsets.only(left: 15, right: 15),
-                          height: 165,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.greenAccent,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              TextField(
-                                keyboardType: TextInputType.number,
-                                controller: _textController,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10, right: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    border: Border.all(color: Colors.grey)),
-                                height: 50,
-                                width: MediaQuery.of(context).size.width,
-                                child: Center(
-                                  child: showedCurrency == null
-                                      ? Text('')
-                                      : Text(
-                                          "$showedCurrency",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                              ElevatedButton(
-                                onPressed: () {
-                                  fetch();
-                                },
-                                child: Text('Click'),
-                              ),
-                            ],
-                          ),
-                        ),
+                        //TODO Converter currency
+                        // Container(
+                        //   margin: const EdgeInsets.only(left: 15, right: 15),
+                        //   height: 165,
+                        //   width: double.infinity,
+                        //   decoration: BoxDecoration(
+                        //       color: Colors.greenAccent,
+                        //       borderRadius: BorderRadius.circular(10)),
+                        //   child: Column(
+                        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        //     children: [
+                        //       TextField(
+                        //         keyboardType: TextInputType.number,
+                        //         controller: _textController,
+                        //         decoration: InputDecoration(
+                        //           border: OutlineInputBorder(),
+                        //         ),
+                        //       ),
+                        //       Container(
+                        //         margin: EdgeInsets.only(left: 10, right: 10),
+                        //         decoration: BoxDecoration(
+                        //             borderRadius: BorderRadius.circular(5),
+                        //             border: Border.all(color: Colors.grey)),
+                        //         height: 50,
+                        //         width: MediaQuery.of(context).size.width,
+                        //         child: Center(
+                        //           child: showedCurrency == null
+                        //               ? Text('')
+                        //               : Text(
+                        //                   "$showedCurrency",
+                        //                   style: TextStyle(fontSize: 30),
+                        //                 ),
+                        //         ),
+                        //       ),
+                        //       SizedBox(height: 10),
+                        //       ElevatedButton(
+                        //         onPressed: () {
+                        //           fetch();
+                        //         },
+                        //         child: Text('Click'),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                         const SizedBox(height: 30),
                         Container(
                           margin: const EdgeInsets.only(

@@ -2,6 +2,7 @@ import 'package:DartPay/auth_pages/profile.dart';
 import 'package:DartPay/constants.dart';
 import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 enum GenderType { male, female }
 
@@ -14,7 +15,7 @@ class ChangeProfile extends StatefulWidget {
 
 class _ChangeProfileState extends State<ChangeProfile> {
   GenderType? gender;
-
+  final  _dateController = MaskedTextController(mask: '00 . 00 . 0000');
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -28,17 +29,27 @@ class _ChangeProfileState extends State<ChangeProfile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CircleAvatar(
-                  backgroundImage:
-                      AssetImage('assets/images/userAvatar_large.png'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.chevron_left),
+                    Column(
+                      children: [
+                        const CircleAvatar(
+                          backgroundImage:
+                          AssetImage('assets/images/userAvatar_large.png'),
+                        ),
+                        TextButton(
+                            onPressed: () {},
+                            child:
+                            const Text('Изменить фото', style: kChangePhotoStyle),
+                            style: TextButton.styleFrom(
+                              primary: greyColor,
+                            )),
+                      ],
+                    )
+                  ],
                 ),
-                TextButton(
-                    onPressed: () {},
-                    child:
-                        const Text('Изменить фото', style: kChangePhotoStyle),
-                    style: TextButton.styleFrom(
-                      primary: greyColor,
-                    )),
                 Padding(
                   padding: EdgeInsets.only(right: screenWidth * 0.7),
                   child: const Text(
@@ -51,6 +62,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   height: 40,
                   margin: const EdgeInsets.only(left: 40, right: 40),
                   child: const TextField(
+                    style: kInputTextStyleProfileChangePage,
+                    cursorColor: greyColor,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
                       enabledBorder: OutlineInputBorder(
@@ -77,6 +90,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   height: 40,
                   margin: const EdgeInsets.only(left: 40, right: 40),
                   child: const TextField(
+                    style: kInputTextStyleProfileChangePage,
                     cursorColor: greyColor,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
@@ -103,9 +117,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
                 Container(
                   height: 40,
                   margin: const EdgeInsets.only(left: 40, right: 40),
-                  child: const TextField(
+                  child:  TextField(
+                    controller: _dateController,
+                    style: kInputTextStyleProfileChangePage,
                     cursorColor: greyColor,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(left: 10),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(

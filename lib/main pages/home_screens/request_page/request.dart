@@ -111,8 +111,14 @@ class _RequestPageState extends State<RequestPage> {
                                 style: kSendTextRequestPage,
                               ),
                               onPress: () {
-                                Navigator.pushReplacementNamed(
-                                    context, '/sendMoney');
+                                Navigator.pushReplacement(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation1, animation2) => SendMoney(),
+                                    transitionDuration: Duration.zero,
+                                    reverseTransitionDuration: Duration.zero,
+                                  ),
+                                );
                               },
                             ),
                             const SizedBox(width: 15),
@@ -139,12 +145,11 @@ class _RequestPageState extends State<RequestPage> {
                             Container(
                               height: 50,
                               width: screenWidth,
-                              margin: EdgeInsets.only(right: 5),
                               child: ListView.builder(
                                 padding: EdgeInsets.only(right: 15),
                                 scrollDirection: Axis.horizontal,
                                 itemCount: cardList.length,
-                                itemBuilder: (BuildContext, int index) {
+                                itemBuilder: (BuildContext context, int index) {
                                   return Container(
                                     width: 280,
                                     margin: const EdgeInsets.only(left: 10),

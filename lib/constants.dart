@@ -15,80 +15,46 @@ const kIntroductionScreenStyle2 = TextStyle(
     fontFamily: 'Gilroy-Regular',
     letterSpacing: 1);
 
-const kButtonTextStyle = TextStyle(
-    fontFamily: 'Gilroy-Regular',
-    fontSize: 18.0,
-    fontWeight: FontWeight.w600,
-    letterSpacing: 1);
-
-final kodInputDecoration = InputDecoration(
-    enabledBorder: OutlineInputBorder(
-  borderRadius: BorderRadius.circular(15.0),
-));
-
-const kInactiveCardColour = Color(0xEEECECFF);
-const kActiveCardColour = Color(0xBFFF6612);
-const kMasterCardColor = Color(0xBFFF6612);
-const kTitleTextStyle =
-    TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold, letterSpacing: 1);
 const orangeColor = Color(0xFFF37547);
 const greyColor = Color(0xFF898A8D);
-
-const kCardTextStyle = TextStyle(
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Gilroy-Regular',
-    fontSize: 17,
-    letterSpacing: 1);
-const kCardNumberTextStyle =
-    TextStyle(fontWeight: FontWeight.w400, fontSize: 18, letterSpacing: 1);
 
 const kCardName = TextStyle(
     fontWeight: FontWeight.w500,
     color: Color(0xFFFFFFFF),
     fontSize: 14.0,
     letterSpacing: 1);
-const kCardButtonStyle = TextStyle(
-  color: Colors.white,
-  fontFamily: 'Gilroy-Regular',
-  fontSize: 18.0,
-  fontWeight: FontWeight.w500,
-  letterSpacing: 1,
-);
+
 const activeButtonColor = Color(0xFFF37547);
-const inActiveButtonColor = Colors.white;
 
-const buttonTextColorActive = Colors.white;
-const buttonTextColorInactive = Color(0xFFF37547);
 
-const kCardScreenTextStyle = TextStyle(
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Gilroy-Regular',
-    fontSize: 18,
-    color: Color(0xFF535461),
-    letterSpacing: 1);
-const kCardUserTextStyle = TextStyle(
+const kUserNameTextStyle = TextStyle(
     fontFamily: 'Mont',
     fontWeight: FontWeight.w500,
     fontSize: 14,
     letterSpacing: 1);
-const kCardNumTextStyle = TextStyle(
+
+const kUserNumberTextStyle = TextStyle(
   fontFamily: 'Mont',
   fontWeight: FontWeight.w500,
   fontSize: 14,
   color: Color(0xFF535461),
 );
+
 const kRecentTextStyle = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 16.0,
     fontFamily: 'Gilroy-Regular',
     letterSpacing: 1);
+
 const kCardTransactionStyle = TextStyle(
     fontFamily: 'Mont',
     fontWeight: FontWeight.w500,
     letterSpacing: 1,
     color: Color(0xFFBFBFBF));
+
 const kCardTransactionStyle1 = TextStyle(
     fontFamily: 'Mont', fontWeight: FontWeight.w400, letterSpacing: 1);
+
 const kRequestTextRequestPage = TextStyle(
     fontFamily: 'Gilroy-Regular',
     color: Colors.white,
@@ -144,20 +110,22 @@ const kShareTextStyle = TextStyle(
     color: Color(0xFF898A8D),
     letterSpacing: 1);
 
-const kSettingsUserStyle =
-    TextStyle(fontSize: 18, fontFamily: 'Gilroy-Regular', fontWeight: FontWeight.w600);
+const kSettingsUserStyle = TextStyle(fontSize: 18, fontFamily: 'Gilroy-Regular', fontWeight: FontWeight.w600);
+
 const kSettingsNumStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16,
     fontFamily: 'Gilroy-Regular',
     color: greyColor,
     letterSpacing: 1);
+
 const kSettingsButton = TextStyle(
   fontFamily: 'Mont',
     fontWeight: FontWeight.w500,
     fontSize: 16,
     color: Color(0xFF2C313B),
     letterSpacing: 1);
+
 const kChangeNameStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontSize: 16,
@@ -177,6 +145,7 @@ const kCardAddStyle = TextStyle(
     letterSpacing: 1,
     fontSize: 14,
     color: Color(0xFF979797));
+
 const kMainCardStyle = TextStyle(
   fontFamily: 'Mont',
   fontWeight: FontWeight.w400,
@@ -224,19 +193,13 @@ const kProfileCreateButton = TextStyle(
     fontWeight: FontWeight.w600,
     letterSpacing: 1);
 
-const kSetUpPin = TextStyle(
-    fontFamily: 'Mont',
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    letterSpacing: 1,
-    color: Color(0xFF3F3D56));
-
 const kSendTextRequestPage = TextStyle(
     color: orangeColor,
     fontFamily: 'Gilroy-Regular',
     fontSize: 14,
     letterSpacing: 1,
     fontWeight: FontWeight.w500);
+
 const kRequestButtonStyle = TextStyle(
     color: Colors.white,
     fontFamily: 'Gilroy-Regular',
@@ -264,12 +227,6 @@ const kSetPinStyle = TextStyle(
     color: Color(0xFF3F3D56),
     letterSpacing: 1);
 
-const kPasscode = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 16,
-    color: orangeColor,
-    fontFamily: 'Gilroy-Regular');
-
 const kYourNumberStyle = TextStyle(
     fontSize: 14,
     fontFamily: 'Gilroy-Regular',
@@ -282,6 +239,7 @@ const kSendTextSendMoneyPage = TextStyle(
     fontSize: 14,
     letterSpacing: 1,
     fontWeight: FontWeight.w500);
+
 const kRequestTextSendMoneyPage = TextStyle(
     color: orangeColor,
     fontFamily: 'Gilroy-Regular',
@@ -294,48 +252,57 @@ const kCardNumberCheckPage = TextStyle(
     fontSize: 4,
     fontWeight: FontWeight.w400,
     color: Colors.white);
+
 const kCardNameCheckPage = TextStyle(
     fontFamily: 'Mont',
     fontSize: 5,
     fontWeight: FontWeight.w500,
     color: Colors.white);
+
 const kCardNameMedium = TextStyle(
     fontFamily: 'Mont',
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: Colors.black);
+
 const kRecipientStyle = TextStyle(
   fontFamily: 'Gilroy-Regular',
   fontWeight: FontWeight.w500,
   fontSize: 14,
   color: greyColor,
 );
+
 const kCardNumberLarge = TextStyle(
   fontFamily: 'Gilroy-Regular',
   fontWeight: FontWeight.w500,
   fontSize: 18,
 );
+
 const kToPayStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontFamily: 'Gilroy-Regular',
     fontSize: 18,
     color: greyColor);
+
 const kAmountMoney = TextStyle(
     color: orangeColor,
     fontFamily: 'Gilroy-Regular',
     fontSize: 24,
     fontWeight: FontWeight.w700);
+
 const kCommentStyle = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     fontFamily: 'Gilroy-Regular',
     color: greyColor);
+
 const kAddCommentStyle = TextStyle(
   fontFamily: 'Gilroy-Regular',
   fontSize: 14,
   fontWeight: FontWeight.w500,
   color: greyColor,
 );
+
 const kCheckToPayText = TextStyle(
     fontSize: 18,
     fontFamily: 'Gilroy-Regular',
@@ -348,11 +315,13 @@ const kTransactionNameStyle = TextStyle(
   fontFamily: 'Mont',
   color: Color(0xFF535461),
 );
+
 const kTransactionAmount = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: 'Mont',
   color: Color(0xFF535461),
 );
+
 const kTransactionAmountReceived = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: 'Mont',
@@ -369,6 +338,7 @@ const kDateStyle =  TextStyle(
     fontFamily: 'Gilroy-Regular',
     fontWeight: FontWeight.w500,
     fontSize: 14, color: orangeColor);
+
 const kButtonSendMoneyHomePage = TextStyle(
     color: Color(0xFFFFFFFF),
     fontFamily: 'Gilroy-Regular',
@@ -381,12 +351,12 @@ const kButtonRequestMoneyHomePage = TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w500);
 
-
 const kSuccessTextStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     color: orangeColor,
     fontWeight: FontWeight.w600,
     fontSize: 24);
+
 const kSkipButtonTextStyle = TextStyle(
     fontFamily: 'Gilroy-Regular',
     color: orangeColor,
@@ -400,6 +370,7 @@ const kAddYourNumber = TextStyle(
   color: greyColor,
   fontWeight: FontWeight.w600,
 );
+
 const kQuitButtonStyle = TextStyle(
   fontFamily: 'Gilroy-Regular',
   fontWeight: FontWeight.w500,
@@ -412,6 +383,7 @@ const kChangeProfileSettingsStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 14,
 );
+
 const kInputTextStyleTextField = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w400,
@@ -427,4 +399,14 @@ const kAuthPagesTextStyle = TextStyle(
   fontSize: 24,
   color: Color(0xFF2F2E41)
 );
+
 const kInputPhoneNumberStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w400, fontFamily: 'Gilroy-Regular', color: greyColor);
+
+const kInputTextStyleProfileChangePage = TextStyle(
+  fontFamily: 'Gilroy-Regular',
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+  letterSpacing: 1,
+  color: Color(0xFF2C313B),
+);
+

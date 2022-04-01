@@ -29,13 +29,14 @@ class _SettingsButtonState extends State<SettingsButton> {
       height: 50,
       child: TextButton(
         onPressed: widget.onPressed,
-        style: TextButton.styleFrom(
-          backgroundColor: Colors.white,
-          elevation: 0.25,
-          shadowColor: greyColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+        style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          elevation: MaterialStateProperty.all(0.25),
+          shadowColor: MaterialStateProperty.all(greyColor),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),),
         ),
         child: Row(
           children: [

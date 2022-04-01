@@ -18,47 +18,45 @@ class SuccessRequest extends StatelessWidget {
         elevation: 0,
         leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: SvgPicture.asset('assets/svg/arrow_left.svg')),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 226),
-        child: Column(
-          children: [
-            Container(
-              child: Center(child: Image.asset('assets/images/done.png')),
-            ),
-            const SizedBox(height: 24),
-            const Text(
-              'Запрос отправлен!',
-              style: TextStyle(
-                  fontFamily: 'Gilroy-Regular',
-                  color: Colors.deepOrange,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18),
-            ),
-            SizedBox(height: 150),
-            Column(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.share),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Center(child: Image.asset('assets/images/done.png')),
+          ),
+          const SizedBox(height: 24),
+          const Text(
+            'Запрос отправлен!',
+            style: TextStyle(
+                fontFamily: 'Gilroy-Regular',
+                color: Colors.deepOrange,
+                fontWeight: FontWeight.w600,
+                fontSize: 18),
+          ),
+          SizedBox(height: 150),
+          Column(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.share),
+              ),
+              const Text(
+                'Поделиться ссылкой',
+                style: kShareTextStyle,
+              ),
+              SizedBox(height: 20),
+              InkWell(
+                child: Text(
+                  'https://cabinet.paymart.uz/ru/panel/buyers',
+                  style: TextStyle(color: Colors.blue),
                 ),
-                const Text(
-                  'Поделиться ссылкой',
-                  style: kShareTextStyle,
-                ),
-                SizedBox(height: 20),
-                InkWell(
-                  child: Text(
-                    'https://cabinet.paymart.uz/ru/panel/buyers',
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  onTap: () {
-                    launch('https://cabinet.paymart.uz/ru/panel/buyers');
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
+                onTap: () {
+                  launch('https://cabinet.paymart.uz/ru/panel/buyers');
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

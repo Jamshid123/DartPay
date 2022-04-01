@@ -52,10 +52,10 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: const [
-                            Text('Bayahmedov S.R.', style: kCardUserTextStyle),
+                            Text('Bayahmedov S.R.', style: kUserNameTextStyle),
                             SizedBox(height: 5),
                             Text(' (+ 998 90 211 35 09)',
-                                style: kCardNumTextStyle),
+                                style: kUserNumberTextStyle),
                           ],
                         ),
                       ),

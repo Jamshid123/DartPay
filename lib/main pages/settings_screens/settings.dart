@@ -109,13 +109,14 @@ class _SettingsState extends State<Settings> {
                           margin: const EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
                             onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              elevation: 0.25,
-                              shadowColor: greyColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
+                            style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all(Colors.transparent),
+                              backgroundColor: MaterialStateProperty.all(Colors.white),
+                              elevation: MaterialStateProperty.all(0.25),
+                              shadowColor: MaterialStateProperty.all(greyColor),
+                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)
+                              ),),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,15 +148,16 @@ class _SettingsState extends State<Settings> {
                           height: 50,
                           margin: EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              elevation: 0.25,
-                              shadowColor: greyColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
                             onPressed: () {},
+                            style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all(Colors.transparent),
+                              backgroundColor: MaterialStateProperty.all(Colors.white),
+                              elevation: MaterialStateProperty.all(0.25),
+                              shadowColor: MaterialStateProperty.all(greyColor),
+                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)
+                              ),),
+                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -206,13 +208,14 @@ class _SettingsState extends State<Settings> {
                           height: 50,
                           margin: EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              elevation: 0.25,
-                              shadowColor: greyColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
+                            style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all(Colors.transparent),
+                              backgroundColor: MaterialStateProperty.all(Colors.white),
+                              elevation: MaterialStateProperty.all(0.25),
+                              shadowColor: MaterialStateProperty.all(greyColor),
+                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)
+                              ),),
                             ),
                             onPressed: () {},
                             child: Row(
@@ -236,7 +239,11 @@ class _SettingsState extends State<Settings> {
                             ),
                           ),
                         ),
-                       TextButton(onPressed: (){}, child: Text('Выйти из аккаунта', style: kQuitButtonStyle,))
+                       TextButton(onPressed: (){}, 
+                           style: ButtonStyle(
+                             overlayColor: MaterialStateProperty.all(Colors.white70)
+                           ),
+                           child: Text('Выйти из аккаунта', style: kQuitButtonStyle,))
 
                       ],
                     ),
