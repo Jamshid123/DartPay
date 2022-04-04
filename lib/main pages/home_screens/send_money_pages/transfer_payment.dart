@@ -2,6 +2,7 @@ import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:DartPay/models/card_model.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'payment_check.dart';
 
@@ -33,7 +34,7 @@ class _TransferPaymentState extends State<TransferPayment> {
                   ),
                   IconButton(
                     padding: EdgeInsets.only(top: 20),
-                    icon: const Icon(Icons.chevron_left, color: Colors.black),
+                    icon: SvgPicture.asset('assets/svg/vector_left.svg'),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/sendMoney');
                     },

@@ -1,6 +1,7 @@
 import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SecurityPage extends StatelessWidget {
@@ -11,14 +12,9 @@ class SecurityPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FBFF),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.chevron_left),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          color: const Color(0xFF2C313B),
-          iconSize: 30,
-        ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: SvgPicture.asset('assets/svg/vector_left.svg')),
         elevation: 0.0,
         backgroundColor: Colors.transparent,
         title: const Padding(

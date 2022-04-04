@@ -42,6 +42,8 @@ dependencies:
   visibility_detector: ^0.2.2
   local_auth: ^1.1.11
   modal_bottom_sheet: ^2.0.1
+  flutter_bloc: ^8.0.1
+  bloc: ^8.0.3
 
 
 

@@ -66,7 +66,7 @@ class _RequestPageState extends State<RequestPage> {
                   IconButton(
                     padding:
                         EdgeInsets.only(top: 20, right: screenWidth * 0.88),
-                    icon: Icon(Icons.chevron_left, color: Colors.black),
+                    icon:SvgPicture.asset('assets/svg/vector_left.svg'),
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/startPage');
                     },
@@ -76,279 +76,272 @@ class _RequestPageState extends State<RequestPage> {
                     padding: EdgeInsets.only(top: 25),
                     child: Text('Запрос средств', style:  kHeaderTextManualStyle),
                   ),
-                  Dismissible(
-                    key: UniqueKey(),
-                    direction: DismissDirection.vertical,
-                    onUpdate: (c){
-                      Navigator.pushNamed(context, '/startPage');
-                    },
-                    child: Container(
-                      height: screenHeight * 0.88,
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(
-                        top: screenHeight * 0.12,
+                  Container(
+                    height: screenHeight * 0.88,
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(
+                      top: screenHeight * 0.12,
+                    ),
+                    decoration:  BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(15),
+                        topLeft: Radius.circular(15),
                       ),
-                      decoration:  BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          topLeft: Radius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 12),
+                        //Кнопки 'Перевод' и 'Запрос'
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RequestButton(
+                              colour: Colors.white,
+                              data: const Text(
+                                'Перевод',
+                                style: kSendTextRequestPage,
+                              ),
+                              onPress: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation1, animation2) => SendMoney(),
+                                    transitionDuration: Duration.zero,
+                                    reverseTransitionDuration: Duration.zero,
+                                  ),
+                                );
+                              },
+                            ),
+                            const SizedBox(width: 15),
+                            RequestButton(
+                              colour: orangeColor,
+                              data: const Text('Запрос',
+                                  style: kRequestTextRequestPage),
+                              onPress: () {},
+                            ),
+                          ],
                         ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 12),
-                          //Кнопки 'Перевод' и 'Запрос'
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              RequestButton(
-                                colour: Colors.white,
-                                data: const Text(
-                                  'Перевод',
-                                  style: kSendTextRequestPage,
-                                ),
-                                onPress: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    PageRouteBuilder(
-                                      pageBuilder: (context, animation1, animation2) => SendMoney(),
-                                      transitionDuration: Duration.zero,
-                                      reverseTransitionDuration: Duration.zero,
+                        //Все остальное после них
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(left: 15),
+                              child: Text(
+                                'На карту',
+                                style: ktoCardStyle,
+                              ),
+                            ),
+                            SizedBox(height: 3),
+                            Container(
+                              height: 50,
+                              width: screenWidth,
+                              child: ListView.builder(
+                                padding: EdgeInsets.only(right: 15),
+                                scrollDirection: Axis.horizontal,
+                                itemCount: cardList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Container(
+                                    width: 280,
+                                    margin: const EdgeInsets.only(left: 10),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: const Color(0xFFDADADA),
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.only(left: 5),
+                                          height: 36,
+                                          width: 68,
+                                          decoration: BoxDecoration(
+                                            color: orangeColor,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                child: Text(
+                                                  cardList[index].cardName,
+                                                  style: const TextStyle(
+                                                      fontFamily: 'Mont',
+                                                      fontSize: 5,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white),
+                                                ),
+                                                top: 5,
+                                                bottom: 27,
+                                                left: 5,
+                                                right: 20,
+                                              ),
+                                              Positioned(
+                                                child: Text(
+                                                  cardList[index].cardNumber,
+                                                  style: const TextStyle(
+                                                      fontFamily: 'Mont',
+                                                      fontSize: 4,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Colors.white),
+                                                ),
+                                                top: 27,
+                                                bottom: 4,
+                                                left: 3,
+                                                right: 25,
+                                              ),
+                                              Positioned(
+                                                child: Image(
+                                                  image: AssetImage(
+                                                      cardList[index].cardType),
+                                                ),
+                                                top: 6,
+                                                bottom: 23,
+                                                left: 58,
+                                                right: 5,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Text(
+                                              cardList[index].cardName,
+                                              style: kCardChooseStyle,
+                                            ),
+                                            const SizedBox(height: 5),
+                                            Text(cardList[index].cardNumber,
+                                                style: kCardChooseStyle),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
                               ),
-                              const SizedBox(width: 15),
-                              RequestButton(
-                                colour: orangeColor,
-                                data: const Text('Запрос',
-                                    style: kRequestTextRequestPage),
-                                onPress: () {},
-                              ),
-                            ],
-                          ),
-                          //Все остальное после них
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'На карту',
-                                  style: ktoCardStyle,
-                                ),
-                              ),
-                              SizedBox(height: 3),
-                              Container(
-                                height: 50,
-                                width: screenWidth,
-                                child: ListView.builder(
-                                  padding: EdgeInsets.only(right: 15),
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: cardList.length,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    return Container(
-                                      width: 280,
-                                      margin: const EdgeInsets.only(left: 10),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: const Color(0xFFDADADA),
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.only(left: 5),
-                                            height: 36,
-                                            width: 68,
-                                            decoration: BoxDecoration(
-                                              color: orangeColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            child: Stack(
-                                              children: [
-                                                Positioned(
-                                                  child: Text(
-                                                    cardList[index].cardName,
-                                                    style: const TextStyle(
-                                                        fontFamily: 'Mont',
-                                                        fontSize: 5,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        color: Colors.white),
-                                                  ),
-                                                  top: 5,
-                                                  bottom: 27,
-                                                  left: 5,
-                                                  right: 20,
-                                                ),
-                                                Positioned(
-                                                  child: Text(
-                                                    cardList[index].cardNumber,
-                                                    style: const TextStyle(
-                                                        fontFamily: 'Mont',
-                                                        fontSize: 4,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Colors.white),
-                                                  ),
-                                                  top: 27,
-                                                  bottom: 4,
-                                                  left: 3,
-                                                  right: 25,
-                                                ),
-                                                Positioned(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                        cardList[index].cardType),
-                                                  ),
-                                                  top: 6,
-                                                  bottom: 23,
-                                                  left: 58,
-                                                  right: 5,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(width: 5),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Text(
-                                                cardList[index].cardName,
-                                                style: kCardChooseStyle,
-                                              ),
-                                              const SizedBox(height: 5),
-                                              Text(cardList[index].cardNumber,
-                                                  style: kCardChooseStyle),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                             Column(
-                               crossAxisAlignment: CrossAxisAlignment.start,
-                               children: [
-                                 const Padding(
-                                   padding: EdgeInsets.only(left: 15),
-                                   child: Text(
-                                     'Введите номер карты',
-                                     style: kInputCardNumberStyle,
-                                   ),
+                            ),
+                            SizedBox(height: 10),
+                           Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               const Padding(
+                                 padding: EdgeInsets.only(left: 15),
+                                 child: Text(
+                                   'Введите номер карты',
+                                   style: kInputCardNumberStyle,
                                  ),
-                                 const SizedBox(height: 10),
-                                 Padding(
-                                   padding: const EdgeInsets.only(left: 15),
-                                   child: Row(
-                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                     children: [
-                                       Container(
-                                         decoration: BoxDecoration(
-                                             borderRadius: BorderRadius.circular(10),
-                                             border: Border.all(color: Color(0xFFDADADA))
-                                         ),
-                                         // margin: const EdgeInsets.only(left: 15),
-                                         width: 250,
-                                         height: 50,
-                                         child: TextField(
-                                           style: kInputTextStyleTextField,
-                                           cursorColor: greyColor,
-                                           cursorHeight: 20,
-                                           decoration: const InputDecoration(
-                                               contentPadding: EdgeInsets.all(15),
-                                               enabledBorder:InputBorder.none,
-                                               focusedBorder: InputBorder.none
-                                           ),
-                                           keyboardType: TextInputType.number,
-                                           controller: _controller,
-                                         ),
+                               ),
+                               const SizedBox(height: 10),
+                               Padding(
+                                 padding: const EdgeInsets.only(left: 15),
+                                 child: Row(
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: [
+                                     Container(
+                                       decoration: BoxDecoration(
+                                           borderRadius: BorderRadius.circular(10),
+                                           border: Border.all(color: Color(0xFFDADADA))
                                        ),
-                                       const SizedBox(width: 10),
-                                       Row(
-                                         children: [
-                                           IconButton(
-                                             onPressed: () async {
-                                               scanCard();
-                                             },
-                                             icon: SvgPicture.asset('assets/svg/scan_svg.svg')
-                                           ),
-                                           IconButton(
-                                             onPressed: () {},
-                                             icon: SvgPicture.asset('assets/svg/user_plus.svg')
-                                           ),
-                                         ],
+                                       // margin: const EdgeInsets.only(left: 15),
+                                       width: 250,
+                                       height: 50,
+                                       child: TextField(
+                                         style: kInputTextStyleTextField,
+                                         cursorColor: greyColor,
+                                         cursorHeight: 20,
+                                         decoration: const InputDecoration(
+                                             contentPadding: EdgeInsets.all(15),
+                                             enabledBorder:InputBorder.none,
+                                             focusedBorder: InputBorder.none
+                                         ),
+                                         keyboardType: TextInputType.number,
+                                         controller: _controller,
                                        ),
-                                     ],
-                                   ),
+                                     ),
+                                     const SizedBox(width: 10),
+                                     Row(
+                                       children: [
+                                         IconButton(
+                                           onPressed: () async {
+                                             scanCard();
+                                           },
+                                           icon: SvgPicture.asset('assets/svg/scan_svg.svg')
+                                         ),
+                                         IconButton(
+                                           onPressed: () {},
+                                           icon: SvgPicture.asset('assets/svg/user_plus.svg')
+                                         ),
+                                       ],
+                                     ),
+                                   ],
                                  ),
-                               ],
-                             ),
-                              const SizedBox(height: 10),
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(left: 15, right: 15),
-                                height: 140,
-                                decoration: BoxDecoration(
-                                    color: Colors.greenAccent,
-                                    borderRadius: BorderRadius.circular(10)),
+                               ),
+                             ],
+                           ),
+                            const SizedBox(height: 10),
+                            Container(
+                              margin:
+                                  const EdgeInsets.only(left: 15, right: 15),
+                              height: 140,
+                              decoration: BoxDecoration(
+                                  color: Colors.greenAccent,
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            SizedBox(height: 37),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xFFDADADA))
                               ),
-                              SizedBox(height: 37),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Color(0xFFDADADA))
-                                ),
-                                margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                                height: 70,
-                                child: const TextField(
-                                  cursorColor: greyColor,
-                                  cursorHeight: 20,
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    hintText: 'Добавьте ваш комментарий',
-                                    contentPadding: EdgeInsets.all(15),
-                                    enabledBorder:InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    hintStyle: kAddCommentStyle,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              Container(
-                                margin: const EdgeInsets.only(
-                                    left: 15, right: 15, bottom: 23),
-                                height: 50,
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: orangeColor,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)
-                                    )
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, '/successRequest');
-                                  },
-                                  child: const Text(
-                                    'Отправить запрос',
-                                    style: kManualStyle,
-                                  ),
+                              margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                              height: 70,
+                              child: const TextField(
+                                cursorColor: greyColor,
+                                cursorHeight: 20,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  hintText: 'Добавьте ваш комментарий',
+                                  contentPadding: EdgeInsets.all(15),
+                                  enabledBorder:InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  hintStyle: kAddCommentStyle,
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                            SizedBox(height: 20),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  left: 15, right: 15, bottom: 23),
+                              height: 50,
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: orangeColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)
+                                  )
+                                ),
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, '/successRequest');
+                                },
+                                child: const Text(
+                                  'Отправить запрос',
+                                  style: kManualStyle,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ],

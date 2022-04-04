@@ -16,7 +16,7 @@ class SuccessRequest extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: SvgPicture.asset('assets/svg/arrow_left.svg')),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: SvgPicture.asset('assets/svg/vector_left.svg')),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

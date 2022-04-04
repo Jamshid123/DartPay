@@ -1,6 +1,7 @@
 import 'package:DartPay/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:flutter_svg/svg.dart';
 import 'field_transfer.dart';
 
 class EndCheck extends StatefulWidget {
@@ -21,7 +22,7 @@ class _EndCheckState extends State<EndCheck> {
         backgroundColor: Colors.white,
         leading:IconButton(onPressed: (){
           Navigator.popAndPushNamed(context, '/sendMoney');
-        }, icon: Icon(Icons.chevron_left), color: Color(0xFF535461),),
+        }, icon:SvgPicture.asset('assets/svg/vector_left.svg'),),
         title: Padding(
           padding: const EdgeInsets.only(right: 10),
           child: const Text(
