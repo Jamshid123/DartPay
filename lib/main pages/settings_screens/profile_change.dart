@@ -29,25 +29,19 @@ class _ChangeProfileState extends State<ChangeProfile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
                   children: [
-                    Icon(Icons.chevron_left),
-                    Column(
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage:
-                          AssetImage('assets/images/userAvatar_large.png'),
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child:
-                            const Text('Изменить фото', style: kChangePhotoStyle),
-                            style: TextButton.styleFrom(
-                              primary: greyColor,
-                            )),
-                      ],
-                    )
+                    const CircleAvatar(
+                      backgroundImage:
+                      AssetImage('assets/images/userAvatar_large.png'),
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child:
+                        const Text('Изменить фото', style: kChangePhotoStyle),
+                        style: TextButton.styleFrom(
+                          primary: greyColor,
+                        )),
                   ],
                 ),
                 Padding(

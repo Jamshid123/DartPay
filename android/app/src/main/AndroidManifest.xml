@@ -2,6 +2,8 @@
     package="com.example.untitled">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
    <application
         android:label="DartPay"
         android:icon="@mipmap/ic_launcher">

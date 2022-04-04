@@ -182,15 +182,14 @@ class _ProfileState extends State<Profile> {
   }
 
   buildScreenLock(BuildContext context) async {
-    // Future<void> localAuth(BuildContext context) async {
-    //   final localAuth = LocalAuthentication();
-    //   final didAuthenticate = await localAuth.authenticate(
-    //       localizedReason: 'Please authenticate');
-    //   if (didAuthenticate) {
-    //     Navigator.pop(context);
-    //   }
-    // }
-
+    Future<void> localAuth(BuildContext context) async {
+      final localAuth = LocalAuthentication();
+      final didAuthenticate = await localAuth.authenticate(
+          localizedReason: 'Please authenticate');
+      if (didAuthenticate) {
+        Navigator.pop(context);
+      }
+    }
     screenLock(
       context: context,
       title: const Text(
@@ -202,6 +201,15 @@ class _ProfileState extends State<Profile> {
         style: kSetPinStyle,
       ),
       correctString: '',
+      customizedButtonChild: Icon(
+        Icons.fingerprint,
+      ),
+      customizedButtonTap: () async {
+        await localAuth(context);
+      },
+      didOpened: () async {
+        await localAuth(context);
+      },
       // customizedButtonChild: SvgPicture.asset('assets/svg/fingerPrint.svg'),
       confirmation: true,
       didConfirmed: (matchedText) async {
@@ -256,10 +264,7 @@ class _ProfileState extends State<Profile> {
           backgroundColor: Colors.white,
         ),
       ),
-      deleteButton: const Icon(
-        Icons.backspace_outlined,
-        color: orangeColor,
-      ),
+      deleteButton: SvgPicture.asset('assets/svg/delete_button.svg')
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
+import 'package:DartPay/models/button_model/request_button.dart';
 import 'package:DartPay/models/card_transaction_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -6,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:DartPay/models/card_model.dart';
 import 'package:DartPay/models/button_model/homePage_button.dart';
 import 'package:DartPay/constants.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class HomePage extends StatefulWidget {
@@ -162,7 +165,6 @@ class _HomePageState extends State<HomePage> {
                   HomePageButton(
                         onPress: () {
                           Navigator.pushNamed(context, '/sendMoney');
-
                         },
                         colour: orangeColor,
                         data: const Text(

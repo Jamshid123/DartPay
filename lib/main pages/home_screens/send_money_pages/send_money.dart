@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:core';
+import 'package:flutter/gestures.dart';
 import 'package:http/http.dart' as http;
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/models/card_model.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../constants.dart';
 import '../../../models/button_model/request_button.dart';
 import 'transfer_payment.dart';
@@ -115,231 +117,249 @@ class _SendMoneyState extends State<SendMoney> {
                     child: Text('Перевод',
                         style: kHeaderTextManualStyle),
                   ),
-                  Container(
-                    height: screenHeight * 0.85,
-                    width: screenWidth,
-                    margin: EdgeInsets.only(top: screenHeight * 0.12),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(15),
-                        topLeft: Radius.circular(15),
+                  Dismissible(
+                    key: UniqueKey(),
+                    direction: DismissDirection.vertical,
+                    onUpdate: (_){
+                      Navigator.pushNamed(context, '/startPage');
+                    },
+                    child: Container(
+                      height: screenHeight * 0.88,
+                      width: screenWidth,
+                      margin: EdgeInsets.only(top: screenHeight * 0.12),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(15),
+                          topLeft: Radius.circular(15),
+                        ),
                       ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            RequestButton(
-                              colour: orangeColor,
-                              data: const Text(
-                                'Перевод',
-                                style: kSendTextSendMoneyPage,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 12),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RequestButton(
+                                colour: orangeColor,
+                                data: const Text(
+                                  'Перевод',
+                                  style: kSendTextSendMoneyPage,
+                                ),
+                                onPress: () {},
                               ),
-                              onPress: () {},
+                              const SizedBox(width: 15),
+                              RequestButton(
+                                colour: Colors.white,
+                                data: const Text('Запрос',
+                                    style: kRequestTextSendMoneyPage),
+                                onPress: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation1, animation2) => RequestPage(),
+                                      transitionDuration: Duration.zero,
+                                      reverseTransitionDuration: Duration.zero,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'С карты',
+                              style: kInputCardNumberStyle,
                             ),
-                            const SizedBox(width: 15),
-                            RequestButton(
-                              colour: Colors.white,
-                              data: const Text('Запрос',
-                                  style: kRequestTextSendMoneyPage),
-                              onPress: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation1, animation2) => RequestPage(),
-                                    transitionDuration: Duration.zero,
-                                    reverseTransitionDuration: Duration.zero,
+                          ),
+                          const SizedBox(height: 15),
+                          Container(
+                            height: 75,
+                            child: ListView.builder(
+                                padding: EdgeInsets.only(right: 15),
+                                scrollDirection: Axis.horizontal,
+                                itemCount: cardList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Container(
+                                    margin: EdgeInsets.only(left: 15),
+                                    width: 280,
+                                    decoration: BoxDecoration(
+                                        color: orangeColor,
+                                        borderRadius: BorderRadius.circular(10)),
+                                    child: Stack(
+                                      children: [
+                                        SvgPicture.asset(
+                                            'assets/svg/cardPicture1.svg'),
+                                        Positioned(
+                                          child: Text(
+                                            cardList[index].cardName,
+                                            style: kSendMoneyCardNumStyle,
+                                          ),
+                                          top: 12,
+                                          right: 130,
+                                          left: 20,
+                                          bottom: 45,
+                                        ),
+                                        Positioned(
+                                          child: Text(
+                                            cardList[index].cardNumber,
+                                            style: kSendMoneyCardNumStyle,
+                                          ),
+                                          top: 43,
+                                          right: 111,
+                                          left: 20,
+                                          bottom: 12,
+                                        ),
+                                        Positioned(
+                                          child: Image.asset(
+                                              'assets/images/logo_uzcard_512.png'),
+                                          top: 19,
+                                          right: 21,
+                                          left: 320,
+                                          bottom: 25,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
+                          ),
+                          const SizedBox(height: 15),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'На карту',
+                              style: kInputCardNumberStyle,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(left: 15),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Color(0xFFDADADA))
+                                ),
+                                width: 250,
+                                height: 50,
+                                child: TextField(
+                                  style: kInputTextStyleTextField,
+                                  cursorColor: greyColor,
+                                  cursorHeight: 20,
+                                  decoration: const InputDecoration(
+                                    contentPadding: EdgeInsets.all(15),
+                                    enabledBorder:InputBorder.none,
+                                    focusedBorder: InputBorder.none
                                   ),
-                                );
+                                  keyboardType: TextInputType.number,
+                                  controller: _controller,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () async {
+                                      scanCard();
+                                    },
+                                    icon: SvgPicture.asset(
+                                        'assets/svg/scan_svg.svg'),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: SvgPicture.asset(
+                                        'assets/svg/user_plus.svg'),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          //TODO CONVERTER
+                          // Container(
+                          //   margin: const EdgeInsets.only(left: 15, right: 15),
+                          //   height: 200,
+                          //   width: double.infinity,
+                          //   decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(10)),
+                          //   child: Column(
+                          //     crossAxisAlignment: CrossAxisAlignment.start,
+                          //     children: [
+                          //       SizedBox(height: 17,),
+                          //       Column(
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Text('К отправке'),
+                          //           SizedBox(
+                          //             width: 270,
+                          //             child: TextField(
+                          //               style: TextStyle(
+                          //                 fontSize: 20
+                          //               ),
+                          //               decoration: InputDecoration(
+                          //                 border: InputBorder.none,
+                          //                 contentPadding: EdgeInsets.all(20)
+                          //               ),
+                          //               keyboardType: TextInputType.number,
+                          //               controller: _textController,
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //       Divider(),
+                          //       Container(
+                          //         margin: EdgeInsets.only(left: 10, right: 10),
+                          //         height: 50,
+                          //         width: MediaQuery.of(context).size.width,
+                          //         child:
+                          //         Column(
+                          //           crossAxisAlignment: CrossAxisAlignment.start,
+                          //           children: [
+                          //             Text('К получению'),
+                          //             showedCurrency == null
+                          //                 ? Text('')
+                          //                 : Text(
+                          //               "$showedCurrency",
+                          //               style: TextStyle(fontSize: 30),
+                          //             ),
+                          //
+                          //           ],
+                          //         ),
+                          //
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
+                          const SizedBox(height: 30),
+                          Container(
+                            margin: const EdgeInsets.only(
+                                left: 15, right: 15, bottom: 23),
+                            height: 50,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                primary: orangeColor,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/transferPayment');
                               },
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 15),
-                          child: Text(
-                            'С карты',
-                            style: kInputCardNumberStyle,
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        Container(
-                          height: 75,
-                          child: ListView.builder(
-                              padding: EdgeInsets.only(right: 15),
-                              scrollDirection: Axis.horizontal,
-                              itemCount: cardList.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  width: 280,
-                                  decoration: BoxDecoration(
-                                      color: orangeColor,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Stack(
-                                    children: [
-                                      SvgPicture.asset(
-                                          'assets/svg/cardPicture1.svg'),
-                                      Positioned(
-                                        child: Text(
-                                          cardList[index].cardName,
-                                          style: kSendMoneyCardNumStyle,
-                                        ),
-                                        top: 12,
-                                        right: 130,
-                                        left: 20,
-                                        bottom: 45,
-                                      ),
-                                      Positioned(
-                                        child: Text(
-                                          cardList[index].cardNumber,
-                                          style: kSendMoneyCardNumStyle,
-                                        ),
-                                        top: 43,
-                                        right: 111,
-                                        left: 20,
-                                        bottom: 12,
-                                      ),
-                                      Positioned(
-                                        child: Image.asset(
-                                            'assets/images/logo_uzcard_512.png'),
-                                        top: 19,
-                                        right: 21,
-                                        left: 320,
-                                        bottom: 25,
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }),
-                        ),
-                        const SizedBox(height: 15),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 15),
-                          child: Text(
-                            'На карту',
-                            style: kInputCardNumberStyle,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(left: 15),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: Color(0xFFDADADA))
-                              ),
-                              width: 250,
-                              height: 50,
-                              child: TextField(
-                                style: kInputTextStyleTextField,
-                                cursorColor: greyColor,
-                                cursorHeight: 20,
-                                decoration: const InputDecoration(
-                                  contentPadding: EdgeInsets.all(15),
-                                  enabledBorder:InputBorder.none,
-                                  focusedBorder: InputBorder.none
-                                ),
-                                keyboardType: TextInputType.number,
-                                controller: _controller,
+                              child: const Text(
+                                'Продолжить',
+                                style: kManualStyle,
                               ),
                             ),
-                            SizedBox(width: 10),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () async {
-                                    scanCard();
-                                  },
-                                  icon: SvgPicture.asset(
-                                      'assets/svg/scan_svg.svg'),
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: SvgPicture.asset(
-                                      'assets/svg/user_plus.svg'),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        //TODO Converter currency
-                        // Container(
-                        //   margin: const EdgeInsets.only(left: 15, right: 15),
-                        //   height: 165,
-                        //   width: double.infinity,
-                        //   decoration: BoxDecoration(
-                        //       color: Colors.greenAccent,
-                        //       borderRadius: BorderRadius.circular(10)),
-                        //   child: Column(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        //     children: [
-                        //       TextField(
-                        //         keyboardType: TextInputType.number,
-                        //         controller: _textController,
-                        //         decoration: InputDecoration(
-                        //           border: OutlineInputBorder(),
-                        //         ),
-                        //       ),
-                        //       Container(
-                        //         margin: EdgeInsets.only(left: 10, right: 10),
-                        //         decoration: BoxDecoration(
-                        //             borderRadius: BorderRadius.circular(5),
-                        //             border: Border.all(color: Colors.grey)),
-                        //         height: 50,
-                        //         width: MediaQuery.of(context).size.width,
-                        //         child: Center(
-                        //           child: showedCurrency == null
-                        //               ? Text('')
-                        //               : Text(
-                        //                   "$showedCurrency",
-                        //                   style: TextStyle(fontSize: 30),
-                        //                 ),
-                        //         ),
-                        //       ),
-                        //       SizedBox(height: 10),
-                        //       ElevatedButton(
-                        //         onPressed: () {
-                        //           fetch();
-                        //         },
-                        //         child: Text('Click'),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                        const SizedBox(height: 30),
-                        Container(
-                          margin: const EdgeInsets.only(
-                              left: 15, right: 15, bottom: 23),
-                          height: 50,
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
-                              ),
-                              primary: orangeColor,
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/transferPayment');
-                            },
-                            child: const Text(
-                              'Продолжить',
-                              style: kManualStyle,
-                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],

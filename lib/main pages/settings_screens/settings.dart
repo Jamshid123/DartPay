@@ -27,7 +27,7 @@ class _SettingsState extends State<Settings> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xFFF8FBFF),
+      backgroundColor: const Color(0xFFF8FBFF),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -146,7 +146,7 @@ class _SettingsState extends State<Settings> {
                         const SizedBox(height: 10),
                         Container(
                           height: 50,
-                          margin: EdgeInsets.only(left: 15, right: 15),
+                          margin: const EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
                             onPressed: () {},
                             style: ButtonStyle(
@@ -166,7 +166,7 @@ class _SettingsState extends State<Settings> {
                                     children: [
                                       SvgPicture.asset(
                                           'assets/svg/bell.svg'),
-                                      SizedBox(width: 15),
+                                      const SizedBox(width: 15),
                                       const Text(
                                         'Уведомления',
                                         style: kSettingsButton,
@@ -185,7 +185,7 @@ class _SettingsState extends State<Settings> {
                         ),
                         const SizedBox(height: 10),
                         SettingsButton(
-                          label: Text(
+                          label: const Text(
                             'Добавить контакт',
                             style: kSettingsButton,
                           ),
@@ -194,7 +194,7 @@ class _SettingsState extends State<Settings> {
                         ),
                         const SizedBox(height: 10),
                         SettingsButton(
-                          label: Text(
+                          label: const Text(
                             'Добавить карту',
                             style: kSettingsButton,
                           ),
@@ -206,7 +206,7 @@ class _SettingsState extends State<Settings> {
                         const SizedBox(height: 10),
                         Container(
                           height: 50,
-                          margin: EdgeInsets.only(left: 15, right: 15),
+                          margin: const EdgeInsets.only(left: 15, right: 15),
                           child: TextButton(
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
@@ -226,7 +226,7 @@ class _SettingsState extends State<Settings> {
                                     children: [
                                       SvgPicture.asset(
                                           'assets/svg/message_circle.svg'),
-                                      SizedBox(width: 15),
+                                      const SizedBox(width: 15),
                                       const Text(
                                         'Служба поддержки',
                                         style: kSettingsButton,
@@ -243,7 +243,7 @@ class _SettingsState extends State<Settings> {
                            style: ButtonStyle(
                              overlayColor: MaterialStateProperty.all(Colors.white70)
                            ),
-                           child: Text('Выйти из аккаунта', style: kQuitButtonStyle,))
+                           child: const Text('Выйти из аккаунта', style: kQuitButtonStyle,))
 
                       ],
                     ),
