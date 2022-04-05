@@ -9,7 +9,7 @@ class SuccessTransfer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(Duration(milliseconds: 800), () {
-      Navigator.pushNamed(context, '/sendMoney');
+      Navigator.pushNamed(context, '/endCheck');
     });
     return Scaffold(
       body: Center(

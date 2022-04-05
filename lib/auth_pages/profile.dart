@@ -1,9 +1,14 @@
+import 'package:DartPay/logic/gender_cubit.dart';
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:local_auth/local_auth.dart';
 import '../constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,13 +28,14 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(''),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: SvgPicture.asset('assets/svg/arrow_left.svg')),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -41,13 +47,8 @@ class _ProfileState extends State<Profile> {
                 padding: EdgeInsets.only(right: 100),
                 child: Text(
                   'Создайте профиль',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 24.0,
-                      letterSpacing: 1,
-                      fontFamily: 'Gilroy-Regular'),
+                  style: kAuthPagesTextStyle),
                 ),
-              ),
               const SizedBox(height: 30),
               Column(
                 children: [
@@ -58,12 +59,10 @@ class _ProfileState extends State<Profile> {
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -79,16 +78,13 @@ class _ProfileState extends State<Profile> {
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: TextField(
                       cursorColor: greyColor,
-
                       style: TextStyle(fontSize: 18),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -109,12 +105,10 @@ class _ProfileState extends State<Profile> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: greyColor),
+                          borderSide: BorderSide(color: kTextFieldBorderColor),
                         ),
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(),
@@ -151,7 +145,7 @@ class _ProfileState extends State<Profile> {
                     },
                     borderColor: gender == GenderType.male
                         ? activeButtonColor
-                        : greyColor,
+                        : const Color(0xFF979797),
                   ),
                   const SizedBox(width: 9),
                   const Text(
@@ -170,7 +164,7 @@ class _ProfileState extends State<Profile> {
                         : Colors.white70,
                     borderColor: gender == GenderType.female
                         ? activeButtonColor
-                        : greyColor,
+                        : const Color(0xFF979797),
                   ),
                   const SizedBox(width: 9),
                   const Text(
@@ -180,21 +174,7 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               const SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: () {
-
-                 buildScreenLock(context);
-                },
-                child: const Text(
-                  'Создать профиль',
-                  style: kProfileCreateButton,
-                ),
-                style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    shadowColor: orangeColor,
-                    elevation: 5,
-                    fixedSize: Size(screenWidth * 0.8, 45)),
-              ),
+              ManualButton(title: 'Создать профиль', onPressed: () {buildScreenLock(context);},),
             ],
           ),
         ),
@@ -203,8 +183,14 @@ class _ProfileState extends State<Profile> {
   }
 
   buildScreenLock(BuildContext context) async {
-
-    final inputController = InputController();
+    Future<void> localAuth(BuildContext context) async {
+      final localAuth = LocalAuthentication();
+      final didAuthenticate = await localAuth.authenticate(
+          localizedReason: 'Please authenticate');
+      if (didAuthenticate) {
+        Navigator.pop(context);
+      }
+    }
     screenLock(
       context: context,
       title: const Text(
@@ -216,7 +202,16 @@ class _ProfileState extends State<Profile> {
         style: kSetPinStyle,
       ),
       correctString: '',
-      inputController: inputController,
+      customizedButtonChild: Icon(
+        Icons.fingerprint,
+      ),
+      customizedButtonTap: () async {
+        await localAuth(context);
+      },
+      didOpened: () async {
+        await localAuth(context);
+      },
+      // customizedButtonChild: SvgPicture.asset('assets/svg/fingerPrint.svg'),
       confirmation: true,
       didConfirmed: (matchedText) async {
         final prefs = await SharedPreferences.getInstance();
@@ -270,21 +265,10 @@ class _ProfileState extends State<Profile> {
           backgroundColor: Colors.white,
         ),
       ),
-      cancelButton: const Icon(
-        Icons.close,
-        color: orangeColor,
-      ),
-      deleteButton: const Icon(
-        Icons.backspace_outlined,
-        color: orangeColor,
-      ),
+      deleteButton: SvgPicture.asset('assets/svg/delete_button.svg')
     );
-
   }
-
 }
-
-
 
 
 class GenderButton extends StatelessWidget {

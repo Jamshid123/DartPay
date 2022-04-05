@@ -17,6 +17,8 @@ class MyTheme {
 scaffoldBackgroundColor: Colors.grey.shade900,
     colorScheme: ColorScheme.dark(),
     primaryColor: Colors.black,
+    splashColor: Colors.transparent,
+    hoverColor: Colors.transparent
 
   );
 
@@ -25,5 +27,7 @@ static final lightTheme = ThemeData(
 scaffoldBackgroundColor: Colors.white,
   colorScheme: ColorScheme.light(),
   primaryColor: Colors.white,
+    splashColor: Colors.transparent,
+    hoverColor: Colors.transparent
 );
 }

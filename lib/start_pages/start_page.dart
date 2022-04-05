@@ -3,7 +3,7 @@ import 'package:DartPay/main%20pages/settings_screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main pages/home_screens/home_page.dart';
+import '../main pages/home_screens/home_page/home_page.dart';
 import '../main pages/home_screens/send_money_pages/send_money.dart';
 
 class StartPage extends StatefulWidget {

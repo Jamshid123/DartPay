@@ -3,20 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
-class SwitchButton extends StatelessWidget {
-  const SwitchButton({Key? key}) : super(key: key);
+class SwitchButtonTheme extends StatelessWidget {
+  const SwitchButtonTheme({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-    return FlutterSwitch(
-      width: 50,
-      height: 30,
-      inactiveColor: Color(0xFFDADADA),
+    return Switch.adaptive(
       activeColor: Colors.grey.shade900,
       value: themeProvider.isDarkMode,
-      padding: 2,
-      onToggle: (value) {
+      onChanged: (value) {
         final provider = Provider.of<ThemeProvider>(context, listen: false);
         provider.toggleTheme(value);
       },

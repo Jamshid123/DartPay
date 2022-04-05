@@ -16,7 +16,7 @@ class _ThemePageState extends State<ThemePage> {
         backgroundColor: Colors.orange,
         title: Text('Title'),
         actions: [
-          SwitchButton()
+          SwitchButtonTheme()
         ],
       ),
       body: Center(

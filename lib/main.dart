@@ -1,18 +1,21 @@
 import 'package:DartPay/auth_pages/login_screen.dart';
 import 'package:DartPay/auth_pages/otp_sms.dart';
 import 'package:DartPay/auth_pages/phone_add.dart';
+import 'package:DartPay/logic/gender_cubit.dart';
 import 'package:DartPay/main%20pages/home_screens/request_page/success_request.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/transfer_payment.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/payment_check.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/send_money.dart';
 import 'package:DartPay/main%20pages/home_screens/send_money_pages/success_transfer.dart';
+import 'package:DartPay/test_page.dart';
 import 'package:DartPay/theme/themeData.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
-import 'package:DartPay/main%20pages/home_screens/home_page.dart';
+import 'package:DartPay/main%20pages/home_screens/home_page/home_page.dart';
 import 'package:DartPay/main%20pages/home_screens/request_page/request.dart';
 import 'package:DartPay/main%20pages/settings_screens/card_add.dart';
 import 'package:DartPay/auth_pages/profile.dart';
@@ -74,16 +77,17 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: context.supportedLocales,
           localizationsDelegates: context.localizationDelegates,
           locale: context.locale,
-          builder: (context, widget) => ResponsiveWrapper.builder(
-            ClampingScrollWrapper.builder(context, widget!),
-            defaultScale: true,
-            breakpoints: [
-              const ResponsiveBreakpoint.resize(400, name: MOBILE),
-              const ResponsiveBreakpoint.autoScale(640, name: TABLET),
-              const ResponsiveBreakpoint.resize(800, name: DESKTOP),
-              const ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
-            ],
-          ),
+          builder: (context, widget) =>
+              ResponsiveWrapper.builder(
+                ClampingScrollWrapper.builder(context, widget!),
+                defaultScale: true,
+                breakpoints: [
+                  const ResponsiveBreakpoint.resize(400, name: MOBILE),
+                  const ResponsiveBreakpoint.autoScale(640, name: TABLET),
+                  const ResponsiveBreakpoint.resize(800, name: DESKTOP),
+                  const ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
+                ],
+              ),
         );
       },
     );

@@ -1,10 +1,13 @@
-import 'package:DartPay/main%20pages/home_screens/home_page.dart';
+import 'package:DartPay/auth_pages/profile.dart';
+import 'package:DartPay/main%20pages/home_screens/home_page/home_page.dart';
 import 'package:DartPay/main%20pages/settings_screens/settings.dart';
+import 'package:DartPay/models/button_model/manual_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:DartPay/start_pages/start_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constants.dart';
 
@@ -23,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(top: screenHeight * 0.17),
@@ -53,14 +57,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 40,
                 child: TextField(
                   cursorColor: greyColor,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.all(10),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
                   ),
                   keyboardType: TextInputType.number,
@@ -82,58 +85,37 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   cursorColor: greyColor,
                   obscureText: isHidePassword,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                  decoration:  InputDecoration(
+                    contentPadding: const EdgeInsets.all(10),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: greyColor),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: kTextFieldBorderColor),
                     ),
-                    suffixIcon: InkWell(
-                      onTap: _togglePasswordView,
-                      child: Icon(Icons.visibility),
+                    suffixIcon: IconButton(onPressed: _togglePasswordView, icon: SvgPicture.asset('assets/svg/eye.svg')),
                     ),
                   ),
                 ),
-              ),
               const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(left: 40, right: 40),
-                child: ElevatedButton(
+              ManualButton(title: 'Установить пароль', onPressed: (){
+                Navigator.pushNamed(context, '/startPage');
+              }),
+
+              const SizedBox(height: 25),
+              Center(
+                child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/startPage');
                   },
-                  child: const Text(
-                    'Установить пароль',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Gilroy-Regular',
-                        letterSpacing: 1,
-                        fontSize: 18),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: orangeColor,
-                    minimumSize: const Size(double.infinity, 45),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 25),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
                   child:const Text(
                     'Пропустить',
-                    style: TextStyle(
-                        fontFamily: 'Gilroy-Regular',
-                        color: orangeColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1),
+                    style: kSkipButtonTextStyle,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent, elevation: 0),
+                  style: TextButton.styleFrom(
+                      primary: Colors.transparent,
+                      elevation: 0,
+                  ),
                 ),
               ),
             ],

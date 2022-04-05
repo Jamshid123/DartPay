@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_screen_lock/flutter_screen_lock.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CardAdd extends StatefulWidget {
   const CardAdd({Key? key}) : super(key: key);
@@ -20,14 +21,9 @@ class _CardAddState extends State<CardAdd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.chevron_left),
-          color: Color(0xFF2C313B),
-          iconSize: 30,
-        ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: SvgPicture.asset('assets/svg/vector_left.svg')),
         elevation: 0.0,
         backgroundColor: Colors.transparent,
         title: Padding(

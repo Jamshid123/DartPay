@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../constants.dart';
+import 'package:DartPay/constants.dart';
 
-class Button extends StatelessWidget {
+
+
+class HomePageButton extends StatelessWidget {
   final VoidCallback onPress;
   final Color colour;
   final Text data;
-   const Button({required this.colour, required this.data, required this.onPress});
+   const HomePageButton({required this.colour, required this.data, required this.onPress});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        width: 180,
-        height: 60,
+        width: 160,
+        height: 40,
         decoration: BoxDecoration(
           color: colour,
           borderRadius: BorderRadius.circular(5),

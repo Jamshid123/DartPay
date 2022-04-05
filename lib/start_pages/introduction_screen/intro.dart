@@ -21,17 +21,7 @@ class _IntroState extends State<Intro> {
           title: 'Быстро.Просто.Удобно.',
           body: 'Прямые переводы в Россию с карт Uzcard и Humo. '
               'Отправляй деньги на банковские карты России.',
-          footer: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/phoneAdd');
-            },
-            child: const Text('Авторизация'),
-            style: ElevatedButton.styleFrom(
-              primary: const Color(0xFFF37547),
-              fixedSize: const Size(336, 45),
-              textStyle: kManualStyle,
-            ),
-          ),
+          footer: IntroButton(),
           decoration: const PageDecoration(
             titleTextStyle: kIntroductionScreen1Style,
             bodyTextStyle: kIntroductionScreenStyle2,
@@ -45,17 +35,7 @@ class _IntroState extends State<Intro> {
           image: Image.asset('assets/images/intscr2.png'),
           title: 'Минимальная комиссия',
           body: 'Комиссия переводов всего 1% на карты любых банков России',
-          footer: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/phoneAdd');
-            },
-            child: const Text('Авторизация'),
-            style: ElevatedButton.styleFrom(
-              primary: const Color(0xFFF37547),
-              fixedSize: const Size(336, 45),
-              textStyle: kManualStyle,
-            ),
-          ),
+          footer: IntroButton(),
           decoration:const PageDecoration(
             titleTextStyle: kIntroductionScreen1Style,
             bodyTextStyle: kIntroductionScreenStyle2,
@@ -68,17 +48,7 @@ class _IntroState extends State<Intro> {
           image: Image.asset('assets/images/intscr3.png'),
           title: 'Деньги защищены',
           body: 'Мы используем 3d secure - надёжная защита ваших средств',
-          footer: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/phoneAdd');
-            },
-            child: const Text('Авторизация'),
-            style: ElevatedButton.styleFrom(
-              primary: const Color(0xFFF37547),
-              fixedSize: const Size(336, 45),
-              textStyle: kManualStyle,
-            ),
-          ),
+          footer: IntroButton(),
           decoration: const PageDecoration(
             titleTextStyle: kIntroductionScreen1Style,
             bodyTextStyle: kIntroductionScreenStyle2,
@@ -96,6 +66,43 @@ class _IntroState extends State<Intro> {
       dotsDecorator: const DotsDecorator(
         color: const Color(0xFFE5E5E5),
         activeColor: const Color(0xFFF37547),
+      ),
+    );
+  }
+}
+
+class IntroButton extends StatelessWidget {
+  const IntroButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 45,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xfffcdcd1),
+            blurRadius: 20,
+            offset: Offset(-12, 12),
+          ),
+        ],
+      ),
+      margin: EdgeInsets.only(left: 12, right: 12),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/phoneAdd');
+        },
+        child: const Text('Авторизация'),
+        style: ElevatedButton.styleFrom(
+          primary: orangeColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5)
+          ),
+          textStyle: kManualStyle,
+        ),
       ),
     );
   }
